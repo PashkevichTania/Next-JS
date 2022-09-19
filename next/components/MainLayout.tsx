@@ -21,6 +21,7 @@ export function MainLayout({ children, title = 'Next App' }: LayoutProps) {
                 <Link href={'/'}><a>Home</a></Link>
                 <Link href={'/about'}><a>About</a></Link>
                 <Link href={'/games'}><a>Games</a></Link>
+                <Link href={'/posts'}><a>Posts</a></Link>
             </nav>
             <main className={styles.main}>
                 {children}
