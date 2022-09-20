@@ -1,0 +1,477 @@
+{
+  "games": [
+    {
+      "name": "The Last of Us Part I",
+      "developers": [
+        "Naughty Dog"
+      ],
+      "publisher": "Sony Interactive Entertainment",
+      "platforms": [
+        "PlayStation 5",
+        "Windows"
+      ],
+      "genres": [
+        "Action-adventure"
+      ],
+      "description": "In the remastered The Last of Us Part 1, experience the emotional storytelling and unforgettable characters in a whole new way. Joel, a hardened survivor, and Ellie, a brave young teenager, must work together if they hope to survive their journey across the US in this brutal action/adventure epic.",
+      "releaseDate": "Sep 2, 2022",
+      "ratingCritics": "95",
+      "ratingUsers": "9.2",
+      "ratingAge": "M",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "name": "The Last of Us Part II",
+      "developers": [
+        "Naughty Dog"
+      ],
+      "publisher": "Sony Interactive Entertainment",
+      "platforms": [
+        "PlayStation 4"
+      ],
+      "genres": [
+        "Action-adventure"
+      ],
+      "description": "Five years after their dangerous journey across the post-pandemic United States, Ellie and Joel have settled down in Jackson, Wyoming. Living amongst a thriving community of survivors has allowed them peace and stability, despite the constant threat of the infected and other, more desperate survivors. When a violent event disrupts that peace, Ellie embarks on a relentless journey to carry out justice and find closure. As she hunts those responsible one by one, she is confronted with the devastating physical and emotional repercussions of her actions.",
+      "releaseDate": "June 19, 2020",
+      "ratingCritics": "93",
+      "ratingUsers": "5.7",
+      "ratingAge": "M",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "name": "Red Dead Redemption 2",
+      "developers": [
+        "Rockstar Studios"
+      ],
+      "publisher": "Rockstar Games",
+      "platforms": [
+        "PlayStation 4",
+        "Xbox One",
+        "Windows",
+        "Stadia"
+      ],
+      "genres": [
+        "Action-adventure",
+        "Open-World"
+      ],
+      "description": "Developed by the creators of Grand Theft Auto V and Red Dead Redemption, Red Dead Redemption 2 is an epic tale of life in America’s unforgiving heartland. The game’s vast and atmospheric world also provides the foundation for a brand new online multiplayer experience. America, 1899. The end of the Wild West era has begun. After a robbery goes badly wrong in the western town of Blackwater, Arthur Morgan and the Van der Linde gang are forced to flee. With federal agents and the best bounty hunters in the nation massing on their heels, the gang has to rob, steal and fight their way across the rugged heartland of America in order to survive. As deepening internal fissures threaten to tear the gang apart, Arthur must make a choice between his own ideals and loyalty to the gang that raised him.",
+      "releaseDate": "October 26, 2018",
+      "ratingCritics": "97",
+      "ratingUsers": "8.2",
+      "ratingAge": "M",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "name": "Grand Theft Auto V",
+      "developers": [
+        "Rockstar North"
+      ],
+      "publisher": "Rockstar Games",
+      "platforms": [
+        "PlayStation 3",
+        "Xbox 360",
+        "PlayStation 4",
+        "Xbox One",
+        "PlayStation 5",
+        "Xbox Series X/S",
+        "Windows"
+      ],
+      "genres": [
+        "Action-adventure",
+        "Open-World"
+      ],
+      "description": "Grand Theft Auto 5 melds storytelling and gameplay in unique ways as players repeatedly jump in and out of the lives of the game's three protagonists, playing all sides of the game's interwoven story.",
+      "releaseDate": "Sep 17, 2013",
+      "ratingCritics": "97",
+      "ratingUsers": "7.9",
+      "ratingAge": "M",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "name": "Disco Elysium: The Final Cut",
+      "developers": [
+        "ZA/UM"
+      ],
+      "publisher": "ZA/UM",
+      "platforms": [
+        "macOS",
+        "PlayStation 4",
+        "Xbox One",
+        "PlayStation 5",
+        "Xbox Series X/S",
+        "Windows",
+        "Stadia",
+        "Nintendo Switch"
+      ],
+      "genres": [
+        "Action-adventure"
+      ],
+      "description": "Disco Elysium is an open world role playing game. You’re a detective with a unique skill system at your disposal and a whole city block to carve your path across. Interrogate unforgettable characters, crack murders or take bribes. Become a hero or an absolute disaster of a human being.",
+      "releaseDate": "October 15, 2019",
+      "ratingCritics": "97",
+      "ratingUsers": "8.2",
+      "ratingAge": "M",
+      "tags": [
+        "indie"
+      ]
+    },
+    {
+      "name": "BioShock",
+      "developers": [
+        "2K Boston",
+        "2K Australia"
+      ],
+      "publisher": "2K Games",
+      "platforms": [
+        "PlayStation 3",
+        "Xbox 360",
+        "Windows",
+        "Mac OS X",
+        "iOS"
+      ],
+      "genres": [
+        "Sci-Fi",
+        "First-person shooter"
+      ],
+      "description": "Going beyond \"run and gun corridors,\" \"monster-closet AIs\" and static worlds, BioShock creates a living, unique and unpredictable FPS experience. After your plane crashes into icy uncharted waters, you discover a rusted bathysphere and descend into Rapture, a city hidden beneath the sea. Constructed as an idealistic society for a hand picked group of scientists, artists and industrialists, the idealism is no more. Now the city is littered with corpses, wildly powerful guardians roam the corridors as little girls loot the dead, and genetically mutated citizens ambush you at every turn. Take control of your world by hacking mechanical devices, commandeering security turrets and crafting unique items critical to your very survival. Upgrade your weapons with ionic gels, explosives and toxins to customize them to the enemy and environment. Genetically modify your body through dozens of Plasmid Stations scattered throughout the city, empowering you with fantastic and often grotesque abilities. Explore a living world powered by Ecological A.I., where the inhabitants have interesting and consequential relationships with one another that impact your gameplay experience. Experience truly next generation graphics that vividly illustrate the forlorn art deco city, highlighted by the most detailed and realistic water effects ever developed in a video game. Make meaningful choices and mature decisions, ultimately culminating in the grand question: do you exploit the innocent survivors of Rapture...or save them?",
+      "releaseDate": "August 21, 2007",
+      "ratingCritics": "96",
+      "ratingUsers": "9.0",
+      "ratingAge": "M",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "name": "BioShock 2",
+      "developers": [
+        "2K Marin"
+      ],
+      "publisher": "2K Games",
+      "platforms": [
+        "PlayStation 3",
+        "Xbox 360",
+        "Windows",
+        "Mac OS X"
+      ],
+      "genres": [
+        "Sci-Fi",
+        "First-person shooter"
+      ],
+      "description": "Set approximately 10 years after the events of the original BioShock, the halls of Rapture once again echo with sins of the past. Along the Atlantic coastline, a monster has been snatching little girls and bringing them back to the undersea city of Rapture. You are the very first Big Daddy as you travel through the decrepit and beautiful fallen city, chasing an unseen foe in search of answers and your own survival. Multiplayer in BioShock 2 provides a rich prequel experience that expands the BioShock gameplay. Set during the fall of Rapture, players assume the role of Plasmid test subject in the underwater city that was first explored in the original BioShock. Players will need to use all the elements of the game's toolset to survive as the full depth of the BioShock experience is refined and transformed into a unique multiplayer experience that can only be found in Rapture.",
+      "releaseDate": "February 9, 2010",
+      "ratingCritics": "88",
+      "ratingUsers": "8.1",
+      "ratingAge": "M",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "name": "BioShock Infinite",
+      "developers": [
+        "Irrational Games"
+      ],
+      "publisher": "2K Games",
+      "platforms": [
+        "PlayStation 3",
+        "Xbox 360",
+        "Windows",
+        "Mac OS X",
+        "Linux"
+      ],
+      "genres": [
+        "Sci-Fi",
+        "First-person shooter"
+      ],
+      "description": "Initially conceived as a floating symbol of American ideals at a time when the United States was emerging as a world power, Columbia is sent to distant shores with great fanfare by a captivated public. What begins as a fresh new endeavor of hope turns drastically wrong as the city soon disappears into the clouds to whereabouts unknown. The player takes on the role of former Pinkerton agent Booker DeWitt, sent to the lost city to rescue Elizabeth, a young lady imprisoned there since her childhood. He develops a relationship with Elizabeth, enhancing his abilities with hers so the pair may escape from a city that is literally falling from the sky. DeWitt has to learn to fight foes in high-speed Sky-Line battles, engage in combat both indoors and amongst the clouds, and harness the power of a myriad of new weapons and abilities.",
+      "releaseDate": "March 26, 2013",
+      "ratingCritics": "94",
+      "ratingUsers": "8.6",
+      "ratingAge": "M",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "name": "Call of Duty 4: Modern Warfare",
+      "developers": [
+        "Infinity Ward"
+      ],
+      "publisher": "Activision",
+      "platforms": [
+        "PlayStation 3",
+        "Xbox 360",
+        "Windows",
+        "Mac OS X",
+        "Wii"
+      ],
+      "genres": [
+        "First-person shooter"
+      ],
+      "description": "As Call of Duty 4: Modern Warfare's single player campaign unfolds, the player is introduced to new gameplay at every turn – one moment you are fast-roping from your Black Hawk helicopter after storming into the war zone with an armada of choppers, the next you are a sniper, under concealment, in a Ghillie suit miles behind enemy lines, the next you are engaging hostiles from an AC-130 gunship thousands of feet above the battlefield. Mixed with explosive action, Call of Duty 4: Modern Warfare also delivers special effects, including use of depth of field, rim-lighting, character self-shadowing, real time post-processing, texture streaming as well as physics-enabled effects. Infinity Ward deployed a dedicated team from the start to deliver a new level of depth to multiplayer. Building on the hit \"Call of Duty 2\" online experience, Call of Duty 4: Modern Warfare's new multiplayer provides the community an addictive and accessible experience to gamers of all levels.",
+      "releaseDate": "November 5, 2007",
+      "ratingCritics": "94",
+      "ratingUsers": "8.4",
+      "ratingAge": "M",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "name": "The Elder Scrolls V: Skyrim",
+      "developers": [
+        "Bethesda Game Studios"
+      ],
+      "publisher": "Bethesda Softworks",
+      "platforms": [
+        "PlayStation 3",
+        "Xbox 360",
+        "PlayStation 4",
+        "Xbox One",
+        "PlayStation 5",
+        "Xbox Series X/S",
+        "Windows",
+        "Nintendo Switch"
+      ],
+      "genres": [
+        "Action",
+        "Role-playing"
+      ],
+      "description": "Skyrim reimagines the open-world fantasy epic, bringing to life a complete virtual world open for you to explore any way you choose. Play any type of character you can imagine, and do whatever you want; the legendary freedom of choice, storytelling, and adventure of The Elder Scrolls is realized like never before. Skyrim's new game engine brings to life a complete virtual world with rolling clouds, rugged mountains, bustling cities, lush fields, and ancient dungeons. Choose from hundreds of weapons, spells, and abilities. The new character system allows you to play any way you want and define yourself through your actions. Battle ancient dragons like you've never seen. As Dragonborn, learn their secrets and harness their power for yourself. ",
+      "releaseDate": "November 11, 2011",
+      "ratingCritics": "96",
+      "ratingUsers": "8.6",
+      "ratingAge": "M",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "name": "What Remains of Edith Finch",
+      "developers": [
+        "Giant Sparrow"
+      ],
+      "publisher": "Annapurna Interactive",
+      "platforms": [
+        "PlayStation 4",
+        "Xbox One",
+        "PlayStation 5",
+        "Xbox Series X/S",
+        "Windows",
+        "iOS"
+      ],
+      "genres": [
+        "Adventure"
+      ],
+      "description": "What Remains of Edith Finch is a collection of short stories about a cursed family in Washington State.",
+      "releaseDate": "April 25, 2017",
+      "ratingCritics": "89",
+      "ratingUsers": "8.4",
+      "ratingAge": "T",
+      "tags": [
+        "indie"
+      ]
+    },
+    {
+      "name": "Night in the Woods",
+      "developers": [
+        "Secret Lab"
+      ],
+      "publisher": "Infinite Fall",
+      "platforms": [
+        "PlayStation 4",
+        "Xbox One",
+        "PlayStation 5",
+        "Xbox Series X/S",
+        "Windows",
+        "MacOS",
+        "iOS",
+        "Nintendo Switch"
+      ],
+      "genres": [
+        "Adventure"
+      ],
+      "description": " Night In The Woods is a 2D story-focused adventure/exploration game with many extracurricular activities to enjoy, characters to meet, and secrets to discover. Run, jump and use astral projection to explore the many sides of town of Possum Springs and the surrounding environs. Waste time around town with your crew of loser friends. Gain abilities that grant passage to new areas. Discover the secrets of a large cast of characters and the town itself. Experience a big crazy world and the remarkable events unfolding there. Play bass. Break stuff.",
+      "releaseDate": "February 21, 2017",
+      "ratingCritics": "88",
+      "ratingUsers": "7.6",
+      "ratingAge": "T",
+      "tags": [
+        "indie"
+      ]
+    },
+    {
+      "name": "The Vanishing of Ethan Carter",
+      "developers": [
+        "The Astronauts"
+      ],
+      "publisher": "The Astronauts",
+      "platforms": [
+        "PlayStation 4",
+        "Xbox One",
+        "Windows",
+        "Nintendo Switch"
+      ],
+      "genres": [
+        "Adventure"
+      ],
+      "description": "The Vanishing of Ethan Carter is a first-person story-driven mystery focused on exploration and discovery. As occult-minded private detective Paul Prospero communicates with the dead to discover the fate of a missing boy and the mystery behind a dark ancient force inhabiting Red Creek Valley.",
+      "releaseDate": "September 26, 2014",
+      "ratingCritics": "82",
+      "ratingUsers": "8.0",
+      "ratingAge": "M",
+      "tags": [
+        "indie"
+      ]
+    },
+    {
+      "name": "Firewatch",
+      "developers": [
+        "Campo Santo"
+      ],
+      "publisher": "Panic",
+      "platforms": [
+        "PlayStation 4",
+        "Xbox One",
+        "PlayStation 5",
+        "Xbox Series X/S",
+        "Windows",
+        "Mac OS X",
+        "Nintendo Switch"
+      ],
+      "genres": [
+        "Adventure"
+      ],
+      "description": "In Firewatch you play as a man named Henry who has retreated from his messy life to work as a fire lookout in the Wyoming wilderness. Perched high atop a mountain, it’s your job to look for smoke and keep the wilderness safe. An especially hot and dry summer has everyone on edge. Your supervisor, a woman named Delilah, is available to you at all times over a small, handheld radio — and is your only contact with the world you've left behind. But when something strange draws you out of your lookout tower and into the world, you’ll explore a wild and unknown environment, facing questions and making interpersonal choices that can build or destroy the only meaningful relationship you have. ",
+      "releaseDate": "December 17, 2018",
+      "ratingCritics": "81",
+      "ratingUsers": "7.1",
+      "ratingAge": "M",
+      "tags": [
+        "indie"
+      ]
+    },
+    {
+      "name": "Everybody's Gone to the Rapture",
+      "developers": [
+        "The Chinese Room"
+      ],
+      "publisher": "Sony Computer Entertainment",
+      "platforms": [
+        "PlayStation 4",
+        "Xbox One",
+        "Windows"
+      ],
+      "genres": [
+        "Adventure"
+      ],
+      "description": "Everybody’s Gone to the Rapture transports the player back to the brief moments leading up to the apocalypse to explore the choices people make when they’re faced with world-shattering events beyond their control.",
+      "releaseDate": "August 11, 2015",
+      "ratingCritics": "76",
+      "ratingUsers": "5.4",
+      "ratingAge": "M",
+      "tags": [
+        "indie"
+      ]
+    },
+    {
+      "name": "Life Is Strange",
+      "developers": [
+        "Dontnod Entertainment"
+      ],
+      "publisher": "Square Enix",
+      "platforms": [
+        "PlayStation 3",
+        "Xbox 360",
+        "PlayStation 4",
+        "Xbox One",
+        "Windows",
+        "Mac OS X",
+        "Nintendo Switch",
+        "iOS",
+        "Android",
+        "Google Stadia"
+      ],
+      "genres": [
+        "Graphic adventure"
+      ],
+      "description": "Life is Strange is a hand drawn work of art and every action enacts a butterfly effect - but with the power to rewind time, what would you change? And would it turn out to be a change for the better or worse?",
+      "releaseDate": "January 30, 2015",
+      "ratingCritics": "83",
+      "ratingUsers": "8.6",
+      "ratingAge": "M",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "name": "Fortnite",
+      "developers": [
+        "Epic Games"
+      ],
+      "publisher": "Epic Games",
+      "platforms": [
+        "PlayStation 4",
+        "Xbox One",
+        "PlayStation 5",
+        "Xbox Series X/S",
+        "Windows",
+        "Mac OS X",
+        "Nintendo Switch",
+        "iOS",
+        "Android"
+      ],
+      "genres": [
+        "Shooter",
+        "battle royale",
+        "sandbox"
+      ],
+      "description": "Jump in to be the last one standing in the free 100-player Battle Royale. Build huge forts. Outwit your opponents. Earn your Victory. Squad up together online with friends in the same room or around the world. BUILD & DESTROY - Shape the battlefield by building your own cover. Opponent hiding behind a wall? Take out their cover to get the edge. GEAR UP - Board the battle bus and drop in on your favorite zone. Gather resources, collect gear, and battle your opponents.",
+      "releaseDate": "July 25, 2017",
+      "ratingCritics": "81",
+      "ratingUsers": "3.2",
+      "ratingAge": "T",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "name": "Pathologic 2",
+      "developers": [
+        "Ice-Pick Lodge"
+      ],
+      "publisher": "tinyBuild",
+      "platforms": [
+        "PlayStation 4",
+        "Xbox One",
+        "Windows"
+      ],
+      "genres": [
+        "Adventure",
+        "Survival",
+        "Survival horror",
+        "Role-playing"
+      ],
+      "description": "Pathologic 2 is an Open World Survival Horror game where you fight against a devastating plague. As the only sane medic around, save the town before it's fully consumed.",
+      "releaseDate": "May 23, 2019",
+      "ratingCritics": "70",
+      "ratingUsers": "8.8",
+      "ratingAge": "M",
+      "tags": [
+        "indie"
+      ]
+    }
+  ]
+}
+
+
