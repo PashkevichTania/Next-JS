@@ -11,4 +11,5 @@ export interface GameData {
     ratingUsers: string;
     ratingAge: string;
     tags: string[];
+    cover:string;
 }

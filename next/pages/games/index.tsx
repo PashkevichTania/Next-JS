@@ -1,9 +1,9 @@
 import {NextPageContext} from "next";
-import styles from "../../styles/Home.module.css";
 import {useState, useEffect} from 'react'
 import Link from 'next/link'
 import {MainLayout} from '../../components/MainLayout'
 import {GameDataBrief} from "../../utils/apiUtils";
+import Image from "next/image";
 
 interface GamesPageProps {
     games: GameDataBrief[]
@@ -33,12 +33,21 @@ const Games = ({ games: serverGames }: GamesPageProps) => {
     return (
         <MainLayout title={"Games Page"}>
             <h1>Games List</h1>
-            <div className={styles.container}>
+            <div>
                 <ul>
                     {games.map(game => (
                         <li key={game.id}>
                             <Link href={`/games/[id]`} as={`/games/${game.id}`}>
-                                <a>{game.name}</a>
+                                <a className="flex flex-col items-center">
+                                        <Image
+                                            alt={game.name}
+                                            src={`/assets/games/${game.cover}`}
+                                            width={250}
+                                            height={350}
+                                            className="object-center object-cover "
+                                        />
+                                        <p>{game.name}</p>
+                                    </a>
                             </Link>
                         </li>
                     ))}

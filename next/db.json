@@ -21,7 +21,8 @@
       "ratingAge": "M",
       "tags": [
         ""
-      ]
+      ],
+      "cover": "tlou.png"
     },
     {
       "id": "a884nl",
@@ -43,7 +44,8 @@
       "ratingAge": "M",
       "tags": [
         ""
-      ]
+      ],
+      "cover": "tlou2.jpeg"
     },
     {
       "id": "71r387",
@@ -69,7 +71,8 @@
       "ratingAge": "M",
       "tags": [
         ""
-      ]
+      ],
+      "cover": "rdr2.jpeg"
     },
     {
       "id": "0h8lsf",
@@ -98,7 +101,8 @@
       "ratingAge": "M",
       "tags": [
         ""
-      ]
+      ],
+      "cover": "gta5.jpeg"
     },
     {
       "id": "r63vpd",
@@ -127,7 +131,8 @@
       "ratingAge": "M",
       "tags": [
         "indie"
-      ]
+      ],
+      "cover": "detfc.jpg"
     },
     {
       "id": "84oy2d",
@@ -155,7 +160,8 @@
       "ratingAge": "M",
       "tags": [
         ""
-      ]
+      ],
+      "cover": "bioshock.jpeg"
     },
     {
       "id": "86dydx",
@@ -181,7 +187,8 @@
       "ratingAge": "M",
       "tags": [
         ""
-      ]
+      ],
+      "cover": "bioshock2.jpeg"
     },
     {
       "id": "8swucl",
@@ -208,7 +215,8 @@
       "ratingAge": "M",
       "tags": [
         ""
-      ]
+      ],
+      "cover": "bioshock_infinite.jpeg"
     },
     {
       "id": "mhn587",
@@ -234,7 +242,8 @@
       "ratingAge": "M",
       "tags": [
         ""
-      ]
+      ],
+      "cover": "codmw.jpeg"
     },
     {
       "id": "86syne",
@@ -264,7 +273,8 @@
       "ratingAge": "M",
       "tags": [
         ""
-      ]
+      ],
+      "cover": "tes5.png"
     },
     {
       "id": "23cqhy",
@@ -291,7 +301,8 @@
       "ratingAge": "T",
       "tags": [
         "indie"
-      ]
+      ],
+      "cover": "wroef.jpeg"
     },
     {
       "id": "a7p4sx",
@@ -320,7 +331,8 @@
       "ratingAge": "T",
       "tags": [
         "indie"
-      ]
+      ],
+      "cover": "nitw.jpeg"
     },
     {
       "id": "1zd1w4",
@@ -345,7 +357,8 @@
       "ratingAge": "M",
       "tags": [
         "indie"
-      ]
+      ],
+      "cover": "tvoec.jpeg"
     },
     {
       "id": "kmb9h8",
@@ -373,7 +386,8 @@
       "ratingAge": "M",
       "tags": [
         "indie"
-      ]
+      ],
+      "cover": "firewatch.jpeg"
     },
     {
       "id": "ye17fr",
@@ -397,7 +411,8 @@
       "ratingAge": "M",
       "tags": [
         "indie"
-      ]
+      ],
+      "cover": "egtr.jpeg"
     },
     {
       "id": "1t02o3",
@@ -428,7 +443,8 @@
       "ratingAge": "M",
       "tags": [
         ""
-      ]
+      ],
+      "cover": "lis.jpeg"
     },
     {
       "id": "kn15c7",
@@ -460,7 +476,8 @@
       "ratingAge": "T",
       "tags": [
         ""
-      ]
+      ],
+      "cover": "fortnite.jpeg"
     },
     {
       "id": "8uyj03",
@@ -487,7 +504,8 @@
       "ratingAge": "M",
       "tags": [
         "indie"
-      ]
+      ],
+      "cover": "pathlogic.jpeg"
     },
     {
       "id": "45ec0g",
@@ -516,7 +534,8 @@
       "ratingAge": "M",
       "tags": [
         ""
-      ]
+      ],
+      "cover": "c2077.jpeg"
     }
   ]
 }

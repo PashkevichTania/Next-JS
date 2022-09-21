@@ -9,6 +9,7 @@ export type MOCK_BD_DATA = {
 export type GameDataBrief = {
     id: string
     name: string
+    cover: string
 }
 
 
@@ -21,7 +22,7 @@ export const getJSON:() => Promise<MOCK_BD_DATA> = async () => {
 export const getGameDataBrief:() => Promise<GameDataBrief[]> = async () => {
     const gamesData = await getJSON()
     return gamesData.games.map(game => {
-        return {id: game.id, name: game.name}
+        return {id: game.id, name: game.name, cover: game.cover}
     })
 }
 

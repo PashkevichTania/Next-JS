@@ -1,7 +1,6 @@
 import React from "react";
 import Link from 'next/link'
 import Head from 'next/head'
-import styles from "../styles/Home.module.css";
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -23,7 +22,7 @@ export function MainLayout({ children, title = 'Next App' }: LayoutProps) {
                 <Link href={'/games'}><a>Games</a></Link>
                 <Link href={'/posts'}><a>Posts</a></Link>
             </nav>
-            <main className={styles.main}>
+            <main>
                 {children}
             </main>
         </>
