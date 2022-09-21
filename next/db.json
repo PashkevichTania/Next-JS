@@ -15,7 +15,7 @@
         "Action-adventure"
       ],
       "description": "In the remastered The Last of Us Part 1, experience the emotional storytelling and unforgettable characters in a whole new way. Joel, a hardened survivor, and Ellie, a brave young teenager, must work together if they hope to survive their journey across the US in this brutal action/adventure epic.",
-      "releaseDate": "Sep 2, 2022",
+      "releaseDate": "September 2, 2022",
       "ratingCritics": "95",
       "ratingUsers": "9.2",
       "ratingAge": "M",
@@ -92,7 +92,7 @@
         "Open-World"
       ],
       "description": "Grand Theft Auto 5 melds storytelling and gameplay in unique ways as players repeatedly jump in and out of the lives of the game's three protagonists, playing all sides of the game's interwoven story.",
-      "releaseDate": "Sep 17, 2013",
+      "releaseDate": "September 17, 2013",
       "ratingCritics": "97",
       "ratingUsers": "7.9",
       "ratingAge": "M",
@@ -487,6 +487,35 @@
       "ratingAge": "M",
       "tags": [
         "indie"
+      ]
+    },
+    {
+      "id": "45ec0g",
+      "name": "Cyberpunk 2077",
+      "developers": [
+        "CD Projekt Red"
+      ],
+      "publisher": "CD Projekt",
+      "platforms": [
+        "PlayStation 4",
+        "Xbox One",
+        "PlayStation 5",
+        "Xbox Series X/S",
+        "Windows",
+        "Stadia"
+      ],
+      "genres": [
+        "Action",
+        "Open-world",
+        "Role-playing"
+      ],
+      "description": "Cyberpunk 2077 is an open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. Assume the role of V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality. You can customize your character’s cyberware, skillset and playstyle, and explore a vast city where the choices you make shape the story and the world around you. Become a cyberpunk, an urban mercenary equipped with cybernetic enhancements and build your legend on the streets of Night City. Take the riskiest job of your life and go after a prototype implant that is the key to immortality.",
+      "releaseDate": "December 10, 2020",
+      "ratingCritics": "86",
+      "ratingUsers": "7.0",
+      "ratingAge": "M",
+      "tags": [
+        ""
       ]
     }
   ]
