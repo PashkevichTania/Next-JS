@@ -1,6 +1,7 @@
 {
   "games": [
     {
+      "id": "i960g6",
       "name": "The Last of Us Part I",
       "developers": [
         "Naughty Dog"
@@ -23,6 +24,7 @@
       ]
     },
     {
+      "id": "a884nl",
       "name": "The Last of Us Part II",
       "developers": [
         "Naughty Dog"
@@ -44,6 +46,7 @@
       ]
     },
     {
+      "id": "71r387",
       "name": "Red Dead Redemption 2",
       "developers": [
         "Rockstar Studios"
@@ -69,6 +72,7 @@
       ]
     },
     {
+      "id": "0h8lsf",
       "name": "Grand Theft Auto V",
       "developers": [
         "Rockstar North"
@@ -97,6 +101,7 @@
       ]
     },
     {
+      "id": "r63vpd",
       "name": "Disco Elysium: The Final Cut",
       "developers": [
         "ZA/UM"
@@ -125,6 +130,7 @@
       ]
     },
     {
+      "id": "84oy2d",
       "name": "BioShock",
       "developers": [
         "2K Boston",
@@ -152,6 +158,7 @@
       ]
     },
     {
+      "id": "86dydx",
       "name": "BioShock 2",
       "developers": [
         "2K Marin"
@@ -177,6 +184,7 @@
       ]
     },
     {
+      "id": "8swucl",
       "name": "BioShock Infinite",
       "developers": [
         "Irrational Games"
@@ -203,6 +211,7 @@
       ]
     },
     {
+      "id": "mhn587",
       "name": "Call of Duty 4: Modern Warfare",
       "developers": [
         "Infinity Ward"
@@ -228,6 +237,7 @@
       ]
     },
     {
+      "id": "86syne",
       "name": "The Elder Scrolls V: Skyrim",
       "developers": [
         "Bethesda Game Studios"
@@ -257,6 +267,7 @@
       ]
     },
     {
+      "id": "23cqhy",
       "name": "What Remains of Edith Finch",
       "developers": [
         "Giant Sparrow"
@@ -283,6 +294,7 @@
       ]
     },
     {
+      "id": "a7p4sx",
       "name": "Night in the Woods",
       "developers": [
         "Secret Lab"
@@ -311,6 +323,7 @@
       ]
     },
     {
+      "id": "1zd1w4",
       "name": "The Vanishing of Ethan Carter",
       "developers": [
         "The Astronauts"
@@ -335,6 +348,7 @@
       ]
     },
     {
+      "id": "kmb9h8",
       "name": "Firewatch",
       "developers": [
         "Campo Santo"
@@ -362,6 +376,7 @@
       ]
     },
     {
+      "id": "ye17fr",
       "name": "Everybody's Gone to the Rapture",
       "developers": [
         "The Chinese Room"
@@ -385,6 +400,7 @@
       ]
     },
     {
+      "id": "1t02o3",
       "name": "Life Is Strange",
       "developers": [
         "Dontnod Entertainment"
@@ -415,6 +431,7 @@
       ]
     },
     {
+      "id": "kn15c7",
       "name": "Fortnite",
       "developers": [
         "Epic Games"
@@ -446,6 +463,7 @@
       ]
     },
     {
+      "id": "8uyj03",
       "name": "Pathologic 2",
       "developers": [
         "Ice-Pick Lodge"
