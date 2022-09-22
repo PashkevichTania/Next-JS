@@ -60,7 +60,7 @@ export function MainLayout({children, title = 'Next App'}: LayoutProps) {
             </Navbar.Link>
           </Navbar.Collapse>
         </Navbar>
-        <main>
+        <main className="relative">
           {children}
         </main>
         <Footer container={true}>
