@@ -1,5 +1,5 @@
 import {NextPage} from "next";
-import {useEffect, useRef, useState} from "react";
+import {useCallback, useMemo, useState} from "react";
 import styles from "styles/home.module.scss";
 import Image from "next/image";
 
@@ -17,20 +17,23 @@ import l3 from "public/assets/pages/home/space/l3.png";
 import l4 from "public/assets/pages/home/space/l4.png";
 
 const HomeBG: NextPage = () => {
-  const container = useRef<HTMLDivElement>(null)
   const [offsetWidth, setOffsetWidth] = useState(1)
   const [offsetHeight, setOffsetHeight] = useState(1)
-  const resizeObserver = new ResizeObserver(([container]) => {
+
+  const resizeObserver = useMemo(() => new ResizeObserver(([container]) => {
     setOffsetWidth((container.contentRect.width || space.width) / space.width)
     setOffsetHeight((container.contentRect.height || space.height) / space.height)
-  })
-  useEffect(() => {
-    if (container.current) resizeObserver.observe(container.current)
+  }), [])
+
+  const measuredRef = useCallback((node: HTMLDivElement | null) => {
+    if (node) resizeObserver.observe(node)
     else resizeObserver.disconnect()
   }, [resizeObserver])
+
+
   return (
       <div className={styles.home_bg_main}>
-        <div className={styles.bg_container} ref={container}>
+        <div className={styles.bg_container} ref={measuredRef}>
           <Image src={space} alt="space-background" className={styles.spaceBG}/>
           <img src="/assets/pages/home/space/r1.png" style={{width:r1.width*offsetWidth,height:r1.height*offsetHeight}}  alt="space-rock" className={styles.r1}/>
           <img src="/assets/pages/home/space/r2.png" style={{width:r2.width*offsetWidth,height:r2.height*offsetHeight}}  alt="space-rock" className={styles.r2}/>

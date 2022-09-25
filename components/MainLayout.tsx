@@ -18,7 +18,7 @@ export function MainLayout({children, title = 'Next App'}: LayoutProps) {
   return (
       <>
         <Head>
-          <title>{title}</title>
+          <title>{title} | {CONST.SITE_NAME}</title>
           <meta name="keywords" content="next,javascript,nextjs,react"/>
           <meta name="description" content="this is youtube tutorial for next"/>
           <meta charSet="utf-8"/>

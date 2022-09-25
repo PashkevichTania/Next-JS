@@ -8,7 +8,7 @@ const HomeBG = dynamic(() => import('../components/HomeBG'), {
 
 const Home: NextPage = () => {
   return (
-      <MainLayout title={"Create Next App"}>
+      <MainLayout title={"Home"}>
         <HomeBG/>
         <div>
           <h1>NEXT</h1>
