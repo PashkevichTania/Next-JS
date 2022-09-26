@@ -1,0 +1,14 @@
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+**/.next
+
+*.min.*
+dump/**

@@ -1,17 +1,29 @@
-.home_bg_main{
+.home_bg_main {
   width: 100%;
-  height: 100vh;
-  .bg_container{
+  background-color: #070f4d;
+  .bg_container {
     position: relative;
     width: 100%;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: #070f4d;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+      opacity: 0.8;
+    }
   }
-  .text{
+  .text {
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
   }
-  .spaceBG{
+  .spaceBG {
     position: absolute;
     top: 0;
     left: 0;
@@ -21,73 +33,88 @@
     pointer-events: none;
     z-index: 1;
   }
-  .r1,.r2,.r3,.r4,.r5,.r6,.r7 ,.l1,.l2,.l3,.l4{
+  .r1,
+  .r2,
+  .r3,
+  .r4,
+  .r5,
+  .r6,
+  .r7,
+  .l1,
+  .l2,
+  .l3,
+  .l4 {
     //background-color: red;
     transform: translatey(0px);
     opacity: 1;
     position: absolute;
-    z-index: 2;
+    z-index: 10;
   }
-  .l1,.l2,.l3,.l4{
+  .l1,
+  .l2,
+  .l3,
+  .l4 {
     mix-blend-mode: screen;
     animation: glow 5s infinite;
   }
-  .r1{
+  .r1 {
     top: 25% !important;
     left: 60% !important;
     animation: float-3 8s ease-in-out infinite;
   }
-  .r2{
+  .r2 {
     top: 47% !important;
     left: 62% !important;
     animation: float-2 8s ease-in-out infinite;
   }
-  .r3{
+  .r3 {
     top: 37% !important;
     left: 71% !important;
     animation: float-3 6s ease-in-out infinite;
   }
-  .r4{
+  .r4 {
     top: 15% !important;
     left: 45% !important;
     animation: float-1 5s ease-in-out infinite;
   }
-  .r5{
+  .r5 {
     top: 18% !important;
     left: 33% !important;
     animation: float-2 4s ease-in-out infinite;
   }
-  .r6{
+  .r6 {
     top: 36% !important;
     left: 29% !important;
     animation: float-2 5s ease-in-out infinite;
   }
-  .r7{
+  .r7 {
     top: 39% !important;
     left: 45% !important;
     animation: float-1 8s ease-in-out infinite;
   }
 
-  .l1{
+  .l1 {
     top: 83% !important;
     left: 74% !important;
   }
-  .l2{
+  .l2 {
     top: 59% !important;
     left: 67% !important;
   }
-  .l3{
+  .l3 {
     top: 71% !important;
     left: 7% !important;
   }
-  .l4{
+  .l4 {
     top: 73% !important;
     left: 35% !important;
   }
 }
 
 @keyframes glow {
-  50% {opacity: 0;}
+  50% {
+    opacity: 0;
+  }
 }
 
 @keyframes float-1 {

@@ -1,42 +1,34 @@
-import { Head } from "next/document";
-import Slider from "react-slick";
+import Slider from "react-slick"
+import React from "react"
+import { useWindowSize } from "utils/customHooks"
 
-export default function Carousel(){
-        const settings = {
-            dots: false,
-            infinite: true,
-            speed: 500,
-            autoplay: true,
-            autoplaySpeed: 800,
-            slidesToShow: 4,
-            slidesToScroll: 1
-        };
-        return (
-            <>
-                <div className="bg-blue-800 pl-10 pr-10">
-                    <h2> Single Item</h2>
-                    <Slider {...settings}>
-                        <div>
-                            <h3>1</h3>
-                        </div>
-                        <div>
-                            <h3>2</h3>
-                        </div>
-                        <div>
-                            <h3>3</h3>
-                        </div>
-                        <div>
-                            <h3>4</h3>
-                        </div>
-                        <div>
-                            <h3>5</h3>
-                        </div>
-                        <div>
-                            <h3>6</h3>
-                        </div>
-                    </Slider>
-                </div>
-            </>
+function getCarouselSize(width: number) {
+  if (width > 1920) return 3
+  if (width < 1300) return 1
+  return 2
+}
 
-        );
+export default function Carousel({ children }: { children: React.ReactNode }) {
+  const [width] = useWindowSize()
+  const settings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    speed: 600,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    slidesToShow: getCarouselSize(width),
+    slidesToScroll: 1,
+    // variableWidth: true,
+    // centerMode: true,
+    // centerPadding: "20px",
+  }
+
+  return (
+    <>
+      <div className="p-10">
+        <Slider {...settings}>{children}</Slider>
+      </div>
+    </>
+  )
 }
