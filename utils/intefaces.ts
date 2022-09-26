@@ -7,8 +7,8 @@ export interface GameData {
     genres: string[];
     description: string;
     releaseDate: string;
-    ratingCritics: string;
-    ratingUsers: string;
+    ratingCritics: number;
+    ratingUsers: number;
     ratingAge: string;
     tags: string[];
     cover:string;

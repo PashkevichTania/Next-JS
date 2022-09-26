@@ -1,6 +1,6 @@
 import {NextPage} from "next";
 import {useCallback, useMemo, useState} from "react";
-import styles from "styles/home.module.scss";
+import styles from "styles/space.module.scss";
 import Image from "next/image";
 
 import space from "public/assets/pages/home/space/space.jpg";
@@ -32,7 +32,7 @@ const HomeBG: NextPage = () => {
 
 
   return (
-      <div className={styles.home_bg_main}>
+      <div className={styles.home_bg_main} id="home_space">
         <div className={styles.bg_container} ref={measuredRef}>
           <Image src={space} alt="space-background" className={styles.spaceBG}/>
           <img src="/assets/pages/home/space/r1.png" style={{width:r1.width*offsetWidth,height:r1.height*offsetHeight}}  alt="space-rock" className={styles.r1}/>
