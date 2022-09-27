@@ -18,6 +18,15 @@ const nextConfig = {
   images: {
     domains: ["127.0.0.1:80"],
   },
+  //FIXME
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: '/api/:path*',
+  //       destination: 'http://localhost:3000/:path*',
+  //     },
+  //   ]
+  // },
 }
 
 module.exports = nextConfig

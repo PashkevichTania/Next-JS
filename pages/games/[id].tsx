@@ -37,7 +37,7 @@ const Game = ({ game: serverGame }: GamePageProps) => {
   return (
     <MainLayout title={game.name}>
       <div className="flex flex-col justify-center items-center h-[100%]">
-        <div className="w-[100%] h-[calc(100vh_-_173px)] relative flex flex-col justify-center items-center pt-12 pb-12">
+        <div className="w-[100%] min-h-[calc(100vh_-_173px)] relative flex flex-col justify-center items-center pt-12 pb-12">
           <Image
             alt={game.name}
             src={`/assets/games/bg/${game.bg}`}
