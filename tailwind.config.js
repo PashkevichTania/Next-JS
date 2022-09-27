@@ -11,6 +11,9 @@ module.exports = {
     extend: {
       zIndex: {
         '100': '100',
+      },
+      blur: {
+        x100: '100px',
       }
     }
   },

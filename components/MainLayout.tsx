@@ -19,7 +19,7 @@ export function MainLayout({ children, title = "Next App" }: LayoutProps) {
         <meta charSet="utf-8" />
       </Head>
       <Header />
-      <main className="relative">{children}</main>
+      <main className="relative h-[100%]">{children}</main>
       <Footer />
     </>
   )

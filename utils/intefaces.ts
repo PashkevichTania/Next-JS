@@ -12,4 +12,5 @@ export interface GameData {
   ratingAge: string
   tags: string[]
   cover: string
+  bg: string
 }

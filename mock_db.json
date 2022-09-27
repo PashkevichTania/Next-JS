@@ -13,7 +13,8 @@
       "ratingUsers": 9.2,
       "ratingAge": "M",
       "tags": [""],
-      "cover": "tlou.png"
+      "cover": "tlou.png",
+      "bg": "tlou.png"
     },
     {
       "id": "a884nl",
@@ -28,7 +29,8 @@
       "ratingUsers": 5.7,
       "ratingAge": "M",
       "tags": [""],
-      "cover": "tlou2.jpeg"
+      "cover": "tlou2.png",
+      "bg": "tlou2.jpeg"
     },
     {
       "id": "71r387",
@@ -43,7 +45,8 @@
       "ratingUsers": 8.2,
       "ratingAge": "M",
       "tags": [""],
-      "cover": "rdr2.jpeg"
+      "cover": "rdr2.jpeg",
+      "bg": "rdr2.jpg"
     },
     {
       "id": "0h8lsf",
@@ -66,7 +69,8 @@
       "ratingUsers": 7.9,
       "ratingAge": "M",
       "tags": [""],
-      "cover": "gta5.jpeg"
+      "cover": "gta5.png",
+      "bg": "gta5.jpg"
     },
     {
       "id": "r63vpd",
@@ -90,7 +94,8 @@
       "ratingUsers": 8.2,
       "ratingAge": "M",
       "tags": ["indie"],
-      "cover": "detfc.jpg"
+      "cover": "detfc.jpg",
+      "bg": "de.jpg"
     },
     {
       "id": "84oy2d",
@@ -105,7 +110,8 @@
       "ratingUsers": 9.0,
       "ratingAge": "M",
       "tags": [""],
-      "cover": "bioshock.jpeg"
+      "cover": "bioshock.jpeg",
+      "bg": "bioshock.jpg"
     },
     {
       "id": "86dydx",
@@ -120,7 +126,8 @@
       "ratingUsers": 8.1,
       "ratingAge": "M",
       "tags": [""],
-      "cover": "bioshock2.jpeg"
+      "cover": "bioshock2.jpeg",
+      "bg": "bioshock2.jpg"
     },
     {
       "id": "8swucl",
@@ -135,7 +142,8 @@
       "ratingUsers": 8.6,
       "ratingAge": "M",
       "tags": [""],
-      "cover": "bioshock_infinite.jpeg"
+      "cover": "bioshock_infinite.jpeg",
+      "bg": "bioshock_infinite.jpg"
     },
     {
       "id": "mhn587",
@@ -150,7 +158,8 @@
       "ratingUsers": 8.4,
       "ratingAge": "M",
       "tags": [""],
-      "cover": "codmw.jpeg"
+      "cover": "codmw.jpeg",
+      "bg": "codmw.webp"
     },
     {
       "id": "86syne",
@@ -174,7 +183,8 @@
       "ratingUsers": 8.6,
       "ratingAge": "M",
       "tags": [""],
-      "cover": "tes5.png"
+      "cover": "tes5.png",
+      "bg": "tes.jpg"
     },
     {
       "id": "23cqhy",
@@ -196,7 +206,8 @@
       "ratingUsers": 8.4,
       "ratingAge": "T",
       "tags": ["indie"],
-      "cover": "wroef.jpeg"
+      "cover": "wroef.jpeg",
+      "bg": "wroef.png"
     },
     {
       "id": "a7p4sx",
@@ -220,7 +231,8 @@
       "ratingUsers": 7.6,
       "ratingAge": "T",
       "tags": ["indie"],
-      "cover": "nitw.jpg"
+      "cover": "nitw.jpg",
+      "bg": "nitw.jpg"
     },
     {
       "id": "1zd1w4",
@@ -235,7 +247,8 @@
       "ratingUsers": 8.0,
       "ratingAge": "M",
       "tags": ["indie"],
-      "cover": "tvoec.jpeg"
+      "cover": "tvoec.jpeg",
+      "bg": "tvoec.webp"
     },
     {
       "id": "kmb9h8",
@@ -258,7 +271,8 @@
       "ratingUsers": 7.1,
       "ratingAge": "M",
       "tags": ["indie"],
-      "cover": "firewatch.jpeg"
+      "cover": "firewatch.jpeg",
+      "bg": "fw.webp"
     },
     {
       "id": "ye17fr",
@@ -273,7 +287,8 @@
       "ratingUsers": 5.4,
       "ratingAge": "M",
       "tags": ["indie"],
-      "cover": "egtr.jpeg"
+      "cover": "egtr.jpeg",
+      "bg": "ebgtr.png"
     },
     {
       "id": "1t02o3",
@@ -299,7 +314,8 @@
       "ratingUsers": 8.6,
       "ratingAge": "M",
       "tags": [""],
-      "cover": "lis.jpeg"
+      "cover": "lis.jpeg",
+      "bg": "lis.jpg"
     },
     {
       "id": "kn15c7",
@@ -324,7 +340,8 @@
       "ratingUsers": 3.2,
       "ratingAge": "T",
       "tags": [""],
-      "cover": "fortnite.jpeg"
+      "cover": "fortnite.jpeg",
+      "bg": "fortnite.jpg"
     },
     {
       "id": "8uyj03",
@@ -339,7 +356,8 @@
       "ratingUsers": 8.8,
       "ratingAge": "M",
       "tags": ["indie"],
-      "cover": "pathlogic.jpeg"
+      "cover": "pathlogic.jpeg",
+      "bg": "p2.jpeg"
     },
     {
       "id": "45ec0g",
@@ -361,7 +379,8 @@
       "ratingUsers": 7.0,
       "ratingAge": "M",
       "tags": [""],
-      "cover": "c2077.jpeg"
+      "cover": "c2077.jpeg",
+      "bg": "c2077.jpg"
     }
   ]
 }

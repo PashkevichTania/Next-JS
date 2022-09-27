@@ -15,7 +15,7 @@ export type GameDataBrief = {
 }
 
 export const getJSON: () => Promise<MOCK_BD_DATA> = async () => {
-  const filePath = path.join(process.cwd(), "db.json")
+  const filePath = path.join(process.cwd(), "mock_db.json")
   const jsonData = await fsPromises.readFile(filePath, "utf-8")
   return JSON.parse(jsonData)
 }
@@ -33,7 +33,10 @@ export const getGameDataBrief: () => Promise<GameDataBrief[]> = async () => {
   })
 }
 
-export const getGameById: (id: string) => Promise<GameData | undefined> = async (id: string) => {
+// eslint-disable-next-line no-unused-vars
+type GetGameById = (id: string) => Promise<GameData | undefined>
+
+export const getGameById: GetGameById = async (id: string) => {
   const gamesData = await getJSON()
   return gamesData.games.find((game) => game.id === id)
 }

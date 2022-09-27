@@ -26,3 +26,8 @@
   border: 1px solid rgba(255, 255, 255, 0.62);
   z-index: 50;
 }
+
+.glass2{
+  @extend .glass;
+  background: rgba(31, 41, 55, 0.5);
+}
