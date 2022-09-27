@@ -1,6 +1,7 @@
 .home_bg_main {
   width: 100%;
   background-color: #070f4d;
+  overflow: hidden;
   .bg_container {
     position: relative;
     width: 100%;
@@ -58,56 +59,56 @@
     animation: glow 5s infinite;
   }
   .r1 {
-    top: 25% !important;
-    left: 60% !important;
+    top: 25%;
+    left: 60%;
     animation: float-3 8s ease-in-out infinite;
   }
   .r2 {
-    top: 47% !important;
-    left: 62% !important;
+    top: 47%;
+    left: 62%;
     animation: float-2 8s ease-in-out infinite;
   }
   .r3 {
-    top: 37% !important;
-    left: 71% !important;
+    top: 37%;
+    left: 71%;
     animation: float-3 6s ease-in-out infinite;
   }
   .r4 {
-    top: 15% !important;
-    left: 45% !important;
+    top: 15%;
+    left: 45%;
     animation: float-1 5s ease-in-out infinite;
   }
   .r5 {
-    top: 18% !important;
-    left: 33% !important;
+    top: 18%;
+    left: 33%;
     animation: float-2 4s ease-in-out infinite;
   }
   .r6 {
-    top: 36% !important;
-    left: 29% !important;
+    top: 36%;
+    left: 29%;
     animation: float-2 5s ease-in-out infinite;
   }
   .r7 {
-    top: 39% !important;
-    left: 45% !important;
+    top: 39%;
+    left: 45%;
     animation: float-1 8s ease-in-out infinite;
   }
 
   .l1 {
-    top: 83% !important;
-    left: 74% !important;
+    top: 83%;
+    left: 74%;
   }
   .l2 {
-    top: 59% !important;
-    left: 67% !important;
+    top: 59%;
+    left: 67%;
   }
   .l3 {
-    top: 71% !important;
-    left: 7% !important;
+    top: 71%;
+    left: 7%;
   }
   .l4 {
-    top: 73% !important;
-    left: 35% !important;
+    top: 73%;
+    left: 35%;
   }
 }
 
@@ -150,5 +151,69 @@
   }
   100% {
     transform: translatey(0px);
+  }
+}
+
+
+.c1,
+.c2,
+.c3,
+.c4,
+.c5,
+.c6,
+{
+  transform: translatey(0);
+  opacity: 1;
+  position: absolute;
+  z-index: 10;
+  animation: fall 3s linear infinite;
+}
+.c1{
+  top: 2%;
+  right: 71%;
+  animation-delay: 0s;
+  animation-duration: 4s;
+}
+.c2{
+  top: -8%;
+  right: 30%;
+  animation-delay: 10s;
+  animation-duration: 3s;
+}
+.c3{
+  top: 0;
+  right: 80%;
+  animation-delay: 1s;
+  animation-duration: 2s;
+}
+.c4{
+  top: 8%;
+  right: 0;
+  animation-delay: 0s;
+  animation-duration: 4s;
+}
+.c5{
+  top: 37%;
+  right: 0;
+  animation-delay: 6s;
+  animation-duration: 2s;
+}
+.c6{
+  top: 3%;
+  right: 38%;
+  animation-delay: 3s;
+  animation-duration: 1s;
+}
+
+@keyframes fall {
+  0%
+  {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+  100%
+  {
+    transform: translateX(-1000px) translateY(+1000px);
+    opacity: 0;
   }
 }

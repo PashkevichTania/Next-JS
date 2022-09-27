@@ -8,7 +8,11 @@ module.exports = {
     "./public/**/*.html",
   ],
   theme: {
-    extend: {},
+    extend: {
+      zIndex: {
+        '100': '100',
+      }
+    }
   },
   plugins: [require("flowbite/plugin")],
   darkMode: "class",

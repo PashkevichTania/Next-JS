@@ -1,14 +1,27 @@
-import { useLayoutEffect, useState } from "react"
+import { useCallback, useMemo, useState } from "react"
 
-export function useWindowSize() {
-  const [size, setSize] = useState([0, 0])
-  useLayoutEffect(() => {
-    function updateSize() {
-      setSize([window.innerWidth, window.innerHeight])
-    }
-    window.addEventListener("resize", updateSize)
-    updateSize()
-    return () => window.removeEventListener("resize", updateSize)
-  }, [])
-  return size
+export function useResizeObserver() {
+  const [size, setSize] = useState({
+    width: 0,
+    height: 0,
+  })
+  const resizeObserver = useMemo(
+    () =>
+      new ResizeObserver(([container]) => {
+        setSize({
+          width: container.contentRect.width,
+          height: container.contentRect.height,
+        })
+      }),
+    []
+  )
+  const measuredRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      if (node) resizeObserver.observe(node)
+      else resizeObserver.disconnect()
+    },
+    [resizeObserver]
+  )
+
+  return { size, measuredRef }
 }

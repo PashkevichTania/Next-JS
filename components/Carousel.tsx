@@ -1,15 +1,15 @@
 import Slider from "react-slick"
+import { useResizeObserver } from "utils/customHooks"
 import React from "react"
-import { useWindowSize } from "utils/customHooks"
 
 function getCarouselSize(width: number) {
-  if (width > 1920) return 3
-  if (width < 1300) return 1
-  return 2
+  if (width > 1200) return 3
+  if (width > 750) return 2
+  return 1
 }
 
 export default function Carousel({ children }: { children: React.ReactNode }) {
-  const [width] = useWindowSize()
+  const {size, measuredRef} = useResizeObserver()
   const settings = {
     dots: false,
     arrows: false,
@@ -17,7 +17,7 @@ export default function Carousel({ children }: { children: React.ReactNode }) {
     speed: 600,
     autoplay: true,
     autoplaySpeed: 2000,
-    slidesToShow: getCarouselSize(width),
+    slidesToShow: getCarouselSize(size.width),
     slidesToScroll: 1,
     // variableWidth: true,
     // centerMode: true,
@@ -25,10 +25,8 @@ export default function Carousel({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <>
-      <div className="p-10">
+      <div className="p-10" ref={measuredRef}>
         <Slider {...settings}>{children}</Slider>
       </div>
-    </>
   )
 }

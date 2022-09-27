@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import styles from "styles/main.module.scss"
+import { CONST } from "utils/constants"
 
 export function Header() {
   const router = useRouter()
@@ -11,13 +12,20 @@ export function Header() {
     "relative block px-3 py-2 transition hover:text-cyan-600 dark:hover:text-cyan-400"
 
   return (
-    <header className="fixed z-50 flex flex-col top-0 h-16 pt-6 w-full">
+    <header className="fixed z-100 flex flex-col top-0 h-16 pt-6 w-full">
       <div className="relative flex flex-row justify-between content-center pl-10 pr-10">
-        <div className="justify-start h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10">
-          <Image src="/assets/icons/radiation.png" alt="icon" width={40} height={40} />
+        <div className="flex justify-start items-center">
+        <div className="mr-5 h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-gray-800 dark:ring-white/10">
+            <Image src="/assets/icons/radiation.png" alt="icon" width={40} height={40} />
+        </div>
+          <h1 className="text-2xl font-extrabold mr-5 inline-block">
+            <span className="text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-fuchsia-300">
+              {CONST.SITE_NAME}
+            </span>
+          </h1>
         </div>
         <nav className="pointer-events-auto hidden md:block">
-          <ul className="flex rounded-full bg-white/90 px-4 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
+          <ul className="flex rounded-full bg-white/90 px-4 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-gray-800 dark:text-zinc-200 dark:ring-white/10">
             <li>
               <Link href="/">
                 <a className={defaultStyles + " " + (router.pathname == "/" ? activeStyles : "")}>
@@ -60,7 +68,7 @@ export function Header() {
             <button
               type="button"
               aria-label="Toggle dark mode"
-              className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
+              className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-gray-800 dark:ring-white/10 dark:hover:ring-white/20"
             >
               <svg
                 viewBox="0 0 24 24"

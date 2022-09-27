@@ -5,7 +5,7 @@ import { CONST } from "utils/constants"
 export function Footer() {
   return (
     <>
-      <footer className="p-4 bg-white sm:p-6 dark:bg-zinc-800/90 dark:ring-white/10" id="footer">
+      <footer className="p-4 bg-white sm:p-6 dark:bg-gray-800 dark:ring-white/10" id="footer">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <Link href="/#home_space">
