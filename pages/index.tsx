@@ -1,6 +1,6 @@
 import { MainLayout } from "components/MainLayout"
 import dynamic from "next/dynamic"
-import { GameDataBrief } from "utils/apiUtils"
+import { GameDataBrief, getGameDataBrief } from "utils/apiUtils"
 import { GameCard } from "components/GameCard"
 import { CONST } from "utils/constants"
 import Link from "next/link"
@@ -29,12 +29,6 @@ const gamesToPreview = [
   "kn15c7", //"Fortnite"
   "45ec0g", //"Cyberpunk 2077"
 ]
-
-const arrayToQuery = (array: string[]) => {
-  const query = new URLSearchParams()
-  array.forEach((v) => query.append("ids", v))
-  return query
-}
 
 const Home = ({ games }: HomePageProps) => {
   return (
@@ -123,10 +117,8 @@ const Home = ({ games }: HomePageProps) => {
 }
 
 export async function getStaticProps() {
-  const queryParams = arrayToQuery(gamesToPreview)
-
-  const response = await fetch(`${process.env.API_URL}games/brief?${queryParams}`)
-  const { result } = await response.json()
+  //"You should not fetch an API route from getStaticProps..."
+  const result = await getGameDataBrief(gamesToPreview)
 
   return {
     props: { games: result as GameDataBrief[] },

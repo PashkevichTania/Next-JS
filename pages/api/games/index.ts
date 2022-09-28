@@ -25,6 +25,7 @@ export default async function handler(
       case "GET":
         res.status(200).json({ result })
         break
+      //todo
       case "POST":
         // eslint-disable-next-line no-case-declarations
         const { tags }: { tags: string[] } = req.body

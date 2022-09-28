@@ -20,13 +20,9 @@ export default async function handler(
   res: NextApiResponse<DataResponse | Message | Error>
 ) {
   try {
-    const result = await getGameDataBrief()
     const { ids } = req.query
-    if (!ids) res.status(200).json({ result })
-    else {
-      const newResult = result.filter((game) => ids.includes(game.id))
-      res.status(200).json({ result: newResult })
-    }
+    const result = await getGameDataBrief(ids)
+    res.status(200).json({ result: result })
   } catch (err) {
     res.status(500).json({ error: "failed to load data", detail: JSON.stringify(err) })
   }

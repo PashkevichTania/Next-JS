@@ -1,5 +1,5 @@
 import { MainLayout } from "components/MainLayout"
-import { GameDataBrief } from "utils/apiUtils"
+import { GameDataBrief, getGameDataBrief } from "utils/apiUtils"
 import { GameCard } from "components/GameCard"
 
 interface GamesPageProps {
@@ -29,8 +29,11 @@ const Games = ({ games }: GamesPageProps) => {
 }
 
 export async function getStaticProps() {
-  const response = await fetch(`${process.env.API_URL}games/brief`)
-  const { result } = await response.json()
+  //"You should not fetch an API route from getStaticProps..."
+  // const response = await fetch(`${process.env.API_URL}games/brief`)
+  // const { result } = await response.json()
+  const result = await getGameDataBrief()
+
 
   return {
     props: {
