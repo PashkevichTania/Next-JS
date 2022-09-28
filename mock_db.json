@@ -13,8 +13,8 @@
       "ratingUsers": 9.2,
       "ratingAge": "M",
       "tags": [""],
-      "cover": "tlou.png",
-      "bg": "tlou.png"
+      "cover": "tlou.jpg",
+      "bg": "tlou.jpg"
     },
     {
       "id": "a884nl",
@@ -69,7 +69,7 @@
       "ratingUsers": 7.9,
       "ratingAge": "M",
       "tags": [""],
-      "cover": "gta5.png",
+      "cover": "gta5.jpg",
       "bg": "gta5.jpg"
     },
     {
@@ -207,7 +207,7 @@
       "ratingAge": "T",
       "tags": ["indie"],
       "cover": "wroef.jpeg",
-      "bg": "wroef.png"
+      "bg": "wroef.jpg"
     },
     {
       "id": "a7p4sx",
@@ -288,7 +288,7 @@
       "ratingAge": "M",
       "tags": ["indie"],
       "cover": "egtr.jpeg",
-      "bg": "ebgtr.png"
+      "bg": "ebgtr.jpg"
     },
     {
       "id": "1t02o3",

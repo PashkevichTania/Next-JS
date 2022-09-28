@@ -43,6 +43,8 @@ const Game = ({ game: serverGame }: GamePageProps) => {
             src={`/assets/games/bg/${game.bg}`}
             className="absolute left-0 top-0 max-w-[100%] h-auto object-cover z-20"
             fill
+            placeholder="blur"
+            blurDataURL={`/assets/games/bg/blur/${game.bg.split('.')[0]}.jpg`}
           />
             <div className="w-[90%] z-30">
               <div className={stylesMain.glass2}>

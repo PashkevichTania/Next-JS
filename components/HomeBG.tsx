@@ -32,7 +32,7 @@ const HomeBG = () => {
   return (
     <div className={styles.home_bg_main} id="home_space">
       <div className={styles.bg_container} ref={measuredRef}>
-        <Image src={space} alt="space-background" className={styles.spaceBG} />
+        <Image src={space} placeholder="blur" alt="space-background" className={styles.spaceBG} />
         {/*Floating rocks*/}
         <div className={styles.r1}>
           <Image src={r1} alt="space-rock" width={r1.width * offsetWidth} height={r1.height * offsetHeight} />
