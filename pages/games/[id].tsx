@@ -4,6 +4,7 @@ import Image from "next/future/image"
 import { useRouter } from "next/router"
 import { MainLayout } from "components/MainLayout"
 import { GameData } from "utils/intefaces"
+import {getRatingColor, getRatingData} from "utils/func";
 import stylesMain from "styles/main.module.scss"
 
 interface GamePageProps {
@@ -13,6 +14,8 @@ interface GamePageProps {
 const Game = ({ game: serverGame }: GamePageProps) => {
   const [game, setGame] = useState(serverGame)
   const router = useRouter()
+
+  const { img: ageRatingImg, tooltip: ageRatingTooltip } = getRatingData(game.ratingAge)
 
   useEffect(() => {
     async function load() {
@@ -49,22 +52,56 @@ const Game = ({ game: serverGame }: GamePageProps) => {
             <div className="w-[90%] z-30">
               <div className={stylesMain.glass2}>
                 <div className="pt-12 pb-12 pr-10 pl-10 text-lg">
-                  <h2>{game.name}</h2>
-                  {game.developers.map((dev) => (
-                    <div key={Math.random()}>{dev}</div>
-                  ))}
-                  <div>{game.publisher}</div>
-                  {game.platforms.map((platform) => (
-                    <div key={Math.random()}>{platform}</div>
-                  ))}
-                  {game.genres.map((value) => (
-                    <div key={Math.random()}>{value}</div>
-                  ))}
-                  <div>{game.releaseDate}</div>
-                  <div>{game.description}</div>
-                  <div>{game.ratingCritics}</div>
-                  <div>{game.ratingUsers}</div>
-                  <div>{game.ratingAge}</div>
+                  <h2 className="text-4xl font-extrabold mb-3">{game.name}</h2>
+                  <p>
+                    <span className="font-bold">Developers: </span>
+                    {game.developers.map((dev) => (
+                        <span key={Math.random()}>{dev}; </span>
+                    ))}
+                  </p>
+                  <p>
+                    <span className="font-bold">Publisher: </span>
+                    {game.publisher};
+                  </p>
+                  <p>
+                    <span className="font-bold">Platforms: </span>
+                    {game.platforms.map((platform) => (
+                        <span key={Math.random()}>{platform}; </span>
+                    ))}
+                  </p>
+                  <p>
+                    <span className="font-bold">Genre(s): </span>
+                    {game.genres.map((value) => (
+                        <span key={Math.random()}>{value};</span>
+                    ))}
+                  </p>
+                  <p>
+                    <span className="font-bold">Release date: </span>
+                    {game.releaseDate}
+                  </p>
+                    <div className="flex flex-row gap-4">
+                      <div>
+                        <span className="font-bold">Critics score: </span>
+                        <div className="rounded-md font-bold p-3 text-center" style={{backgroundColor: getRatingColor(game.ratingUsers * 100)}}>
+                          {game.ratingCritics}
+                        </div>
+                      </div>
+                      <div>
+                        <span className="font-bold">Users score: </span>
+                        <div className="rounded-md font-bold p-3 text-center" style={{backgroundColor: getRatingColor(game.ratingUsers * 100)}}>
+                          {game.ratingUsers}
+                        </div>
+                      </div>
+                      <Image
+                          alt="ESRB age rating"
+                          src={ageRatingImg}
+                          width={40}
+                          height={40}
+                          className="object-center object-contain"
+                          title={ageRatingTooltip}
+                      />
+                    </div>
+                  <p>{game.description}</p>
                 </div>
               </div>
             </div>

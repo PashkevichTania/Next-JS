@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Rating } from "./Rating"
+import {getRatingData} from "../utils/func";
 
 interface CardProps {
   id: string
@@ -10,11 +11,6 @@ interface CardProps {
   ratingAge: string
 }
 
-const getRatingData = (rating: string) => {
-  if (rating.toLowerCase() === "m") return { img: "/assets/icons/rating/m.png", tooltip: "Mature" }
-  if (rating.toLowerCase() === "t") return { img: "/assets/icons/rating/t.jpeg", tooltip: "Teens" }
-  return { img: "", tooltip: "" }
-}
 
 export function GameCard({ rating, ratingAge, cover, name, id }: CardProps) {
   const { img, tooltip } = getRatingData(ratingAge)
