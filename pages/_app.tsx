@@ -5,7 +5,7 @@ import type { AppProps } from "next/app"
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className="relative flex flex-col">
+    <div className="relative flex flex-col bg-white dark:bg-gray-800/50">
       <Component {...pageProps} />
     </div>
   )

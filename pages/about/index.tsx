@@ -1,18 +1,45 @@
 import { MainLayout } from "components/MainLayout"
-import { GameCard } from "components/GameCard"
+import stylesMain from "styles/main.module.scss"
 
 const About = () => {
   return (
-    <MainLayout title={"Games Page"}>
-      <div className="mt-64 bg-white">
-        <GameCard
-          cover="tlou.png"
-          rating={90}
-          name="The Last of Us Part I"
-          id={"i960g6"}
-          ratingAge="M"
-        />
-      </div>
+    <MainLayout title={"About"}>
+      <section className="mt-64 flex flex-col justify-center items-center">
+        <div className="w-[80%] text-base">
+
+          <div className={stylesMain.glass}>
+            <div className="p-5">
+              <p>
+                This website created with <a href="https://nextjs.org"
+                                             className="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline">NextJS</a> and
+                styled with <a href="https://tailwindcss.com"
+                               className="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline">TailwindCSS</a> and <a
+                href="https://flowbite.com"
+                className="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline">Flowbite</a>.
+              </p>
+              <p>
+                Space background on home page is <a
+                href="https://www.freepik.com/free-vector/alien-night-planet-landscape-space-game-background_28590659.htm#page=3&query=space%20vector&position=26&from_view=author"
+                className="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline">
+                Image by upklyak
+              </a> on Freepik. <br />
+                Some other icons is also from <a
+                href="https://www.freepik.com"
+                className="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline">
+                Freepik
+              </a>
+              </p>
+              <p>Other images, like glass planet and ps4 controller on the home page, I drew myself in Adobe
+                Illustrator.</p>
+              <p>There is also an API that can be accessed by /api url, check quick docs here: <a
+                href="/apiPage"
+                className="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline">
+                API
+              </a></p>
+            </div>
+          </div>
+        </div>
+      </section>
     </MainLayout>
   )
 }

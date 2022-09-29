@@ -1,17 +1,9 @@
 import path from "path"
 import fsPromises from "fs/promises"
-import { GameData } from "./intefaces"
+import { GameData, GameDataBrief } from "./intefaces"
 
 export type MOCK_BD_DATA = {
   games: GameData[]
-}
-
-export type GameDataBrief = {
-  id: string
-  name: string
-  cover: string
-  rating: number
-  ratingAge: string
 }
 
 export const getJSON: () => Promise<MOCK_BD_DATA> = async () => {

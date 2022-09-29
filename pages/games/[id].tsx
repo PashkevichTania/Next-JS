@@ -15,8 +15,6 @@ const Game = ({ game: serverGame }: GamePageProps) => {
   const [game, setGame] = useState(serverGame)
   const router = useRouter()
 
-  const { img: ageRatingImg, tooltip: ageRatingTooltip } = getRatingData(game.ratingAge)
-
   useEffect(() => {
     async function load() {
       const response = await fetch(`${process.env.API_URL}games/${router.query.id}`)
@@ -37,6 +35,8 @@ const Game = ({ game: serverGame }: GamePageProps) => {
     )
   }
 
+  const { img: ageRatingImg, tooltip: ageRatingTooltip } = getRatingData(game.ratingAge)
+
   return (
     <MainLayout title={game.name}>
       <div className="flex flex-col justify-center items-center h-[100%]">
@@ -52,55 +52,62 @@ const Game = ({ game: serverGame }: GamePageProps) => {
             <div className="w-[90%] z-30">
               <div className={stylesMain.glass2}>
                 <div className="pt-12 pb-12 pr-10 pl-10 text-lg">
-                  <h2 className="text-4xl font-extrabold mb-3">{game.name}</h2>
-                  <p>
-                    <span className="font-bold">Developers: </span>
-                    {game.developers.map((dev) => (
-                        <span key={Math.random()}>{dev}; </span>
-                    ))}
-                  </p>
-                  <p>
-                    <span className="font-bold">Publisher: </span>
-                    {game.publisher};
-                  </p>
-                  <p>
-                    <span className="font-bold">Platforms: </span>
-                    {game.platforms.map((platform) => (
-                        <span key={Math.random()}>{platform}; </span>
-                    ))}
-                  </p>
-                  <p>
-                    <span className="font-bold">Genre(s): </span>
-                    {game.genres.map((value) => (
-                        <span key={Math.random()}>{value};</span>
-                    ))}
-                  </p>
-                  <p>
-                    <span className="font-bold">Release date: </span>
-                    {game.releaseDate}
-                  </p>
-                    <div className="flex flex-row gap-4">
+                  <div className="grid grid-cols-2 mb-6">
+                    <div>
+                      <h2 className="text-4xl font-extrabold mb-3">{game.name}</h2>
+                      <p>
+                        <span className="font-bold">Developers: </span>
+                        {game.developers.map((dev) => (
+                          <span key={Math.random()}>{dev}; </span>
+                        ))}
+                      </p>
+                      <p>
+                        <span className="font-bold">Publisher: </span>
+                        {game.publisher};
+                      </p>
+                      <p>
+                        <span className="font-bold">Platforms: </span>
+                        {game.platforms.map((platform) => (
+                          <span key={Math.random()}>{platform}; </span>
+                        ))}
+                      </p>
+                      <p>
+                        <span className="font-bold">Genre(s): </span>
+                        {game.genres.map((value) => (
+                          <span key={Math.random()}>{value};</span>
+                        ))}
+                      </p>
+                      <p>
+                        <span className="font-bold">Release date: </span>
+                        {game.releaseDate}
+                      </p>
+                    </div>
+                    <div className="flex flex-row justify-center gap-4">
                       <div>
                         <span className="font-bold">Critics score: </span>
-                        <div className="rounded-md font-bold p-3 text-center" style={{backgroundColor: getRatingColor(game.ratingUsers * 100)}}>
+                        <div className="rounded-md font-bold p-3 text-center text-3xl" style={{backgroundColor: getRatingColor(game.ratingCritics)}}>
                           {game.ratingCritics}
                         </div>
                       </div>
                       <div>
                         <span className="font-bold">Users score: </span>
-                        <div className="rounded-md font-bold p-3 text-center" style={{backgroundColor: getRatingColor(game.ratingUsers * 100)}}>
+                        <div className="rounded-md font-bold p-3 text-center text-3xl" style={{backgroundColor: getRatingColor(game.ratingUsers * 10)}}>
                           {game.ratingUsers}
                         </div>
                       </div>
-                      <Image
+                      <div className="flex flex-col items-center">
+                        <span className="font-bold">ESRB age rating: </span>
+                        <Image
                           alt="ESRB age rating"
                           src={ageRatingImg}
                           width={40}
                           height={40}
                           className="object-center object-contain"
                           title={ageRatingTooltip}
-                      />
+                        />
+                      </div>
                     </div>
+                  </div>
                   <p>{game.description}</p>
                 </div>
               </div>

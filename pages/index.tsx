@@ -1,12 +1,17 @@
-import { MainLayout } from "components/MainLayout"
 import dynamic from "next/dynamic"
-import { GameDataBrief, getGameDataBrief } from "utils/apiUtils"
-import { GameCard } from "components/GameCard"
-import { CONST } from "utils/constants"
+import Image from "next/image"
 import Link from "next/link"
+
+import { MainLayout } from "components/MainLayout"
+import { GameCard } from "components/GameCard"
+
+import { CONST } from "utils/constants"
+import { getGameDataBrief } from "utils/apiUtils"
+import { GameDataBrief } from "utils/intefaces"
+
 import stylesMain from "styles/main.module.scss"
 import styles from "styles/home.module.scss"
-import Image from "next/image"
+
 import controller from "public/assets/ps4controller.png"
 import planet from "public/assets/glass_planet.png"
 

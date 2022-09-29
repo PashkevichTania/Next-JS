@@ -14,3 +14,11 @@ export interface GameData {
   cover: string
   bg: string
 }
+
+export type GameDataBrief = {
+  id: string
+  name: string
+  cover: string
+  rating: number
+  ratingAge: string
+}

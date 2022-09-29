@@ -9,14 +9,23 @@ const nextConfig = {
     API_URL: process.env.API_URL,
     SITE_NAME: process.env.SITE_NAME,
   },
+  images: {
+    domains: ["127.0.0.1:80"],
+  },
   webpack5: true,
   webpack: (config) => {
     config.resolve.fallback = { fs: false }
 
     return config
   },
-  images: {
-    domains: ["127.0.0.1:80"],
+  async redirects() {
+    return [
+      {
+        source: '/api',
+        destination: '/apiPage',
+        permanent: true,
+      },
+    ]
   },
   //FIXME
   // async rewrites() {

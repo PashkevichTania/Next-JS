@@ -5,9 +5,9 @@ export const getRatingData = (rating: string) => {
 }
 
 export const getRatingColor = (rating: number) => {
-    if (rating > 80) return "#00ff00"
-    if (rating > 60) return "#b7ff00"
-    if (rating > 40) return "#ffea00"
+    if (rating > 80) return "#1fea08"
+    if (rating > 60) return "#b5ff00"
+    if (rating > 40) return "#f1dc07"
     if (rating > 20) return "#ffa600"
     return  "#ff0000"
 }
