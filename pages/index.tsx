@@ -43,7 +43,7 @@ const Home = ({ games }: HomePageProps) => {
         id="home_main"
         className="relative flex flex-col justify-center items-center bg-gradient-to-b from-[#070f4d] to-[#000515] pt-16 pb-32"
       >
-        <div className="w-[90%]">
+        <div className="w-[90%] text-white">
           <div className={stylesMain.glass}>
             <div className="pt-12 pb-12 pr-10 pl-10">
               <div className="align-bottom mb-6">

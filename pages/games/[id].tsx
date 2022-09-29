@@ -49,7 +49,7 @@ const Game = ({ game: serverGame }: GamePageProps) => {
             placeholder="blur"
             blurDataURL={`/assets/games/bg/blur/${game.bg.split('.')[0]}.jpg`}
           />
-            <div className="w-[90%] z-30">
+            <div className="w-[90%] z-30 text-white">
               <div className={stylesMain.glass2}>
                 <div className="pt-12 pb-12 pr-10 pl-10 text-lg">
                   <div className="grid grid-cols-2 mb-6">

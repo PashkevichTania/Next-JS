@@ -7,6 +7,14 @@ import { CONST } from "utils/constants"
 export function Header() {
   const router = useRouter()
 
+  const toggleTheme = () => {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark')
+    } else {
+      document.documentElement.classList.add('dark');
+    }
+  }
+
   const activeStyles = styles.activeLink + " " + "text-cyan-600 dark:text-cyan-400"
   const defaultStyles =
     "relative block px-3 py-2 transition hover:text-cyan-600 dark:hover:text-cyan-400"
@@ -66,6 +74,7 @@ export function Header() {
         <div className="flex">
           <div className="pointer-events-auto">
             <button
+              onClick={toggleTheme}
               type="button"
               aria-label="Toggle dark mode"
               className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-gray-800 dark:ring-white/10 dark:hover:ring-white/20"
