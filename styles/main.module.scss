@@ -17,7 +17,7 @@
   }
 }
 
-.glass{
+.glass {
   position: relative;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 16px;
@@ -27,7 +27,7 @@
   z-index: 50;
 }
 
-.glass2{
+.glass2 {
   @extend .glass;
   background: rgba(31, 41, 55, 0.5);
   backdrop-filter: blur(20px);

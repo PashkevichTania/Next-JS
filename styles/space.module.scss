@@ -154,51 +154,49 @@
   }
 }
 
-
 .c1,
 .c2,
 .c3,
 .c4,
 .c5,
-.c6,
-{
+.c6 {
   transform: translatey(0);
   opacity: 1;
   position: absolute;
   z-index: 10;
   animation: fall 3s linear infinite;
 }
-.c1{
+.c1 {
   top: 2%;
   right: 71%;
   animation-delay: 0s;
   animation-duration: 4s;
 }
-.c2{
+.c2 {
   top: -8%;
   right: 30%;
   animation-delay: 10s;
   animation-duration: 3s;
 }
-.c3{
+.c3 {
   top: 0;
   right: 80%;
   animation-delay: 1s;
   animation-duration: 2s;
 }
-.c4{
+.c4 {
   top: 8%;
   right: 0;
   animation-delay: 0s;
   animation-duration: 4s;
 }
-.c5{
+.c5 {
   top: 37%;
   right: 0;
   animation-delay: 6s;
   animation-duration: 2s;
 }
-.c6{
+.c6 {
   top: 3%;
   right: 38%;
   animation-delay: 3s;
@@ -206,13 +204,11 @@
 }
 
 @keyframes fall {
-  0%
-  {
+  0% {
     transform: translateX(0) translateY(0);
     opacity: 1;
   }
-  100%
-  {
+  100% {
     transform: translateX(-1000px) translateY(+1000px);
     opacity: 0;
   }

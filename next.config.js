@@ -21,8 +21,8 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/api',
-        destination: '/apiPage',
+        source: "/api",
+        destination: "/apiPage",
         permanent: true,
       },
     ]

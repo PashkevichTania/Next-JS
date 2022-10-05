@@ -13,7 +13,9 @@ export const getJSON: () => Promise<MOCK_BD_DATA> = async () => {
 }
 
 // eslint-disable-next-line no-unused-vars
-export const getGameDataBrief: (ids?: string[] | string) => Promise<GameDataBrief[]> = async (ids) => {
+export const getGameDataBrief: (ids?: string[] | string) => Promise<GameDataBrief[]> = async (
+  ids
+) => {
   const gamesData = await getJSON()
   let result = gamesData.games.map((game) => {
     return {
@@ -35,7 +37,6 @@ export const getGameById: GetGameById = async (id: string) => {
   const gamesData = await getJSON()
   return gamesData.games.find((game) => game.id === id)
 }
-
 
 export const idsArrayToQuery = (array: string[]) => {
   const query = new URLSearchParams()

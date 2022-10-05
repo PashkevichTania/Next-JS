@@ -8,10 +8,10 @@ export function Header() {
   const router = useRouter()
 
   const toggleTheme = () => {
-    if (document.documentElement.classList.contains('dark')) {
-      document.documentElement.classList.remove('dark')
+    if (document.documentElement.classList.contains("dark")) {
+      document.documentElement.classList.remove("dark")
     } else {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark")
     }
   }
 
@@ -23,9 +23,9 @@ export function Header() {
     <header className="fixed z-100 flex flex-col top-0 h-16 pt-6 w-full">
       <div className="relative flex flex-row justify-between content-center pl-10 pr-10">
         <div className="flex justify-start items-center">
-        <div className="mr-5 h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-gray-800 dark:ring-white/10">
+          <div className="mr-5 h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-gray-800 dark:ring-white/10">
             <Image src="/assets/icons/radiation.png" alt="icon" width={40} height={40} />
-        </div>
+          </div>
           <h1 className="text-2xl font-extrabold mr-5 inline-block">
             <span className="text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-fuchsia-300">
               {CONST.SITE_NAME}

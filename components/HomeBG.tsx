@@ -25,9 +25,9 @@ import c3 from "public/assets/space/c3.png"
 // import c6 from "public/assets/space/c6.png"
 
 const HomeBG = () => {
-  const {size, measuredRef} = useResizeObserver()
-  const  offsetWidth = (size.width || space.width) / space.width
-  const  offsetHeight = (size.height || space.height) / space.height
+  const { size, measuredRef } = useResizeObserver()
+  const offsetWidth = (size.width || space.width) / space.width
+  const offsetHeight = (size.height || space.height) / space.height
 
   return (
     <div className={styles.home_bg_main} id="home_space">
@@ -35,51 +35,126 @@ const HomeBG = () => {
         <Image src={space} placeholder="blur" alt="space-background" className={styles.spaceBG} />
         {/*Floating rocks*/}
         <div className={styles.r1}>
-          <Image src={r1} alt="space-rock" width={r1.width * offsetWidth} height={r1.height * offsetHeight} />
+          <Image
+            src={r1}
+            alt="space-rock"
+            width={r1.width * offsetWidth}
+            height={r1.height * offsetHeight}
+          />
         </div>
         <div className={styles.r2}>
-          <Image src={r2} alt="space-rock" width={r2.width * offsetWidth} height={r2.height * offsetHeight} />
+          <Image
+            src={r2}
+            alt="space-rock"
+            width={r2.width * offsetWidth}
+            height={r2.height * offsetHeight}
+          />
         </div>
         <div className={styles.r2}>
-          <Image src={r2} alt="space-rock" width={r2.width * offsetWidth} height={r2.height * offsetHeight} />
+          <Image
+            src={r2}
+            alt="space-rock"
+            width={r2.width * offsetWidth}
+            height={r2.height * offsetHeight}
+          />
         </div>
         <div className={styles.r3}>
-          <Image src={r3} alt="space-rock" width={r3.width * offsetWidth} height={r3.height * offsetHeight} />
+          <Image
+            src={r3}
+            alt="space-rock"
+            width={r3.width * offsetWidth}
+            height={r3.height * offsetHeight}
+          />
         </div>
         <div className={styles.r4}>
-          <Image src={r4} alt="space-rock" width={r4.width * offsetWidth} height={r4.height * offsetHeight} />
+          <Image
+            src={r4}
+            alt="space-rock"
+            width={r4.width * offsetWidth}
+            height={r4.height * offsetHeight}
+          />
         </div>
         <div className={styles.r5}>
-          <Image src={r5} alt="space-rock" width={r5.width * offsetWidth} height={r5.height * offsetHeight} />
+          <Image
+            src={r5}
+            alt="space-rock"
+            width={r5.width * offsetWidth}
+            height={r5.height * offsetHeight}
+          />
         </div>
         <div className={styles.r6}>
-          <Image src={r6} alt="space-rock" width={r6.width * offsetWidth} height={r6.height * offsetHeight} />
+          <Image
+            src={r6}
+            alt="space-rock"
+            width={r6.width * offsetWidth}
+            height={r6.height * offsetHeight}
+          />
         </div>
         <div className={styles.r7}>
-          <Image src={r7} alt="space-rock" width={r7.width * offsetWidth} height={r7.height * offsetHeight} />
+          <Image
+            src={r7}
+            alt="space-rock"
+            width={r7.width * offsetWidth}
+            height={r7.height * offsetHeight}
+          />
         </div>
         {/*Lights*/}
         <div className={styles.l1}>
-          <Image src={l1} alt="space-light" width={l1.width * offsetWidth} height={l1.height * offsetHeight} />
+          <Image
+            src={l1}
+            alt="space-light"
+            width={l1.width * offsetWidth}
+            height={l1.height * offsetHeight}
+          />
         </div>
         <div className={styles.l2}>
-          <Image src={l2} alt="space-light" width={l2.width * offsetWidth} height={l2.height * offsetHeight} />
+          <Image
+            src={l2}
+            alt="space-light"
+            width={l2.width * offsetWidth}
+            height={l2.height * offsetHeight}
+          />
         </div>
         <div className={styles.l3}>
-          <Image src={l3} alt="space-light" width={l3.width * offsetWidth} height={l3.height * offsetHeight} />
+          <Image
+            src={l3}
+            alt="space-light"
+            width={l3.width * offsetWidth}
+            height={l3.height * offsetHeight}
+          />
         </div>
         <div className={styles.l4}>
-          <Image src={l4} alt="space-light" width={l4.width * offsetWidth} height={l4.height * offsetHeight} />
+          <Image
+            src={l4}
+            alt="space-light"
+            width={l4.width * offsetWidth}
+            height={l4.height * offsetHeight}
+          />
         </div>
         {/*Comets*/}
         <div className={styles.c1}>
-          <Image src={c1} alt="space-comet" width={c1.width * offsetWidth} height={c1.height * offsetHeight} />
+          <Image
+            src={c1}
+            alt="space-comet"
+            width={c1.width * offsetWidth}
+            height={c1.height * offsetHeight}
+          />
         </div>
         <div className={styles.c2}>
-          <Image src={c2} alt="space-comet" width={c2.width * offsetWidth} height={c2.height * offsetHeight} />
+          <Image
+            src={c2}
+            alt="space-comet"
+            width={c2.width * offsetWidth}
+            height={c2.height * offsetHeight}
+          />
         </div>
         <div className={styles.c3}>
-          <Image src={c3} alt="space-comet" width={c3.width * offsetWidth} height={c3.height * offsetHeight} />
+          <Image
+            src={c3}
+            alt="space-comet"
+            width={c3.width * offsetWidth}
+            height={c3.height * offsetHeight}
+          />
         </div>
         {/*<div className={styles.c4}>*/}
         {/*  <Image src={c4} alt="space-comet" width={c4.width * offsetWidth} height={c4.height * offsetHeight} />*/}

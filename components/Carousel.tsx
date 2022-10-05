@@ -9,7 +9,7 @@ function getCarouselSize(width: number) {
 }
 
 export default function Carousel({ children }: { children: React.ReactNode }) {
-  const {size, measuredRef} = useResizeObserver()
+  const { size, measuredRef } = useResizeObserver()
   const settings = {
     dots: false,
     arrows: false,
@@ -25,8 +25,8 @@ export default function Carousel({ children }: { children: React.ReactNode }) {
   }
 
   return (
-      <div className="p-10" ref={measuredRef}>
-        <Slider {...settings}>{children}</Slider>
-      </div>
+    <div className="p-10" ref={measuredRef}>
+      <Slider {...settings}>{children}</Slider>
+    </div>
   )
 }

@@ -33,7 +33,6 @@ export async function getStaticProps() {
   // const { result } = await response.json()
   const result = await getGameDataBrief()
 
-
   return {
     props: {
       games: result as GameDataBrief[],

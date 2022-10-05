@@ -10,12 +10,12 @@ module.exports = {
   theme: {
     extend: {
       zIndex: {
-        '100': '100',
+        100: "100",
       },
       blur: {
-        x100: '100px',
-      }
-    }
+        x100: "100px",
+      },
+    },
   },
   plugins: [require("flowbite/plugin")],
   darkMode: "class",
