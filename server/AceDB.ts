@@ -1,6 +1,6 @@
 import { AceBase, AceBaseLocalSettings, DataSnapshot } from "acebase"
 import { getJSON } from "./apiUtils"
-import { GameData } from "../utils/intefaces"
+import { GameData, GameDataBrief } from "../utils/intefaces"
 
 const DB_NAME = "GamesLib"
 const REF = "games"
@@ -14,7 +14,10 @@ const populateDB = async () => {
   if (snapshot.exists()) return
 
   const data = await getJSON()
-  await db.ref(REF).set(data.games);
+  let games: any = {}
+  data.games.forEach(game => db.ref(`${REF}/${game.id}`).set(game))
+
+  await db.ref(REF).update(games)
   await db.indexes.create(REF, 'id')
   await db.schema.set('games/$uid', {
     id: 'string',
@@ -38,22 +41,21 @@ populateDB()
 
 
 
-export const getGameData = async () => {
-  await db.ready()
+export const getGameData = async (): Promise<GameData[]> => {
+  await populateDB()
   const dataSnapshot = await db.ref(REF).get()
-  const data: GameData[]  = dataSnapshot.val()
-  return data
+  return Object.values(dataSnapshot.val())
 }
 
-export const getGameById = async (id: string): Promise<DataSnapshot> => {
-  await db.ready()
-  const snapshotsArray = await db.query(REF).filter("id", "matches", new RegExp(id)).get()
-  return snapshotsArray.getValues()[0]
+export const getGameById = async (id: string): Promise<GameData> => {
+  await populateDB()
+  const snapshot = await db.ref(`${REF}/${id}`).get()
+  return snapshot.val()
 }
 
 
-export const getGameDataBrief = async (ids?: string[]) => {
-  await db.ready()
+export const getGameDataBrief = async (ids?: string[]): Promise<GameDataBrief[]> => {
+  await populateDB()
   let result: GameData[] = []
   if (ids) {
     const snapshotsArray = await db.query(REF).filter("id", "in", ids).get()
@@ -61,7 +63,7 @@ export const getGameDataBrief = async (ids?: string[]) => {
   }
   else {
     const snapshot = await db.ref(REF).get()
-    result = snapshot.val()
+    result = Object.values(snapshot.val())
   }
 
   return result.map((game) => {
