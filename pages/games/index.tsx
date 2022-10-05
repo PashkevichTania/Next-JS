@@ -1,6 +1,7 @@
 import { MainLayout } from "components/MainLayout"
-import { GameDataBrief, getGameDataBrief } from "utils/apiUtils"
+import { getGameDataBrief } from "server/AceDB"
 import { GameCard } from "components/GameCard"
+import { GameDataBrief } from "utils/intefaces"
 
 interface GamesPageProps {
   games: GameDataBrief[]

@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import { getGameById } from "utils/apiUtils"
+import { getGameById } from "server/AceDB"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const id = req.query.id

@@ -6,7 +6,7 @@ import { MainLayout } from "components/MainLayout"
 import { GameCard } from "components/GameCard"
 
 import { CONST } from "utils/constants"
-import { getGameDataBrief } from "utils/apiUtils"
+import { getGameDataBrief } from "server/AceDB"
 import { GameDataBrief } from "utils/intefaces"
 
 import stylesMain from "styles/main.module.scss"

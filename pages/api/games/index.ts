@@ -1,9 +1,10 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next"
-import { getJSON, MOCK_BD_DATA } from "utils/apiUtils"
+import { getGameData } from "server/AceDB"
+import { GameData } from "utils/intefaces"
 
 type DataResponse = {
-  result: MOCK_BD_DATA
+  result: GameData[]
 }
 
 type Message = {
@@ -20,7 +21,7 @@ export default async function handler(
   res: NextApiResponse<DataResponse | Message | Error>
 ) {
   try {
-    const result = await getJSON()
+    const result = await getGameData()
     switch (req.method) {
       case "GET":
         res.status(200).json({ result })
@@ -31,10 +32,10 @@ export default async function handler(
         const { tags }: { tags: string[] } = req.body
         if (!tags?.length) res.status(400).json({ message: `wrong request body; ${req.body}` })
         // eslint-disable-next-line no-case-declarations
-        const newResult = result.games.filter((game: { tags: string[] }) =>
+        const newResult = result.filter((game: { tags: string[] }) =>
           game.tags.some((value) => tags.includes(value))
         )
-        res.status(200).json({ result: { games: newResult } })
+        res.status(200).json({ result:  newResult })
         break
       default:
         res.status(400).json({ message: `unsupported method ${req.method}` })
