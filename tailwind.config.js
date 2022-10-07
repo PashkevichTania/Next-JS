@@ -10,6 +10,7 @@ module.exports = {
   theme: {
     extend: {
       zIndex: {
+        90: "90",
         100: "100",
       },
       blur: {

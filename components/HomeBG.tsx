@@ -19,12 +19,13 @@ import l4 from "public/assets/space/l4.png"
 import c1 from "public/assets/space/c1.png"
 import c2 from "public/assets/space/c2.png"
 import c3 from "public/assets/space/c3.png"
+import { Dispatch, SetStateAction } from "react"
 
 // import c4 from "public/assets/space/c4.png"
 // import c5 from "public/assets/space/c5.png"
 // import c6 from "public/assets/space/c6.png"
 
-const HomeBG = () => {
+const HomeBG = ({ setLoaded }: { setLoaded: Dispatch<SetStateAction<boolean>> }) => {
   const { size, measuredRef } = useResizeObserver()
   const offsetWidth = (size.width || space.width) / space.width
   const offsetHeight = (size.height || space.height) / space.height
@@ -32,7 +33,13 @@ const HomeBG = () => {
   return (
     <div className={styles.home_bg_main} id="home_space">
       <div className={styles.bg_container} ref={measuredRef}>
-        <Image src={space} placeholder="blur" alt="space-background" className={styles.spaceBG} />
+        <Image
+          src={space}
+          placeholder="blur"
+          alt="space-background"
+          className={styles.spaceBG}
+          onLoad={() => setLoaded(true)}
+        />
         {/*Floating rocks*/}
         <div className={styles.r1}>
           <Image

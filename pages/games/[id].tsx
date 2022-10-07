@@ -7,6 +7,7 @@ import { GameData } from "utils/intefaces"
 import { getRatingColor, getRatingData } from "utils/func"
 import stylesMain from "styles/main.module.scss"
 import FormatSlash from "../../components/FormatSlash"
+import Loader from "components/Loader"
 
 interface GamePageProps {
   game: GameData
@@ -31,7 +32,7 @@ const Game = ({ game: serverGame }: GamePageProps) => {
   if (!game) {
     return (
       <MainLayout>
-        <p>Loading ...</p>
+        <Loader />
       </MainLayout>
     )
   }

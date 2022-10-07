@@ -1,9 +1,12 @@
+import { useEffect, useRef, useState } from "react"
+
 import dynamic from "next/dynamic"
 import Image from "next/image"
 import Link from "next/link"
 
 import { MainLayout } from "components/MainLayout"
 import { GameCard } from "components/GameCard"
+import Loader from "components/Loader"
 
 import { CONST } from "utils/constants"
 import { getGameDataBrief } from "server/AceDB"
@@ -36,9 +39,20 @@ const gamesToPreview = [
 ]
 
 const Home = ({ games }: HomePageProps) => {
+  const [isLoaded, setIsLoaded] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!ref.current) return
+    isLoaded ? (ref.current.style.display = "none") : (ref.current.style.display = "fixed")
+  }, [isLoaded])
+
   return (
     <MainLayout title={"Home"}>
-      <HomeBG />
+      <div className="w-[100%] h-[100%] fixed bg-white dark:bg-gray-800 z-90" ref={ref}>
+        <Loader />
+      </div>
+      <HomeBG setLoaded={setIsLoaded} />
       <div
         id="home_main"
         className="relative flex flex-col justify-center items-center bg-gradient-to-b from-[#070f4d] to-[#000515] pt-16 pb-32"

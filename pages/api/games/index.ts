@@ -35,7 +35,7 @@ export default async function handler(
         const newResult = result.filter((game: { tags: string[] }) =>
           game.tags.some((value) => tags.includes(value))
         )
-        res.status(200).json({ result:  newResult })
+        res.status(200).json({ result: newResult })
         break
       default:
         res.status(400).json({ message: `unsupported method ${req.method}` })
