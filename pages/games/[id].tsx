@@ -1,42 +1,16 @@
-import { NextPageContext } from "next"
-import { useEffect, useState } from "react"
 import Image from "next/future/image"
-import { useRouter } from "next/router"
 import { MainLayout } from "components/MainLayout"
 import { GameData } from "utils/intefaces"
 import { getRatingColor, getRatingData } from "utils/func"
 import stylesMain from "styles/main.module.scss"
 import FormatSlash from "../../components/FormatSlash"
-import Loader from "components/Loader"
+import { getGameById } from "../../server/AceDB"
 
 interface GamePageProps {
   game: GameData
 }
 
-const Game = ({ game: serverGame }: GamePageProps) => {
-  const [game, setGame] = useState(serverGame)
-  const router = useRouter()
-
-  useEffect(() => {
-    async function load() {
-      const response = await fetch(`${process.env.API_URL}games/${router.query.id}`)
-      const { result } = await response.json()
-      setGame(result)
-    }
-
-    if (!serverGame) {
-      load()
-    }
-  }, [])
-
-  if (!game) {
-    return (
-      <MainLayout>
-        <Loader />
-      </MainLayout>
-    )
-  }
-
+const Game = ({ game }: GamePageProps) => {
   const { img: ageRatingImg, tooltip: ageRatingTooltip } = getRatingData(game.ratingAge)
 
   return (
@@ -140,23 +114,13 @@ const Game = ({ game: serverGame }: GamePageProps) => {
   )
 }
 
-interface GameNextPageContext extends NextPageContext {
-  query: {
-    id: string
-  }
-}
-
-Game.getInitialProps = async ({ req, query }: GameNextPageContext) => {
-  //if were called in front end req = undefined
-  if (!req) {
-    return { game: null }
-  }
-
-  const response = await fetch(`${process.env.API_URL}games/${query.id}`)
-  const { result } = await response.json()
+export async function getServerSideProps({params}: {params: {id: string}}) {
+  const result = await getGameById(params.id)
 
   return {
-    game: result as GameData,
+    props: {
+      game: result,
+    },
   }
 }
 

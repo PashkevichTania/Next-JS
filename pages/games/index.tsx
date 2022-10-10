@@ -36,7 +36,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      games: result as GameDataBrief[],
+      games: result,
     },
   }
 }
