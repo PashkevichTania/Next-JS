@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { useResizeObserver } from "utils/customHooks"
 import styles from "styles/space.module.scss"
+import styles_home from "styles/home.module.scss"
 
 import space from "public/assets/space/space.jpg"
 import r1 from "public/assets/space/r1.png"
@@ -172,6 +173,14 @@ const HomeBG = ({ setLoaded }: { setLoaded: Dispatch<SetStateAction<boolean>> })
         {/*<div className={styles.c6}>*/}
         {/*  <Image src={c6} alt="space-comet" width={c6.width * offsetWidth} height={c6.height * offsetHeight} />*/}
         {/*</div>*/}
+      </div>
+      <div className={styles_home.go_button_container}>
+          <button className={styles_home.learn_more}>
+            <span className={styles_home.circle} aria-hidden="true">
+              <span className={styles_home.icon + ' ' + styles_home.arrow}></span>
+            </span>
+            <a className={styles_home.button_text} href="#home_main">Learn More</a>
+          </button>
       </div>
     </div>
   )
