@@ -1,3 +1,4 @@
+import Script from "next/dist/client/script"
 import Document, { Html, Head, Main, NextScript } from "next/document"
 
 export default class MyDocument extends Document {
@@ -24,6 +25,7 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+        <Script src="/node_modules/flowbite/dist/flowbite.js" />
         </body>
       </Html>
     )

@@ -1,7 +1,8 @@
 require("dotenv").config()
+const withTM = require('next-transpile-modules')(['react-icons']);
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig =  withTM({
   reactStrictMode: true,
   swcMinify: true,
   env: {
@@ -27,6 +28,9 @@ const nextConfig = {
       },
     ]
   },
+  devIndicators: {
+    buildActivityPosition: 'bottom-right',
+  },
   //FIXME
   // async rewrites() {
   //   return [
@@ -36,6 +40,6 @@ const nextConfig = {
   //     },
   //   ]
   // },
-}
+})
 
 module.exports = nextConfig
