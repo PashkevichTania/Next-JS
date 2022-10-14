@@ -2,6 +2,7 @@ import { AceBase, AceBaseLocalSettings } from "acebase"
 import { getJSON } from "./apiUtils"
 import { GameData, GameDataBrief } from "utils/intefaces"
 import { FiltersState } from "../RTK/filtersSlice"
+import games from "../pages/games"
 
 const DB_NAME = "GamesLib"
 const REF = "games"
@@ -85,12 +86,16 @@ export const filterGamesData = async ({title, ratingUsers, ratingCritics, releas
   if (title) snapshotsArray = snapshotsArray.filter("name", "like", title + "*")
   if (ratingCritics) snapshotsArray = snapshotsArray.filter("ratingCritics", ">=", ratingCritics)
   if (ratingUsers) snapshotsArray = snapshotsArray.filter("ratingUsers", ">=", ratingUsers)
-  if (releaseDate) snapshotsArray = snapshotsArray.filter('releaseDate', '>', releaseDate)
   if (sort) snapshotsArray = snapshotsArray.sort('ratingCritics', false)
 
   const result = await snapshotsArray.get()
+  let values: GameData[] = result.getValues()
 
-  return result.getValues().map((game) => {
+  if (releaseDate) {
+    values = values.filter(game => new Date(game.releaseDate) >= new Date(releaseDate))
+  }
+
+    return values.map((game) => {
     return {
       id: game.id,
       name: game.name,
