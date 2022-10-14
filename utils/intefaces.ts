@@ -6,7 +6,7 @@ export interface GameData {
   platforms: string[]
   genres: string[]
   description: string
-  releaseDate: string
+  releaseDate: string | Date
   ratingCritics: number
   ratingUsers: number
   ratingAge: string

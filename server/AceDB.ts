@@ -1,6 +1,7 @@
 import { AceBase, AceBaseLocalSettings } from "acebase"
 import { getJSON } from "./apiUtils"
 import { GameData, GameDataBrief } from "utils/intefaces"
+import { FiltersState } from "../RTK/filtersSlice"
 
 const DB_NAME = "GamesLib"
 const REF = "games"
@@ -8,10 +9,12 @@ const REF = "games"
 const options: AceBaseLocalSettings = { logLevel: "error", storage: { path: "." } }
 const db = new AceBase(DB_NAME, options) // Creates or opens a database with name "GamesLib"
 
-const populateDB = async () => {
+const prepareDB = async () => {
   await db.ready()
   const snapshot = await db.ref(REF).get()
   if (snapshot.exists()) return
+
+  console.debug("DB DOESNT EXISTS")
 
   const data = await getJSON()
   let games: any = {}
@@ -27,7 +30,7 @@ const populateDB = async () => {
     platforms: "string[]",
     genres: "string[]",
     description: "string",
-    releaseDate: "string",
+    releaseDate: "Date",
     ratingCritics: "number",
     ratingUsers: "number",
     ratingAge: "string",
@@ -37,22 +40,22 @@ const populateDB = async () => {
   })
 }
 
-populateDB()
+prepareDB()
 
 export const getGameData = async (): Promise<GameData[]> => {
-  await populateDB()
+  await prepareDB()
   const dataSnapshot = await db.ref(REF).get()
   return Object.values(dataSnapshot.val())
 }
 
 export const getGameById = async (id: string): Promise<GameData> => {
-  await populateDB()
+  await prepareDB()
   const snapshot = await db.ref(`${REF}/${id}`).get()
   return snapshot.val()
 }
 
 export const getGameDataBrief = async (ids?: string[]): Promise<GameDataBrief[]> => {
-  await populateDB()
+  await prepareDB()
   let result: GameData[] = []
   if (ids) {
     const snapshotsArray = await db.query(REF).filter("id", "in", ids).get()
@@ -63,6 +66,31 @@ export const getGameDataBrief = async (ids?: string[]): Promise<GameDataBrief[]>
   }
 
   return result.map((game) => {
+    return {
+      id: game.id,
+      name: game.name,
+      cover: game.cover,
+      rating: game.ratingCritics,
+      ratingAge: game.ratingAge,
+    }
+  })
+}
+
+export type FilterProps = Partial<FiltersState>
+
+export const filterGamesData = async ({title, ratingUsers, ratingCritics, releaseDate, sort}: FilterProps): Promise<GameDataBrief[]> => {
+  await prepareDB()
+  let snapshotsArray = await db.query(REF)
+
+  if (title) snapshotsArray = snapshotsArray.filter("name", "like", title + "*")
+  if (ratingCritics) snapshotsArray = snapshotsArray.filter("ratingCritics", ">=", ratingCritics)
+  if (ratingUsers) snapshotsArray = snapshotsArray.filter("ratingUsers", ">=", ratingUsers)
+  if (releaseDate) snapshotsArray = snapshotsArray.filter('releaseDate', '>', releaseDate)
+  if (sort) snapshotsArray = snapshotsArray.sort('ratingCritics', false)
+
+  const result = await snapshotsArray.get()
+
+  return result.getValues().map((game) => {
     return {
       id: game.id,
       name: game.name,

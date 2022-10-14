@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next"
-import { getGameDataBrief } from "server/AceDB"
+import { filterGamesData, getGameDataBrief } from "server/AceDB"
 import { GameDataBrief } from "utils/intefaces"
 
 type DataResponse = {
@@ -21,9 +21,19 @@ export default async function handler(
   res: NextApiResponse<DataResponse | Message | Error>
 ) {
   try {
-    const { ids } = req.query
-    const result = await getGameDataBrief(ids ? (Array.isArray(ids) ? ids : [ids]) : undefined)
-    res.status(200).json({ result: result })
+    const { ids, filters } = req.query
+    if (ids) {
+      const result = await getGameDataBrief((Array.isArray(ids) ? ids : [ids]))
+      res.status(200).json({ result: result })
+    }
+    else if (filters && typeof filters === "string"){
+      const result = await filterGamesData(JSON.parse(filters))
+      res.status(200).json({ result: result })
+    }
+    else {
+      const result = await getGameDataBrief()
+      res.status(200).json({ result: result })
+    }
   } catch (err) {
     res.status(500).json({ error: "failed to load data", detail: JSON.stringify(err) })
   }

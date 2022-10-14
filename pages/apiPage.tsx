@@ -17,7 +17,7 @@ const API = () => {
       ids: { value: string }
     }
     const q = idsArrayToQuery(JSON.parse(target.ids.value))
-    console.log(q)
+
     router.push(`api/games/brief?${q}`)
   }
 

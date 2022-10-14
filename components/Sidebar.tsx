@@ -1,14 +1,16 @@
 import { Button, Checkbox, Label, Sidebar, TextInput } from "flowbite-react"
 import { AiOutlineClear, BiSearchAlt, HiArrowSmLeft, HiArrowSmRight, HiMenu } from "react-icons/all"
 import { useSidebar } from "utils/customHooks"
+import { useRef } from "react"
 
 function SidebarMenu() {
+  const ref = useRef(null)
   const {
     open,
     setOpen,
     handleSubmit,
     clearFilters,
-  } = useSidebar()
+  } = useSidebar(ref.current)
 
   return (
     <div
@@ -21,7 +23,7 @@ function SidebarMenu() {
             {open ? <HiArrowSmLeft className="w-8 h-8" /> : <HiArrowSmRight className="w-8 h-8" />}
           </button>
         </div>
-        <form className={`${open ? "block" : "hidden"} w-fit`} onSubmit={handleSubmit}>
+        <form className={`${open ? "block" : "hidden"} w-fit`} onSubmit={handleSubmit} ref={ref}>
           <Sidebar aria-label="Sidebar with multi-level dropdown example">
             <h2 className="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Filter Games</h2>
             <div className="flex flex-col gap-4 pb-5 border-solid border-b border-gray-200 dark:border-gray-700">
@@ -42,15 +44,28 @@ function SidebarMenu() {
                 <div className="mb-2 block">
                   <Label
                     htmlFor="rating"
-                    value="Game rating more than:"
+                    value="Game user's rating more than:"
                   />
                 </div>
                 <TextInput
-                  id="rating"
+                  id="ratingUsers"
                   type="number"
                   placeholder="9.1"
                 />
               </div>
+              <div>
+              <div className="mb-2 block">
+                <Label
+                  htmlFor="rating"
+                  value="Game critic's rating more than:"
+                />
+              </div>
+              <TextInput
+                id="ratingCritics"
+                type="number"
+                placeholder="69"
+              />
+            </div>
               <div className="relative">
                 <Label
                   htmlFor="datepicker"

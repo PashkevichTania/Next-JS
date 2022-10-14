@@ -1,5 +1,6 @@
 import "../styles/globals.css"
 import type { AppProps } from "next/app"
+import wrapper from "../RTK/store";
 
 // https://nextjs.org/docs/advanced-features/custom-app
 
@@ -11,4 +12,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   )
 }
 
-export default MyApp
+export default wrapper.withRedux(MyApp)
