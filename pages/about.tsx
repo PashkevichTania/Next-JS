@@ -1,5 +1,6 @@
 import { MainLayout } from "components/MainLayout"
 import stylesMain from "src/styles/main.module.scss"
+import Link from "next/link"
 
 const About = () => {
   return (
@@ -55,12 +56,14 @@ const About = () => {
               </p>
               <p>
                 There is also an API that can be accessed by /api url, check quick docs here:{" "}
-                <a
-                  href="/apiPage"
-                  className="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline"
-                >
-                  API
-                </a>
+                <Link href="/apiPage">
+                  <a
+
+                    className="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline"
+                  >
+                    API
+                  </a>
+                </Link>
               </p>
             </div>
           </div>
