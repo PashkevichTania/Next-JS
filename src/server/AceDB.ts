@@ -1,8 +1,7 @@
 import { AceBase, AceBaseLocalSettings } from "acebase"
 import { getJSON } from "./apiUtils"
-import { GameData, GameDataBrief } from "utils/intefaces"
-import { FiltersState } from "../RTK/filtersSlice"
-import games from "../pages/games"
+import { GameData, GameDataBrief } from "src/utils/intefaces"
+import { FiltersState } from "src/RTK/filtersSlice"
 
 const DB_NAME = "GamesLib"
 const REF = "games"

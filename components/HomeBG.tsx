@@ -1,7 +1,10 @@
 import Image from "next/image"
-import { useResizeObserver } from "utils/customHooks"
-import styles from "styles/space.module.scss"
-import styles_home from "styles/home.module.scss"
+
+import { Dispatch, SetStateAction } from "react"
+import useResizeObserver from "src/hooks/useResizeObserver"
+
+import styles from "src/styles/space.module.scss"
+import styles_home from "src/styles/home.module.scss"
 
 import space from "public/assets/space/space.jpg"
 import r1 from "public/assets/space/r1.png"
@@ -20,7 +23,6 @@ import l4 from "public/assets/space/l4.png"
 import c1 from "public/assets/space/c1.png"
 import c2 from "public/assets/space/c2.png"
 import c3 from "public/assets/space/c3.png"
-import { Dispatch, SetStateAction } from "react"
 
 // import c4 from "public/assets/space/c4.png"
 // import c5 from "public/assets/space/c5.png"

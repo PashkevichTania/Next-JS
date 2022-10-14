@@ -8,12 +8,12 @@ import { MainLayout } from "components/MainLayout"
 import { GameCard } from "components/GameCard"
 import Loader from "components/Loader"
 
-import { CONST } from "utils/constants"
-import { getGameDataBrief } from "server/AceDB"
-import { GameDataBrief } from "utils/intefaces"
+import { CONST } from "src/utils/constants"
+import { getGameDataBrief } from "src/server/AceDB"
+import { GameDataBrief } from "src/utils/intefaces"
 
-import stylesMain from "styles/main.module.scss"
-import styles from "styles/home.module.scss"
+import stylesMain from "src/styles/main.module.scss"
+import styles from "src/styles/home.module.scss"
 
 import controller from "public/assets/ps4controller.png"
 import planet from "public/assets/glass_planet.png"

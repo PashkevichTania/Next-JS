@@ -1,8 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import styles from "styles/main.module.scss"
-import { CONST } from "utils/constants"
+import styles from "src/styles/main.module.scss"
+import { CONST } from "src/utils/constants"
 
 export function Header() {
   const router = useRouter()

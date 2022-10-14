@@ -1,5 +1,5 @@
 import { MainLayout } from "components/MainLayout"
-import stylesMain from "styles/main.module.scss"
+import stylesMain from "src/styles/main.module.scss"
 
 const About = () => {
   return (

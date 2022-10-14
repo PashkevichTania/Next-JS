@@ -1,7 +1,7 @@
 import path from "path"
 import fsPromises from "fs/promises"
-import { GameData, GameDataBrief } from "utils/intefaces"
-import { FiltersState } from "../RTK/filtersSlice"
+import { GameData, GameDataBrief } from "src/utils/intefaces"
+import { FiltersState } from "src/RTK/filtersSlice"
 
 export type MOCK_BD_DATA = {
   games: GameData[]

@@ -1,10 +1,10 @@
 import Image from "next/future/image"
 import { MainLayout } from "components/MainLayout"
-import { GameData } from "utils/intefaces"
-import { getRatingColor, getRatingData } from "utils/func"
-import stylesMain from "styles/main.module.scss"
-import FormatSlash from "../../components/FormatSlash"
-import { getGameById } from "../../server/AceDB"
+import { FormatSlash } from "components/FormatSlash"
+import { GameData } from "src/utils/intefaces"
+import { getRatingColor, getRatingData } from "src/utils/func"
+import { getGameById } from "src/server/AceDB"
+import stylesMain from "src/styles/main.module.scss"
 
 interface GamePageProps {
   game: GameData

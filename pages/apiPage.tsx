@@ -1,6 +1,6 @@
 import React from "react"
 import { useRouter } from "next/router"
-import { idsArrayToQuery } from "server/apiUtils"
+import { idsArrayToQuery } from "src/server/apiUtils"
 
 const API = () => {
   const router = useRouter()

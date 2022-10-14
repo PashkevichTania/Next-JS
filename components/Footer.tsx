@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { CONST } from "utils/constants"
+import { CONST } from "src/utils/constants"
 import { BsInstagram, BsTwitter, BsGithub, FaVk } from "react-icons/all"
 import { Footer as FooterFB } from "flowbite-react"
 

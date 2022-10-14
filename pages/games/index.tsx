@@ -1,8 +1,8 @@
 import { MainLayout } from "components/MainLayout"
-import { getGameDataBrief } from "server/AceDB"
-import { GameDataBrief } from "utils/intefaces"
+import { getGameDataBrief } from "src/server/AceDB"
+import { GameDataBrief } from "src/utils/intefaces"
 import Sidebar from "components/Sidebar"
-import { GamesLayout } from "../../components/GamesLayout"
+import { GamesLayout } from "components/GamesLayout"
 
 interface GamesPageProps {
   games: GameDataBrief[]

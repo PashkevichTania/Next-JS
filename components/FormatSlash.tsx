@@ -8,8 +8,7 @@ const styles = {
   borderRadius: "3px",
 }
 
-const FormatSlash = ({ className }: { className?: string }) => {
+export const FormatSlash = ({ className }: { className?: string }) => {
   return <i className={className} style={styles}></i>
 }
 
-export default FormatSlash
