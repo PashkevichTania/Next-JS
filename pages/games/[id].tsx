@@ -5,12 +5,14 @@ import { GameData } from "src/utils/intefaces"
 import { getRatingColor, getRatingData } from "src/utils/func"
 import { getGameById } from "src/server/AceDB"
 import stylesMain from "src/styles/main.module.scss"
+import Error404 from "pages/404"
 
 interface GamePageProps {
   game: GameData
 }
 
 const Game = ({ game }: GamePageProps) => {
+  if (!game) return <Error404 />
   const { img: ageRatingImg, tooltip: ageRatingTooltip } = getRatingData(game.ratingAge)
 
   return (
