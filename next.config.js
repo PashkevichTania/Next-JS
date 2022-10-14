@@ -13,7 +13,6 @@ const nextConfig = withTM({
   images: {
     domains: ["127.0.0.1:80"],
   },
-  webpack5: true,
   webpack: (config) => {
     config.resolve.fallback = { fs: false }
 
