@@ -1,28 +1,31 @@
-import {createSlice} from "@reduxjs/toolkit";
-import type { PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit"
+import type { PayloadAction } from "@reduxjs/toolkit"
 
 export interface FiltersState {
-  title: string,
-  ratingCritics: number,
-  ratingUsers: number,
-  releaseDate: Date | null,
-  sort: boolean,
+  title: string
+  ratingCritics: number
+  ratingUsers: number
+  releaseDate: Date | null
+  sort: boolean
 }
 
 const initialState: FiltersState = {
-  title: '',
+  title: "",
   ratingCritics: 0,
   ratingUsers: 0,
   releaseDate: null,
   sort: false,
-};
+}
 
 export const filtersSlice = createSlice({
-  name: 'filters',
+  name: "filters",
   initialState,
   reducers: {
-    set: (state, action: PayloadAction<FiltersState>) =>  ({...action.payload}),
-    update: (state, action: PayloadAction<Partial<FiltersState>>) => ({...state, ...action.payload}),
+    set: (state, action: PayloadAction<FiltersState>) => ({ ...action.payload }),
+    update: (state, action: PayloadAction<Partial<FiltersState>>) => ({
+      ...state,
+      ...action.payload,
+    }),
     clear: () => initialState,
   },
 })

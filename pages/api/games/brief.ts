@@ -23,14 +23,12 @@ export default async function handler(
   try {
     const { ids, filters } = req.query
     if (ids) {
-      const result = await getGameDataBrief((Array.isArray(ids) ? ids : [ids]))
+      const result = await getGameDataBrief(Array.isArray(ids) ? ids : [ids])
       res.status(200).json({ result: result })
-    }
-    else if (filters && typeof filters === "string"){
+    } else if (filters && typeof filters === "string") {
       const result = await filterGamesData(JSON.parse(filters))
       res.status(200).json({ result: result })
-    }
-    else {
+    } else {
       const result = await getGameDataBrief()
       res.status(200).json({ result: result })
     }

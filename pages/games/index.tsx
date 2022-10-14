@@ -9,14 +9,13 @@ interface GamesPageProps {
 }
 
 const Games = ({ games: serverGames }: GamesPageProps) => {
-
   return (
     <MainLayout title={"Games Page"}>
       <div className="bg-white dark:bg-gray-800/50 h-[100%] relative flex flex-row">
         <div className="sticky left-0 top-0 z-20 transition-all">
           <Sidebar />
         </div>
-        <GamesLayout  serverGames={serverGames}/>
+        <GamesLayout serverGames={serverGames} />
       </div>
     </MainLayout>
   )

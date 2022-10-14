@@ -115,7 +115,7 @@ const Game = ({ game }: GamePageProps) => {
 }
 
 // executed during request
-export async function getServerSideProps({params}: {params: {id: string}}) {
+export async function getServerSideProps({ params }: { params: { id: string } }) {
   const result = await getGameById(params.id)
 
   return {

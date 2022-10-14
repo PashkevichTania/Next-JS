@@ -1,4 +1,4 @@
-@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65,0,.076,1)) {
+@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65, 0, 0.076, 1)) {
   transition: $property $duration $ease;
 }
 
@@ -17,7 +17,8 @@ $dark: #070f4d;
 
   * {
     box-sizing: border-box;
-    &::before, &::after {
+    &::before,
+    &::after {
       box-sizing: border-box;
     }
   }
@@ -38,7 +39,7 @@ $dark: #070f4d;
       width: 12rem;
       height: auto;
       .circle {
-        @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+        @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
         position: relative;
         display: block;
         margin: 0;
@@ -47,21 +48,21 @@ $dark: #070f4d;
         background: $dark;
         border-radius: 1.625rem;
         .icon {
-          @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+          @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
           position: absolute;
           top: 0;
           bottom: 0;
           margin: auto;
           background: $light;
           &.arrow {
-            @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+            @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
             left: 0.625rem;
             width: 1.125rem;
             height: 0.125rem;
             background: none;
             &::before {
               position: absolute;
-              content: '';
+              content: "";
               top: -0.25rem;
               right: 0.0625rem;
               width: 0.625rem;
@@ -74,7 +75,7 @@ $dark: #070f4d;
         }
       }
       .button_text {
-        @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+        @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));
         position: absolute;
         top: 0;
         left: 0;
@@ -104,7 +105,6 @@ $dark: #070f4d;
       }
     }
   }
-
 }
 
 .controller {

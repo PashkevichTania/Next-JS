@@ -25,7 +25,7 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-        <Script src="/node_modules/flowbite/dist/flowbite.js" />
+          <Script src="/node_modules/flowbite/dist/flowbite.js" />
         </body>
       </Html>
     )

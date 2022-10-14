@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react"
 import { filtersActions } from "RTK/filtersSlice"
 import { useDispatch, useSelector } from "react-redux"
-import { filtersSelector } from "../RTK/selectors"
+import { filtersSelector } from "RTK/selectors"
 import { GameDataBrief } from "./intefaces"
-import { API } from "../server/apiUtils"
+import { API } from "server/apiUtils"
 
 export function useResizeObserver() {
   const [size, setSize] = useState({
@@ -18,19 +18,18 @@ export function useResizeObserver() {
           height: container.contentRect.height,
         })
       }),
-    [],
+    []
   )
   const measuredRef = useCallback(
     (node: HTMLDivElement | null) => {
       if (node) resizeObserver.observe(node)
       else resizeObserver.disconnect()
     },
-    [resizeObserver],
+    [resizeObserver]
   )
 
   return { size, measuredRef }
 }
-
 
 export const useSidebar = (ref: HTMLFormElement | null) => {
   const [open, setOpen] = useState(false)
@@ -70,17 +69,15 @@ export const useSidebar = (ref: HTMLFormElement | null) => {
   }
 }
 
-
 export const useGamesPage = (serverGames: GameDataBrief[]) => {
   const [games, setGames] = useState(serverGames)
   const filtersState = useSelector(filtersSelector)
-  console.debug("rerender")
+
   useEffect(() => {
     API.fetchFilteredGames(filtersState).then((result) => {
       setGames(result)
     })
   }, [filtersState])
-
 
   return {
     games,

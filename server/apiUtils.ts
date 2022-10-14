@@ -20,9 +20,9 @@ export const idsArrayToQuery = (array: string[]) => {
 }
 
 export const API = {
-  fetchFilteredGames: async (filters: Partial<FiltersState>):Promise<GameDataBrief[]> => {
-   const response = await fetch(`api/games/brief?filters=${JSON.stringify(filters)}`)
+  fetchFilteredGames: async (filters: Partial<FiltersState>): Promise<GameDataBrief[]> => {
+    const response = await fetch(`api/games/brief?filters=${JSON.stringify(filters)}`)
     const result = await response.json()
     return result.result
-  }
+  },
 }

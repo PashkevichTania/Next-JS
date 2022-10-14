@@ -175,12 +175,14 @@ const HomeBG = ({ setLoaded }: { setLoaded: Dispatch<SetStateAction<boolean>> })
         {/*</div>*/}
       </div>
       <div className={styles_home.go_button_container}>
-          <button className={styles_home.learn_more}>
-            <span className={styles_home.circle} aria-hidden="true">
-              <span className={styles_home.icon + ' ' + styles_home.arrow}></span>
-            </span>
-            <a className={styles_home.button_text} href="#home_main">Learn More</a>
-          </button>
+        <button className={styles_home.learn_more}>
+          <span className={styles_home.circle} aria-hidden="true">
+            <span className={styles_home.icon + " " + styles_home.arrow}></span>
+          </span>
+          <a className={styles_home.button_text} href="#home_main">
+            Learn More
+          </a>
+        </button>
       </div>
     </div>
   )

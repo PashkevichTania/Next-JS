@@ -1,6 +1,6 @@
 import "../styles/globals.css"
 import type { AppProps } from "next/app"
-import wrapper from "../RTK/store";
+import wrapper from "../RTK/store"
 
 // https://nextjs.org/docs/advanced-features/custom-app
 

@@ -79,23 +79,29 @@ export const getGameDataBrief = async (ids?: string[]): Promise<GameDataBrief[]>
 
 export type FilterProps = Partial<FiltersState>
 
-export const filterGamesData = async ({title, ratingUsers, ratingCritics, releaseDate, sort}: FilterProps): Promise<GameDataBrief[]> => {
+export const filterGamesData = async ({
+  title,
+  ratingUsers,
+  ratingCritics,
+  releaseDate,
+  sort,
+}: FilterProps): Promise<GameDataBrief[]> => {
   await prepareDB()
   let snapshotsArray = await db.query(REF)
 
   if (title) snapshotsArray = snapshotsArray.filter("name", "like", title + "*")
   if (ratingCritics) snapshotsArray = snapshotsArray.filter("ratingCritics", ">=", ratingCritics)
   if (ratingUsers) snapshotsArray = snapshotsArray.filter("ratingUsers", ">=", ratingUsers)
-  if (sort) snapshotsArray = snapshotsArray.sort('ratingCritics', false)
+  if (sort) snapshotsArray = snapshotsArray.sort("ratingCritics", false)
 
   const result = await snapshotsArray.get()
   let values: GameData[] = result.getValues()
 
   if (releaseDate) {
-    values = values.filter(game => new Date(game.releaseDate) >= new Date(releaseDate))
+    values = values.filter((game) => new Date(game.releaseDate) >= new Date(releaseDate))
   }
 
-    return values.map((game) => {
+  return values.map((game) => {
     return {
       id: game.id,
       name: game.name,
