@@ -21,11 +21,11 @@ export const GamesLayout = ({ serverGames }: GamesPageProps) => {
     <div className="p-20 h-[100%] flex flex-wrap justify-between gap-6">
       {games.map((game) => (
         <GameCard
-          key={game.id}
+          key={game._id}
           cover={game.cover}
-          id={game.id}
-          name={game.name}
-          rating={game.rating}
+          id={game._id}
+          title={game.title}
+          rating={game.ratingCritics}
           ratingAge={game.ratingAge}
         />
       ))}

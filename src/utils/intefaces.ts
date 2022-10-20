@@ -1,6 +1,7 @@
 export interface GameData {
-  id: string
-  name: string
+  _id: string
+  key: string
+  title: string
   developers: string[]
   publisher: string
   platforms: string[]
@@ -15,10 +16,4 @@ export interface GameData {
   bg: string
 }
 
-export type GameDataBrief = {
-  id: string
-  name: string
-  cover: string
-  rating: number
-  ratingAge: string
-}
+export type GameDataBrief = Pick<GameData, "_id" | "key" | "title" | "cover"  | "ratingCritics" | "ratingAge">

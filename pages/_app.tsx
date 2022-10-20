@@ -1,6 +1,6 @@
 import "src/styles/globals.css"
 import type { AppProps } from "next/app"
-import wrapper from "src/RTK/store"
+import wrapper from "src/store/store"
 import { Provider } from "react-redux";
 // https://nextjs.org/docs/advanced-features/custom-app
 

@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
-    "acebase": "^1.24.5",
     "dotenv": "^16.0.2",
     "flowbite": "^1.5.3",
     "flowbite-react": "^0.2.0",
+    "mongoose": "^6.6.5",
     "next": "12.3.0",
     "next-redux-wrapper": "^8.0.0",
     "next-transpile-modules": "^9.1.0",

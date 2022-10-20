@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next"
-import { filterGamesData, getGameDataBrief } from "src/server/AceDB"
 import { GameDataBrief } from "src/utils/intefaces"
+import { getFilteredGamesData, getGameDataBrief } from "src/server/databaseQuery"
 
 type DataResponse = {
   result: GameDataBrief[]
@@ -26,7 +26,7 @@ export default async function handler(
       const result = await getGameDataBrief(Array.isArray(ids) ? ids : [ids])
       res.status(200).json({ result: result })
     } else if (filters && typeof filters === "string") {
-      const result = await filterGamesData(JSON.parse(filters))
+      const result = await getFilteredGamesData(JSON.parse(filters))
       res.status(200).json({ result: result })
     } else {
       const result = await getGameDataBrief()

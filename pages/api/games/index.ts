@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next"
-import { getGameData } from "src/server/AceDB"
 import { GameData } from "src/utils/intefaces"
+import { getGameData } from "src/server/databaseQuery"
 
 type DataResponse = {
   result: GameData[]
@@ -21,26 +21,20 @@ export default async function handler(
   res: NextApiResponse<DataResponse | Message | Error>
 ) {
   try {
-    const result = await getGameData()
     switch (req.method) {
       case "GET":
+        const result = await getGameData()
         res.status(200).json({ result })
         break
       //todo
-      case "POST":
-        // eslint-disable-next-line no-case-declarations
-        const { tags }: { tags: string[] } = req.body
-        if (!tags?.length) res.status(400).json({ message: `wrong request body; ${req.body}` })
-        // eslint-disable-next-line no-case-declarations
-        const newResult = result.filter((game: { tags: string[] }) =>
-          game.tags.some((value) => tags.includes(value))
-        )
-        res.status(200).json({ result: newResult })
-        break
+      // case "POST":
+      //   res.status(200).json({ result: newResult })
+      //   break
       default:
-        res.status(400).json({ message: `unsupported method ${req.method}` })
+        res.setHeader('Allow', ['GET', 'POST'])
+        res.status(405).end(`Method ${req.method} is not supported`)
     }
   } catch (err) {
-    res.status(500).json({ error: "failed to load data", detail: JSON.stringify(err) })
+    res.status(500).json({ error: "Failed to load data", detail: JSON.stringify(err) })
   }
 }

@@ -9,8 +9,8 @@ import { GameCard } from "components/GameCard"
 import Loader from "components/Loader"
 
 import { CONST } from "src/utils/constants"
-import { getGameDataBrief } from "src/server/AceDB"
 import { GameDataBrief } from "src/utils/intefaces"
+import { getGamesByKeys } from "src/server/databaseQuery"
 
 import stylesMain from "src/styles/main.module.scss"
 import styles from "src/styles/home.module.scss"
@@ -124,11 +124,11 @@ const Home = ({ games }: HomePageProps) => {
                 <Carousel>
                   {games.map((game) => (
                     <GameCard
-                      key={game.id}
+                      key={game._id}
                       cover={game.cover}
-                      id={game.id}
-                      name={game.name}
-                      rating={game.rating}
+                      id={game._id}
+                      title={game.title}
+                      rating={game.ratingCritics}
                       ratingAge={game.ratingAge}
                     />
                   ))}
@@ -160,7 +160,10 @@ const Home = ({ games }: HomePageProps) => {
 
 export async function getStaticProps() {
   //"You should not fetch an API route from getStaticProps..."
-  const result = await getGameDataBrief(gamesToPreview)
+  const result = await getGamesByKeys(gamesToPreview)
+  // next doesn't like the `_id` property of mongoDB + non-string
+  result.forEach(item => item._id = item._id.toString())
+  console.log(result)
 
   return {
     props: { games: result as GameDataBrief[] },

@@ -5,20 +5,20 @@ import { getRatingData } from "src/utils/func"
 
 interface CardProps {
   id: string
-  name: string
+  title: string
   cover: string
   rating: number
   ratingAge: string
 }
 
-export function GameCard({ rating, ratingAge, cover, name, id }: CardProps) {
+export function GameCard({ rating, ratingAge, cover, title, id }: CardProps) {
   const { img, tooltip } = getRatingData(ratingAge)
   return (
     <div className="max-w-sm w-[350px] h-[520px] pb-5 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 overflow-hidden">
       <Link href={`/games/[id]`} as={`/games/${id}`}>
         <a className="flex flex-col items-center">
           <Image
-            alt={`game cover for ${name}`}
+            alt={`game cover for ${title}`}
             src={`/assets/games/covers/${cover}`}
             width={350}
             height={350}
@@ -30,7 +30,7 @@ export function GameCard({ rating, ratingAge, cover, name, id }: CardProps) {
         <Link href={`/games/[id]`} as={`/games/${id}`}>
           <a className="flex flex-col items-center">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:underline">
-              {name}
+              {title}
             </h5>
           </a>
         </Link>

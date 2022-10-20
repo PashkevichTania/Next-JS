@@ -1,10 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import { getGameById } from "src/server/AceDB"
+import { getGameDataById } from "src/server/databaseQuery"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const id = req.query.id
   if (typeof req.query.id === "string") {
-    const gameData = await getGameById(id as string)
+    const gameData = await getGameDataById(id as string)
     res.status(200).json({ result: gameData })
   } else res.status(400).json({ message: "no id" })
 }

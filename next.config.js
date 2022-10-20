@@ -5,10 +5,9 @@ const withTM = require("next-transpile-modules")(["react-icons"])
 const nextConfig = withTM({
   reactStrictMode: true,
   swcMinify: true,
-  // env: {
-  //   BASE_URL: process.env.BASE_URL,
-  //   API_URL: process.env.API_URL,
-  // },
+  env: {
+    DB_PASSWORD:process.env.DB_PASSWORD,
+  },
   images: {
     domains: ["127.0.0.1:80"],
   },

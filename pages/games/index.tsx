@@ -1,8 +1,8 @@
 import { MainLayout } from "components/MainLayout"
-import { getGameDataBrief } from "src/server/AceDB"
 import { GameDataBrief } from "src/utils/intefaces"
 import Sidebar from "components/Sidebar"
 import { GamesLayout } from "components/GamesLayout"
+import { getGameDataBrief } from "src/server/databaseQuery"
 
 interface GamesPageProps {
   games: GameDataBrief[]
@@ -27,6 +27,9 @@ export async function getStaticProps() {
   // const response = await fetch(`${process.env.API_URL}games/brief`)
   // const { result } = await response.json()
   const result = await getGameDataBrief()
+  result.forEach(item => item._id = item._id.toString())
+  console.log("result")
+  console.log(result)
 
   return {
     props: {

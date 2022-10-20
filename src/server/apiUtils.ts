@@ -1,14 +1,14 @@
 import path from "path"
 import fsPromises from "fs/promises"
 import { GameData, GameDataBrief } from "src/utils/intefaces"
-import { FiltersState } from "src/RTK/filtersSlice"
+import { FiltersState } from "src/store/filtersSlice"
 
 export type MOCK_BD_DATA = {
   games: GameData[]
 }
 
 export const getJSON: () => Promise<MOCK_BD_DATA> = async () => {
-  const filePath = path.join(process.cwd(), "server/mock_db.json")
+  const filePath = path.join(process.cwd(), "src/server/mock_db.json")
   const jsonData = await fsPromises.readFile(filePath, "utf-8")
   return JSON.parse(jsonData)
 }

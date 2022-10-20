@@ -3,9 +3,9 @@ import { MainLayout } from "components/MainLayout"
 import { FormatSlash } from "components/FormatSlash"
 import { GameData } from "src/utils/intefaces"
 import { getRatingColor, getRatingData } from "src/utils/func"
-import { getGameById } from "src/server/AceDB"
 import stylesMain from "src/styles/main.module.scss"
 import Error404 from "pages/404"
+import { getGameDataById } from "src/server/databaseQuery"
 
 interface GamePageProps {
   game: GameData
@@ -16,11 +16,11 @@ const Game = ({ game }: GamePageProps) => {
   const { img: ageRatingImg, tooltip: ageRatingTooltip } = getRatingData(game.ratingAge)
 
   return (
-    <MainLayout title={game.name}>
+    <MainLayout title={game.title}>
       <div className="flex flex-col justify-center items-center h-[100%]">
         <div className="w-[100%] min-h-[calc(100vh_-_173px)] relative flex flex-col justify-center items-center pt-12 pb-12">
           <Image
-            alt={game.name}
+            alt={game.title}
             src={`/assets/games/bg/${game.bg}`}
             className="absolute left-0 top-0 max-w-[100%] h-auto object-cover z-20"
             fill
@@ -32,7 +32,7 @@ const Game = ({ game }: GamePageProps) => {
               <div className="pt-12 pb-12 pr-10 pl-10 text-lg">
                 <div className="grid grid-cols-2 mb-6">
                   <div>
-                    <h2 className="text-4xl font-extrabold mb-3">{game.name}</h2>
+                    <h2 className="text-4xl font-extrabold mb-3">{game.title}</h2>
                     <p>
                       <span className="font-bold">Developers: </span>
                       {game.developers.map((dev) => (
@@ -118,7 +118,8 @@ const Game = ({ game }: GamePageProps) => {
 
 // executed during request
 export async function getServerSideProps({ params }: { params: { id: string } }) {
-  const result = await getGameById(params.id)
+  const result = await getGameDataById(params.id)
+  result._id = result._id.toString()
 
   return {
     props: {

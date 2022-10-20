@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import { filtersSelector } from "src/RTK/selectors"
+import { filtersSelector } from "src/store/selectors"
 import { API } from "src/server/apiUtils"
 import { GameDataBrief } from "src/utils/intefaces"
 

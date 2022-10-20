@@ -1,8 +1,8 @@
 {
   "games": [
     {
-      "id": "i960g6",
-      "name": "The Last of Us Part I",
+      "key": "i960g6",
+      "title": "The Last of Us Part I",
       "developers": ["Naughty Dog"],
       "publisher": "Sony Interactive Entertainment",
       "platforms": ["PlayStation 5", "Windows"],
@@ -17,8 +17,8 @@
       "bg": "tlou.jpg"
     },
     {
-      "id": "a884nl",
-      "name": "The Last of Us Part II",
+      "key": "a884nl",
+      "title": "The Last of Us Part II",
       "developers": ["Naughty Dog"],
       "publisher": "Sony Interactive Entertainment",
       "platforms": ["PlayStation 4"],
@@ -33,8 +33,8 @@
       "bg": "tlou2.jpeg"
     },
     {
-      "id": "71r387",
-      "name": "Red Dead Redemption 2",
+      "key": "71r387",
+      "title": "Red Dead Redemption 2",
       "developers": ["Rockstar Studios"],
       "publisher": "Rockstar Games",
       "platforms": ["PlayStation 4", "Xbox One", "Windows", "Stadia"],
@@ -49,8 +49,8 @@
       "bg": "rdr2.jpg"
     },
     {
-      "id": "0h8lsf",
-      "name": "Grand Theft Auto V",
+      "key": "0h8lsf",
+      "title": "Grand Theft Auto V",
       "developers": ["Rockstar North"],
       "publisher": "Rockstar Games",
       "platforms": [
@@ -73,8 +73,8 @@
       "bg": "gta5.jpg"
     },
     {
-      "id": "r63vpd",
-      "name": "Disco Elysium: The Final Cut",
+      "key": "r63vpd",
+      "title": "Disco Elysium: The Final Cut",
       "developers": ["ZA/UM"],
       "publisher": "ZA/UM",
       "platforms": [
@@ -98,8 +98,8 @@
       "bg": "de.jpg"
     },
     {
-      "id": "84oy2d",
-      "name": "BioShock",
+      "key": "84oy2d",
+      "title": "BioShock",
       "developers": ["2K Boston", "2K Australia"],
       "publisher": "2K Games",
       "platforms": ["PlayStation 3", "Xbox 360", "Windows", "Mac OS X", "iOS"],
@@ -114,8 +114,8 @@
       "bg": "bioshock.jpg"
     },
     {
-      "id": "86dydx",
-      "name": "BioShock 2",
+      "key": "86dydx",
+      "title": "BioShock 2",
       "developers": ["2K Marin"],
       "publisher": "2K Games",
       "platforms": ["PlayStation 3", "Xbox 360", "Windows", "Mac OS X"],
@@ -130,8 +130,8 @@
       "bg": "bioshock2.jpg"
     },
     {
-      "id": "8swucl",
-      "name": "BioShock Infinite",
+      "key": "8swucl",
+      "title": "BioShock Infinite",
       "developers": ["Irrational Games"],
       "publisher": "2K Games",
       "platforms": ["PlayStation 3", "Xbox 360", "Windows", "Mac OS X", "Linux"],
@@ -146,8 +146,8 @@
       "bg": "bioshock_infinite.jpg"
     },
     {
-      "id": "mhn587",
-      "name": "Call of Duty 4: Modern Warfare",
+      "key": "mhn587",
+      "title": "Call of Duty 4: Modern Warfare",
       "developers": ["Infinity Ward"],
       "publisher": "Activision",
       "platforms": ["PlayStation 3", "Xbox 360", "Windows", "Mac OS X", "Wii"],
@@ -162,8 +162,8 @@
       "bg": "codmw.webp"
     },
     {
-      "id": "86syne",
-      "name": "The Elder Scrolls V: Skyrim",
+      "key": "86syne",
+      "title": "The Elder Scrolls V: Skyrim",
       "developers": ["Bethesda Game Studios"],
       "publisher": "Bethesda Softworks",
       "platforms": [
@@ -187,8 +187,8 @@
       "bg": "tes.jpg"
     },
     {
-      "id": "23cqhy",
-      "name": "What Remains of Edith Finch",
+      "key": "23cqhy",
+      "title": "What Remains of Edith Finch",
       "developers": ["Giant Sparrow"],
       "publisher": "Annapurna Interactive",
       "platforms": [
@@ -210,8 +210,8 @@
       "bg": "wroef.jpg"
     },
     {
-      "id": "a7p4sx",
-      "name": "Night in the Woods",
+      "key": "a7p4sx",
+      "title": "Night in the Woods",
       "developers": ["Secret Lab"],
       "publisher": "Infinite Fall",
       "platforms": [
@@ -235,8 +235,8 @@
       "bg": "nitw.jpg"
     },
     {
-      "id": "1zd1w4",
-      "name": "The Vanishing of Ethan Carter",
+      "key": "1zd1w4",
+      "title": "The Vanishing of Ethan Carter",
       "developers": ["The Astronauts"],
       "publisher": "The Astronauts",
       "platforms": ["PlayStation 4", "Xbox One", "Windows", "Nintendo Switch"],
@@ -251,8 +251,8 @@
       "bg": "tvoec.webp"
     },
     {
-      "id": "kmb9h8",
-      "name": "Firewatch",
+      "key": "kmb9h8",
+      "title": "Firewatch",
       "developers": ["Campo Santo"],
       "publisher": "Panic",
       "platforms": [
@@ -275,8 +275,8 @@
       "bg": "fw.webp"
     },
     {
-      "id": "ye17fr",
-      "name": "Everybody's Gone to the Rapture",
+      "key": "ye17fr",
+      "title": "Everybody's Gone to the Rapture",
       "developers": ["The Chinese Room"],
       "publisher": "Sony Computer Entertainment",
       "platforms": ["PlayStation 4", "Xbox One", "Windows"],
@@ -291,8 +291,8 @@
       "bg": "ebgtr.jpg"
     },
     {
-      "id": "1t02o3",
-      "name": "Life Is Strange",
+      "key": "1t02o3",
+      "title": "Life Is Strange",
       "developers": ["Dontnod Entertainment"],
       "publisher": "Square Enix",
       "platforms": [
@@ -318,8 +318,8 @@
       "bg": "lis.jpg"
     },
     {
-      "id": "kn15c7",
-      "name": "Fortnite",
+      "key": "kn15c7",
+      "title": "Fortnite",
       "developers": ["Epic Games"],
       "publisher": "Epic Games",
       "platforms": [
@@ -344,8 +344,8 @@
       "bg": "fortnite.jpg"
     },
     {
-      "id": "8uyj03",
-      "name": "Pathologic 2",
+      "key": "8uyj03",
+      "title": "Pathologic 2",
       "developers": ["Ice-Pick Lodge"],
       "publisher": "tinyBuild",
       "platforms": ["PlayStation 4", "Xbox One", "Windows"],
@@ -360,8 +360,8 @@
       "bg": "p2.jpeg"
     },
     {
-      "id": "45ec0g",
-      "name": "Cyberpunk 2077",
+      "key": "45ec0g",
+      "title": "Cyberpunk 2077",
       "developers": ["CD Projekt Red"],
       "publisher": "CD Projekt",
       "platforms": [
