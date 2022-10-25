@@ -3,6 +3,8 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import styles from "src/styles/main.module.scss"
 import { CONST } from "src/utils/constants"
+import { LoginMenu } from "./LoginMenu"
+import { ToastContainer } from "react-toastify"
 
 export function Header() {
   const router = useRouter()
@@ -24,7 +26,7 @@ export function Header() {
       <div className="relative flex flex-row justify-between content-center pl-10 pr-10">
         <div className="flex justify-start items-center">
           <div className="mr-5 h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-gray-800 dark:ring-white/10">
-            <Image src="/assets/icons/radiation.png" alt="icon" width={40} height={40} />
+            <LoginMenu component={<Image src="/assets/icons/radiation.png" alt="icon" width={40} height={40} />}/>
           </div>
           <h1 className="text-2xl font-extrabold mr-5 inline-block">
             <span className="text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-fuchsia-300">
@@ -33,7 +35,8 @@ export function Header() {
           </h1>
         </div>
         <nav className="pointer-events-auto hidden md:block">
-          <ul className="flex rounded-full bg-white/90 px-4 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-gray-800 dark:text-zinc-200 dark:ring-white/10">
+          <ul
+            className="flex rounded-full bg-white/90 px-4 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-gray-800 dark:text-zinc-200 dark:ring-white/10">
             <li>
               <Link href="/">
                 <a className={defaultStyles + " " + (router.pathname == "/" ? activeStyles : "")}>
@@ -87,7 +90,8 @@ export function Header() {
                 aria-hidden="true"
                 className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-teal-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-teal-600"
               >
-                <path d="M8 12.25A4.25 4.25 0 0 1 12.25 8v0a4.25 4.25 0 0 1 4.25 4.25v0a4.25 4.25 0 0 1-4.25 4.25v0A4.25 4.25 0 0 1 8 12.25v0Z" />
+                <path
+                  d="M8 12.25A4.25 4.25 0 0 1 12.25 8v0a4.25 4.25 0 0 1 4.25 4.25v0a4.25 4.25 0 0 1-4.25 4.25v0A4.25 4.25 0 0 1 8 12.25v0Z" />
                 <path
                   d="M12.25 3v1.5M21.5 12.25H20M18.791 18.791l-1.06-1.06M18.791 5.709l-1.06 1.06M12.25 20v1.5M4.5 12.25H3M6.77 6.77 5.709 5.709M6.77 17.73l-1.061 1.061"
                   fill="none"

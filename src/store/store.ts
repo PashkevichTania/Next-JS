@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit"
 import { createWrapper } from "next-redux-wrapper"
 import filtersReducer from "./filtersSlice"
+import authReducer from "./authSlice"
 
 const makeStore = () =>
   configureStore({
     reducer: {
-      [filtersReducer.name]: filtersReducer,
+      filters: filtersReducer,
+      auth: authReducer,
     },
     devTools: true,
   })

@@ -28,8 +28,6 @@ export async function getStaticProps() {
   // const { result } = await response.json()
   const result = await getGameDataBrief()
   result.forEach(item => item._id = item._id.toString())
-  console.log("result")
-  console.log(result)
 
   return {
     props: {

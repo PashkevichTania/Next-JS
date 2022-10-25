@@ -163,7 +163,6 @@ export async function getStaticProps() {
   const result = await getGamesByKeys(gamesToPreview)
   // next doesn't like the `_id` property of mongoDB + non-string
   result.forEach(item => item._id = item._id.toString())
-  console.log(result)
 
   return {
     props: { games: result as GameDataBrief[] },
