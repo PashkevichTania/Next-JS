@@ -14,19 +14,19 @@ function MyApp({ Component, ...rest }: AppProps) {
     <Provider store={store}>
       <div className="relative flex flex-col justify-between bg-white dark:bg-gray-800/50 text-black dark:text-white">
         <Component {...props.pageProps} />
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
       </div>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
     </Provider>
   )
 }
