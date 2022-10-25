@@ -35,14 +35,14 @@ export const getFilteredGamesData = async ({
   if (ratingUsers) filter.ratingUsers = {$gte: ratingUsers}
   if (ratingCritics) filter.ratingCritics = {$gte: ratingCritics}
   if (releaseDate) filter.releaseDate = {$gte: releaseDate}
-  console.log({
-    title,
-    ratingUsers,
-    ratingCritics,
-    releaseDate,
-    sort,
-  })
-  console.log(filter)
+  // console.log({
+  //   title,
+  //   ratingUsers,
+  //   ratingCritics,
+  //   releaseDate,
+  //   sort,
+  // })
+  // console.log(filter)
  return  await gamesModel.find(filter, null, sort ? {sort: {ratingCritics: 'asc'}} : null).select(briefSelect).lean()
 }
 

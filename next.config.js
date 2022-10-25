@@ -6,7 +6,8 @@ const nextConfig = withTM({
   reactStrictMode: true,
   swcMinify: true,
   env: {
-    DB_PASSWORD:process.env.DB_PASSWORD,
+    DB_PASSWORD: process.env.DB_PASSWORD,
+    DB_USER_NAME: process.env.DB_USER_NAME
   },
   images: {
     domains: ["127.0.0.1:80"],

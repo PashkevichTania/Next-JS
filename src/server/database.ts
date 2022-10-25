@@ -24,7 +24,7 @@ export const gameSchema = new Schema<GameData>({
 
 // mongoBD connection
 export const connectDB = async () => {
-  await connect(`mongodb+srv://admin:${process.env.DB_PASSWORD}@gamescluster.pzrpfkz.mongodb.net/?retryWrites=true&w=majority`)
+  await connect(`mongodb+srv://${process.env.DB_USER_NAME}:${process.env.DB_PASSWORD}@gamescluster.pzrpfkz.mongodb.net/?retryWrites=true&w=majority`)
   console.debug("DB connected")
 }
 
