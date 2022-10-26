@@ -1,6 +1,6 @@
 import path from "path"
 import fsPromises from "fs/promises"
-import { GameData, GameDataBrief } from "src/utils/intefaces"
+import { GameData, GameDataBrief, GameDataClient } from "src/utils/intefaces"
 import { FiltersState } from "src/store/filtersSlice"
 
 export type MOCK_BD_DATA = {
@@ -17,6 +17,23 @@ export const idsArrayToQuery = (array: string[]) => {
   const query = new URLSearchParams()
   array.forEach((v) => query.append("ids", v))
   return query
+}
+
+export const serializeModel = (data: GameData | GameDataBrief | GameData[] | GameDataBrief[]): GameDataClient | GameDataBrief | GameDataClient[] | GameDataBrief[] => {
+  if (Array.isArray(data)){
+    return data.map(game => {
+      return {
+        ...game,
+        _id: game._id.toString(),
+        releaseDate: "releaseDate" in game ? game.releaseDate.toLocaleDateString() : "",
+      }
+    })
+  }
+  return {
+    ...data,
+    _id: data._id.toString(),
+    releaseDate: "releaseDate" in data ? data.releaseDate.toLocaleDateString() : ''
+  }
 }
 
 export const API = {

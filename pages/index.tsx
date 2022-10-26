@@ -10,13 +10,14 @@ import Loader from "components/Loader"
 
 import { CONST } from "src/utils/constants"
 import { GameDataBrief } from "src/utils/intefaces"
-import { getGamesByKeys } from "src/server/databaseQuery"
+import { getGamesByKeys } from "src/server/databaseUtils"
 
 import stylesMain from "src/styles/main.module.scss"
 import styles from "src/styles/home.module.scss"
 
 import controller from "public/assets/ps4controller.png"
 import planet from "public/assets/glass_planet.png"
+import { serializeModel } from "src/server/apiUtils"
 
 const HomeBG = dynamic(() => import("components/HomeBG"), {
   ssr: false,
@@ -161,11 +162,10 @@ const Home = ({ games }: HomePageProps) => {
 export async function getStaticProps() {
   //"You should not fetch an API route from getStaticProps..."
   const result = await getGamesByKeys(gamesToPreview)
-  // next doesn't like the `_id` property of mongoDB + non-string
-  result.forEach(item => item._id = item._id.toString())
 
   return {
-    props: { games: result as GameDataBrief[] },
+    // next doesn't like the `_id` property of mongoDB and non-string properties
+    props: { games: serializeModel(result) },
   }
 }
 

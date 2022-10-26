@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next"
-import { getFilteredGamesData, getGameData, getGameDataBrief, getGamesByKeys } from "src/server/databaseQuery"
+import { getFilteredGamesData, getGameData, getGameDataBrief, getGamesByKeys } from "src/server/databaseUtils"
 import { gamesModel, connectDB } from "src/server/database"
 import { getJSON } from "src/server/apiUtils"
 
@@ -22,16 +22,33 @@ export default async function handler(
     let result = {}
     switch (req.method) {
       case "GET":
-        // connectDB().catch(error => console.error(error))
-        // const data = await getJSON()
-        //
-        // data.games.forEach(g => {
-        //   const c = new gamesModel(g)
-        //   c.save()
-        // })
-        result = await getFilteredGamesData({title: "the"})
+        connectDB().catch(error => console.error(error))
+        const data = await getJSON()
+
+        data.games.forEach(g => {
+          const f = {...g, releaseDate: new Date(g.releaseDate)}
+          const c = new gamesModel(g)
+          c.save()
+        })
+        result = await getGameDataBrief()
+        console.log(result)
         res.status(200).json(result)
         break
+      case "POST": {
+        const data = req.body
+        console.log(req.body)
+        res.status(200).json(data)
+      }
+      case "PUT": {
+        const data = req.body
+        console.log(req.body)
+        res.status(200).json(data)
+      }
+      case "DELETE": {
+        const data = req.body
+        console.log(req.body)
+        res.status(200).json(data)
+      }
       default:
         res.setHeader('Allow', ['GET'])
         res.status(405).end(`Method ${req.method} is not supported`)

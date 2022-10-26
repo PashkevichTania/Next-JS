@@ -46,9 +46,24 @@ export const getFilteredGamesData = async ({
  return  await gamesModel.find(filter, null, sort ? {sort: {ratingCritics: 'asc'}} : null).select(briefSelect).lean()
 }
 
-export const getGamesByKeys = async (keys: string[] = []) => {
+export const getGamesByKeys = async (keys: string[] = []): Promise<GameDataBrief[]> => {
   await connectDB()
   const filter = keys.length ? {key : {$in : keys }} : {}
   return await gamesModel.find(filter).select(briefSelect).lean()
 }
 
+export const addGame = async (game: Pick<GameData, "_id">) => {
+  await connectDB()
+  const newGame = new gamesModel(game)
+  newGame.save()
+}
+
+export const updateGame = async (id: string, game: Partial<GameData>) => {
+  await connectDB()
+  gamesModel.findByIdAndUpdate(id, game)
+}
+
+export const deleteGame = async (id: string) => {
+  await connectDB()
+  gamesModel.findByIdAndDelete(id)
+}

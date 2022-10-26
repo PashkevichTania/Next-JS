@@ -11,7 +11,7 @@ export const gameSchema = new Schema<GameData>({
   platforms: [String],
   genres: [String],
   description: String,
-  releaseDate: String,
+  releaseDate: Date,
   ratingCritics: Number,
   ratingUsers: Number,
   ratingAge: String,
