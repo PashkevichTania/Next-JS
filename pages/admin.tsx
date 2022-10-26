@@ -18,10 +18,10 @@ const Admin = ({ games: serverGames }: GamesPageProps) => {
           <Sidebar />
         </div>
         <div className="h-[100%] w-[100%] flex flex-col items-center pt-24 px-6 box-border">
-          <p>
+          <div>
             <h2 className="text-2xl font-bold pb-2">Admin page</h2>
             <span>(Games count: {serverGames.length})</span>
-          </p>
+          </div>
           <div className="w-[100%] h-[calc(100%_-_56px)] flex flex-row justify-evenly">
             <div className="h-[100%] w-[40%] pb-4">
               <p className="text-xl font-semibold pb-2 text-center">Edit games</p>
@@ -43,10 +43,6 @@ const Admin = ({ games: serverGames }: GamesPageProps) => {
 }
 
 export async function getStaticProps() {
-  //"You should not fetch an API route from getStaticProps..."
-  // const response = await fetch(`${process.env.API_URL}games/brief`)
-  // const { result } = await response.json()
-
   const result = await getGameDataBrief()
 
   return {

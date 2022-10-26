@@ -1,10 +1,12 @@
 import { Button, FileInput, Label, Select, Textarea, TextInput } from "flowbite-react"
 import { GENRES, PLATFORMS } from "src/utils/constants"
 import React from "react"
+import { generateKey } from "src/utils/func"
 
 export const GameForm = () => {
   const submitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault()
+
     const target = event.target as HTMLFormElement & {
       title: { value: string }
       developers: { value: string }
@@ -17,17 +19,25 @@ export const GameForm = () => {
       ratingUsers: { value: number }
       ratingAge: { value: string }
       tags: { value: string }
-      cover: { value: Blob }
-      bg: { value: Blob }
+      cover: { files: File[] }
+      bg: { files: File[] }
     }
     const values = {
+      key: generateKey(),
       title: target.title.value,
+      developers: target.developers.value.split(','),
+      publisher: target.publisher.value,
+      platform: target.platforms.value,
+      genres: target.genres.value,
+      description: target.description.value,
+      releaseDate: target.releaseDate.value,
       ratingUsers: +target.ratingUsers.value,
       ratingCritics: +target.ratingCritics.value,
-      releaseDate: target.datepicker.value,
-      sort: target.sort_rating.checked,
+      cover: target.cover.files[0],
+      bg: target.bg.files[0],
     }
     console.debug(event)
+    console.debug(values)
   }
   return (
     <div className="h-[100%] p-5 overflow-y-auto rounded-lg bg-white text-sm font-medium text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white">
@@ -86,7 +96,8 @@ export const GameForm = () => {
           required={true}
           multiple={true}
         >
-          {PLATFORMS.map((platform)=><option key={platform}>
+          {PLATFORMS.map((platform)=>
+            <option key={platform} value={platform}>
             {platform}
           </option>)}
         </Select>
@@ -103,7 +114,8 @@ export const GameForm = () => {
           required={true}
           multiple={true}
         >
-          {GENRES.map((genre)=><option key={genre}>
+          {GENRES.map((genre)=>
+            <option key={genre} value={genre}>
             {genre}
           </option>)}
         </Select>
@@ -176,6 +188,7 @@ export const GameForm = () => {
         <FileInput
           id="cover"
           name="cover"
+          accept="image/*"
           helperText="Cover picture for preview"
         />
       </div>
@@ -188,6 +201,8 @@ export const GameForm = () => {
         </div>
         <FileInput
           id="bg"
+          name="bg"
+          accept="image/*"
           helperText="Background picture"
         />
       </div>
