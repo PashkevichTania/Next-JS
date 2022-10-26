@@ -2,9 +2,9 @@ import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import styles from "src/styles/main.module.scss"
-import { CONST } from "src/utils/constants"
+import { CONST, ROUTES } from "src/utils/constants"
 import { LoginMenu } from "./LoginMenu"
-import { ToastContainer } from "react-toastify"
+import { capitalize } from "src/utils/func"
 
 export function Header() {
   const router = useRouter()
@@ -37,41 +37,15 @@ export function Header() {
         <nav className="pointer-events-auto hidden md:block">
           <ul
             className="flex rounded-full bg-white/90 px-4 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-gray-800 dark:text-zinc-200 dark:ring-white/10">
-            <li>
-              <Link href="/">
-                <a className={defaultStyles + " " + (router.pathname == "/" ? activeStyles : "")}>
-                  Home
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about/"
-                className={defaultStyles + router.pathname == "/about" ? activeStyles : ""}
-              >
-                <a
-                  className={
-                    defaultStyles + " " + (router.pathname == "/about" ? activeStyles : "")
-                  }
-                >
-                  About
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/games/"
-                className={defaultStyles + router.pathname == "/games" ? activeStyles : ""}
-              >
-                <a
-                  className={
-                    defaultStyles + " " + (router.pathname == "/games" ? activeStyles : "")
-                  }
-                >
-                  Games
-                </a>
-              </Link>
-            </li>
+            {ROUTES.map((route)=>(
+              <li key={route.path}>
+                <Link href={route.path}>
+                  <a className={defaultStyles + " " + (router.pathname == route.path ? activeStyles : "")}>
+                    {capitalize(route.name)}
+                  </a>
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
         <div className="flex">

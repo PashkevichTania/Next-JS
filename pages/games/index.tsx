@@ -2,7 +2,8 @@ import { MainLayout } from "components/MainLayout"
 import { GameDataBrief } from "src/utils/intefaces"
 import Sidebar from "components/Sidebar"
 import { GamesLayout } from "components/GamesLayout"
-import { getGameDataBrief } from "src/server/databaseQuery"
+import { getGameDataBrief } from "src/server/databaseUtils"
+import { serializeModel } from "src/utils/back-end"
 
 interface GamesPageProps {
   games: GameDataBrief[]
@@ -26,12 +27,12 @@ export async function getStaticProps() {
   //"You should not fetch an API route from getStaticProps..."
   // const response = await fetch(`${process.env.API_URL}games/brief`)
   // const { result } = await response.json()
+
   const result = await getGameDataBrief()
-  result.forEach(item => item._id = item._id.toString())
 
   return {
     props: {
-      games: result,
+      games: serializeModel(result),
     },
   }
 }

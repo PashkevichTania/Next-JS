@@ -11,13 +11,13 @@ import Loader from "components/Loader"
 import { CONST } from "src/utils/constants"
 import { GameDataBrief } from "src/utils/intefaces"
 import { getGamesByKeys } from "src/server/databaseUtils"
+import { serializeModel } from "src/utils/back-end"
 
 import stylesMain from "src/styles/main.module.scss"
 import styles from "src/styles/home.module.scss"
 
 import controller from "public/assets/ps4controller.png"
 import planet from "public/assets/glass_planet.png"
-import { serializeModel } from "src/server/apiUtils"
 
 const HomeBG = dynamic(() => import("components/HomeBG"), {
   ssr: false,

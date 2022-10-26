@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next"
 import { GameData } from "src/utils/intefaces"
-import { getGameData } from "src/server/databaseQuery"
+import { getGameData } from "src/server/databaseUtils"
 
 type DataResponse = {
   result: GameData[]

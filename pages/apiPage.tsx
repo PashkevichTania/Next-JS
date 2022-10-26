@@ -1,6 +1,6 @@
 import React from "react"
 import { useRouter } from "next/router"
-import { idsArrayToQuery } from "src/server/apiUtils"
+import { idsArrayToQuery } from "src/server/api"
 import { Button, TextInput } from "flowbite-react"
 
 const API = () => {

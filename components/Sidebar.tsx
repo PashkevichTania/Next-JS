@@ -9,7 +9,7 @@ function SidebarMenu() {
   const { open, setOpen, handleSubmit, clearFilters } = useSidebar(ref.current)
 
   return (
-    <div className="w-fit sticky left-0 top-0 h-[100vh] pt-24 bg-white dark:bg-gray-800 transition-all border-solid border-b border-gray-200 dark:border-gray-700">
+    <div className="w-fit sticky left-0 top-0 h-[100%] pt-24 bg-white dark:bg-gray-800 transition-all border-solid border-b border-gray-200 dark:border-gray-700">
       <div className="flex flex-col">
         <div className="self-end">
           <button

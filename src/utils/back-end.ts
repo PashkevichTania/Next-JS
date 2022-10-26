@@ -1,7 +1,6 @@
+import { GameData, GameDataBrief, GameDataClient } from "src/utils/intefaces"
 import path from "path"
 import fsPromises from "fs/promises"
-import { GameData, GameDataBrief, GameDataClient } from "src/utils/intefaces"
-import { FiltersState } from "src/store/filtersSlice"
 
 export type MOCK_BD_DATA = {
   games: GameData[]
@@ -19,7 +18,10 @@ export const idsArrayToQuery = (array: string[]) => {
   return query
 }
 
-export const serializeModel = (data: GameData | GameDataBrief | GameData[] | GameDataBrief[]): GameDataClient | GameDataBrief | GameDataClient[] | GameDataBrief[] => {
+type SerializeProp = GameData | GameDataBrief | GameData[] | GameDataBrief[]
+type SerializeReturn = GameDataClient | GameDataBrief | GameDataClient[] | GameDataBrief[]
+
+export const serializeModel = (data: SerializeProp): SerializeReturn  => {
   if (Array.isArray(data)){
     return data.map(game => {
       return {
@@ -34,12 +36,4 @@ export const serializeModel = (data: GameData | GameDataBrief | GameData[] | Gam
     _id: data._id.toString(),
     releaseDate: "releaseDate" in data ? data.releaseDate.toLocaleDateString() : ''
   }
-}
-
-export const API = {
-  fetchFilteredGames: async (filters: Partial<FiltersState>): Promise<GameDataBrief[]> => {
-    const response = await fetch(`api/games/brief?filters=${JSON.stringify(filters)}`)
-    const result = await response.json()
-    return result.result
-  },
 }

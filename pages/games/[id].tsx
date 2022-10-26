@@ -1,14 +1,17 @@
+import dayjs from "dayjs"
 import Image from "next/future/image"
 import { MainLayout } from "components/MainLayout"
 import { FormatSlash } from "components/FormatSlash"
-import { GameData } from "src/utils/intefaces"
+import { GameDataClient } from "src/utils/intefaces"
 import { getRatingColor, getRatingData } from "src/utils/func"
 import stylesMain from "src/styles/main.module.scss"
 import Error404 from "pages/404"
-import { getGameDataById } from "src/server/databaseQuery"
+import { getGameDataById } from "src/server/databaseUtils"
+import { serializeModel } from "src/utils/back-end"
+
 
 interface GamePageProps {
-  game: GameData
+  game: GameDataClient
 }
 
 const Game = ({ game }: GamePageProps) => {
@@ -18,7 +21,7 @@ const Game = ({ game }: GamePageProps) => {
   return (
     <MainLayout title={game.title}>
       <div className="flex flex-col justify-center items-center h-[100%]">
-        <div className="w-[100%] min-h-[calc(100vh_-_173px)] relative flex flex-col justify-center items-center pt-12 pb-12">
+        <div className="w-[100%] h-[100%] relative flex flex-col justify-center items-center pt-12 pb-12">
           <Image
             alt={game.title}
             src={`/assets/games/bg/${game.bg}`}
@@ -71,7 +74,7 @@ const Game = ({ game }: GamePageProps) => {
                     </p>
                     <p>
                       <span className="font-bold">Release date: </span>
-                      {game.releaseDate}
+                      <span>{dayjs(game.releaseDate).format('MMMM D, YYYY')};</span>
                     </p>
                   </div>
                   <div className="flex flex-row justify-center gap-4">
@@ -119,11 +122,10 @@ const Game = ({ game }: GamePageProps) => {
 // executed during request
 export async function getServerSideProps({ params }: { params: { id: string } }) {
   const result = await getGameDataById(params.id)
-  result._id = result._id.toString()
 
   return {
     props: {
-      game: result,
+      game: serializeModel(result),
     },
   }
 }

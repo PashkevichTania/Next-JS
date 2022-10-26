@@ -2,7 +2,6 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import { getFilteredGamesData, getGameData, getGameDataBrief, getGamesByKeys } from "src/server/databaseUtils"
 import { gamesModel, connectDB } from "src/server/database"
-import { getJSON } from "src/server/apiUtils"
 
 
 const gamesToPreview = [
@@ -23,31 +22,30 @@ export default async function handler(
     switch (req.method) {
       case "GET":
         connectDB().catch(error => console.error(error))
-        const data = await getJSON()
+        // const data = await getJSON()
 
-        data.games.forEach(g => {
-          const f = {...g, releaseDate: new Date(g.releaseDate)}
-          const c = new gamesModel(g)
-          c.save()
-        })
-        result = await getGameDataBrief()
-        console.log(result)
+        // data.games.forEach(g => {
+        //   const f = {...g, releaseDate: new Date(g.releaseDate)}
+        //   const c = new gamesModel(f)
+        //   c.save()
+        // })
+        result = await getGameData()
         res.status(200).json(result)
         break
       case "POST": {
         const data = req.body
-        console.log(req.body)
         res.status(200).json(data)
+        break
       }
       case "PUT": {
         const data = req.body
-        console.log(req.body)
         res.status(200).json(data)
+        break
       }
       case "DELETE": {
         const data = req.body
-        console.log(req.body)
         res.status(200).json(data)
+        break
       }
       default:
         res.setHeader('Allow', ['GET'])
