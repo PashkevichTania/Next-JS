@@ -8,35 +8,39 @@ export default function useAuth() {
   const isLoggedIn = useSelector(authSelector).isAuth
   const userName = useSelector(authSelector).name
 
-  const notifyError = () => toast.error('Invalid name or password!', {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: document.documentElement.classList.contains("dark") ? "dark" : 'light',
-  });
+  const notifyError = () =>
+    toast.error("Invalid name or password!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: document.documentElement.classList.contains("dark") ? "dark" : "light",
+    })
 
-  const notifySuccess = () => toast.success('Logged in!', {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: document.documentElement.classList.contains("dark") ? "dark" : 'light',
-  });
+  const notifySuccess = () =>
+    toast.success("Logged in!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: document.documentElement.classList.contains("dark") ? "dark" : "light",
+    })
 
-  const login = ({name, password}: {name: string, password: string,}) => {
-    if (name === process.env.ADMIN_NAME && password === process.env.ADMIN_PASSWORD){
-      localStorage.setItem('auth', name)
-      dispatch(authActions.set({
-        name,
-        isAuth: true
-      }))
+  const login = ({ name, password }: { name: string; password: string }) => {
+    if (name === process.env.ADMIN_NAME && password === process.env.ADMIN_PASSWORD) {
+      localStorage.setItem("auth", name)
+      dispatch(
+        authActions.set({
+          name,
+          isAuth: true,
+        })
+      )
       notifySuccess()
       return true
     }
@@ -44,9 +48,8 @@ export default function useAuth() {
     return false
   }
 
-
   const logOut = () => {
-    localStorage.removeItem('auth')
+    localStorage.removeItem("auth")
     dispatch(authActions.clear())
   }
 
@@ -54,6 +57,6 @@ export default function useAuth() {
     isLoggedIn,
     userName,
     login,
-    logOut
+    logOut,
   }
 }

@@ -12,6 +12,10 @@ export const getRatingColor = (rating: number) => {
   return "#ff0000"
 }
 
-export const capitalize = (word: string) => (word.charAt(0).toUpperCase() + word.slice(1))
+export const capitalize = (word: string) => word.charAt(0).toUpperCase() + word.slice(1)
 
-export const generateKey = (length: number = 6) => (Math.random() + 1).toString(36).substring(2).substring(10 - length)
+export const generateKey = (length: number = 6) =>
+  (Math.random() + 1)
+    .toString(36)
+    .substring(2)
+    .substring(10 - length)

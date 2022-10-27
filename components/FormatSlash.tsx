@@ -11,4 +11,3 @@ const styles = {
 export const FormatSlash = ({ className }: { className?: string }) => {
   return <i className={className} style={styles}></i>
 }
-

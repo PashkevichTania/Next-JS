@@ -13,7 +13,7 @@ export function Footer() {
               href="/#home_space"
               src="/assets/icons/game-console.png"
               alt="Logo"
-              name="Logo"
+              name={CONST.SITE_NAME}
             />
           </div>
           <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">

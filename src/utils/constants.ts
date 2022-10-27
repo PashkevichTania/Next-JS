@@ -8,20 +8,20 @@ export const CONST = {
 
 export const ROUTES = [
   {
-    name: 'home',
-    path: '/',
+    name: "home",
+    path: "/",
   },
   {
-    name: 'games',
-    path: '/games/',
+    name: "games",
+    path: "/games",
   },
   {
-    name: 'about',
-    path: '/about/',
+    name: "about",
+    path: "/about",
   },
   {
-    name: 'admin',
-    path: '/admin/',
+    name: "admin",
+    path: "/admin",
   },
 ]
 
@@ -37,9 +37,8 @@ export const PLATFORMS = [
   "Stadia",
   "Nintendo Switch",
   "iOS",
-  "Android"
+  "Android",
 ]
-
 
 export const GENRES = [
   "Adventure",

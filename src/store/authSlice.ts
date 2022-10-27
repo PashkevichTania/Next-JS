@@ -6,11 +6,11 @@ export interface authState {
   name: string
 }
 
-const isClient = typeof window !== 'undefined'
+const isClient = typeof window !== "undefined"
 
 const initialState: authState = {
-  isAuth: isClient && !!localStorage.getItem('auth'),
-  name: isClient && localStorage.getItem('auth') || '',
+  isAuth: isClient && !!localStorage.getItem("auth"),
+  name: (isClient && localStorage.getItem("auth")) || "",
 }
 
 export const authSlice = createSlice({

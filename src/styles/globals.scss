@@ -163,3 +163,33 @@ a {
     background: black;
   }
 }
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: linear-gradient(45deg, #22d3ee, #f0abfc) rgba(0, 0, 0, 0);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  &:horizontal {
+    background: linear-gradient(45deg, #22d3ee, #f0abfc);
+  }
+  &:vertical {
+    background: linear-gradient(45deg, #22d3ee, #f0abfc);
+  }
+}
+*::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0);
+}

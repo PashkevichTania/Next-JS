@@ -13,7 +13,7 @@ interface GamesPageProps {
 const Admin = ({ games: serverGames }: GamesPageProps) => {
   return (
     <MainLayout title={"Admin Page"}>
-      <div className="h-[100%] relative flex flex-row">
+      <div className="h-[calc(100vh_-_165px)] relative flex flex-row">
         <div className="sticky left-0 top-0 z-20 transition-all">
           <Sidebar />
         </div>
@@ -51,6 +51,5 @@ export async function getStaticProps() {
     },
   }
 }
-
 
 export default Admin

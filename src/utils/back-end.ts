@@ -21,9 +21,9 @@ export const idsArrayToQuery = (array: string[]) => {
 type SerializeProp = GameData | GameDataBrief | GameData[] | GameDataBrief[]
 type SerializeReturn = GameDataClient | GameDataBrief | GameDataClient[] | GameDataBrief[]
 
-export const serializeModel = (data: SerializeProp): SerializeReturn  => {
-  if (Array.isArray(data)){
-    return data.map(game => {
+export const serializeModel = (data: SerializeProp): SerializeReturn => {
+  if (Array.isArray(data)) {
+    return data.map((game) => {
       return {
         ...game,
         _id: game._id.toString(),
@@ -34,6 +34,6 @@ export const serializeModel = (data: SerializeProp): SerializeReturn  => {
   return {
     ...data,
     _id: data._id.toString(),
-    releaseDate: "releaseDate" in data ? data.releaseDate.toLocaleDateString() : ''
+    releaseDate: "releaseDate" in data ? data.releaseDate.toLocaleDateString() : "",
   }
 }

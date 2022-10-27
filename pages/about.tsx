@@ -57,10 +57,7 @@ const About = () => {
               <p>
                 There is also an API that can be accessed by /api url, check quick docs here:{" "}
                 <Link href="/apiPage">
-                  <a
-
-                    className="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline"
-                  >
+                  <a className="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline">
                     API
                   </a>
                 </Link>

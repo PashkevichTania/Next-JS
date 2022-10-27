@@ -3,7 +3,6 @@ import useGamesPage from "src/hooks/useGamesPage"
 import { ListGroup } from "flowbite-react"
 import { useRouter } from "next/router"
 
-
 interface GamesPageProps {
   serverGames: GameDataBrief[]
 }
@@ -21,10 +20,14 @@ export const GamesAdminLayout = ({ serverGames }: GamesPageProps) => {
 
   return (
     <ListGroup style={{ maxHeight: "100%", overflowY: "auto" }}>
-      {games.map((game, index) =>
+      {games.map((game, index) => (
         <ListGroup.Item key={game.key} onClick={() => router.push(`/games/${game._id}`)}>
-          <p><span>{index + 1}) </span>{game.title};</p>
-        </ListGroup.Item>)}
+          <p>
+            <span>{index + 1}) </span>
+            {game.title};
+          </p>
+        </ListGroup.Item>
+      ))}
     </ListGroup>
   )
 }

@@ -9,7 +9,6 @@ import Error404 from "pages/404"
 import { getGameDataById } from "src/server/databaseUtils"
 import { serializeModel } from "src/utils/back-end"
 
-
 interface GamePageProps {
   game: GameDataClient
 }
@@ -21,7 +20,7 @@ const Game = ({ game }: GamePageProps) => {
   return (
     <MainLayout title={game.title}>
       <div className="flex flex-col justify-center items-center h-[100%]">
-        <div className="w-[100%] h-[100%] relative flex flex-col justify-center items-center pt-12 pb-12">
+        <div className="w-[100%] h-[100%] min-h-[calc(100vh_-_165px)] relative flex flex-col justify-center items-center pt-12 pb-12">
           <Image
             alt={game.title}
             src={`/assets/games/bg/${game.bg}`}
@@ -74,7 +73,7 @@ const Game = ({ game }: GamePageProps) => {
                     </p>
                     <p>
                       <span className="font-bold">Release date: </span>
-                      <span>{dayjs(game.releaseDate).format('MMMM D, YYYY')};</span>
+                      <span>{dayjs(game.releaseDate).format("MMMM D, YYYY")};</span>
                     </p>
                   </div>
                   <div className="flex flex-row justify-center gap-4">
