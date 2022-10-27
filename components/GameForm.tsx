@@ -4,7 +4,7 @@ import React from "react"
 import { generateKey } from "src/utils/func"
 
 export const GameForm = () => {
-  const submitHandler = (event: React.SyntheticEvent) => {
+  const submitHandler = async (event: React.SyntheticEvent) => {
     event.preventDefault()
 
     const target = event.target as HTMLFormElement & {
@@ -22,22 +22,32 @@ export const GameForm = () => {
       cover: { files: File[] }
       bg: { files: File[] }
     }
-    const values = {
-      key: generateKey(),
-      title: target.title.value,
-      developers: target.developers.value.split(','),
-      publisher: target.publisher.value,
-      platform: target.platforms.value,
-      genres: target.genres.value,
-      description: target.description.value,
-      releaseDate: target.releaseDate.value,
-      ratingUsers: +target.ratingUsers.value,
-      ratingCritics: +target.ratingCritics.value,
-      cover: target.cover.files[0],
-      bg: target.bg.files[0],
-    }
-    console.debug(event)
-    console.debug(values)
+    // const values = {
+    //   key: generateKey(),
+    //   title: target.title.value,
+    //   developers: target.developers.value.split(','),
+    //   publisher: target.publisher.value,
+    //   platform: target.platforms.value,
+    //   genres: target.genres.value,
+    //   description: target.description.value,
+    //   releaseDate: target.releaseDate.value,
+    //   ratingUsers: +target.ratingUsers.value,
+    //   ratingCritics: +target.ratingCritics.value,
+    //   cover: target.cover.files[0],
+    //   bg: target.bg.files[0],
+    // }
+
+    // console.debug(values)
+    const form = new FormData(target)
+    form.set('key', generateKey())
+
+    const response = await fetch(`/api/test/`, {
+      method: 'POST',
+      body: form
+    })
+
+    const { result } = await response.json()
+    console.debug(result)
   }
   return (
     <div className="h-[100%] p-5 overflow-y-auto rounded-lg bg-white text-sm font-medium text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white">

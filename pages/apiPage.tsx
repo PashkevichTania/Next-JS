@@ -1,10 +1,11 @@
 import React from "react"
 import { useRouter } from "next/router"
-import { idsArrayToQuery } from "src/server/api"
+import { idsArrayToQuery } from "src/utils/back-end"
 import { Button, TextInput } from "flowbite-react"
 
 const API = () => {
   const router = useRouter()
+
   const submitHandler = (e: React.SyntheticEvent) => {
     e.preventDefault()
     const target = e.target as typeof e.target & {
