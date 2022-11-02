@@ -1,10 +1,10 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import styles from "src/styles/main.module.scss"
-import { CONST, ROUTES } from "src/utils/constants"
+import styles from "@/styles/main.module.scss"
+import { CONST, ROUTES } from "@/utils/constants"
 import { LoginMenu } from "./LoginMenu"
-import { capitalize } from "src/utils/func"
+import { capitalize } from "@/utils/func"
 
 export function Header() {
   const router = useRouter()
@@ -25,8 +25,10 @@ export function Header() {
     <header className="fixed z-100 flex flex-col top-0 h-16 pt-6 w-full">
       <div className="relative flex flex-row justify-between content-center pl-10 pr-10">
         <div className="flex justify-start items-center">
-          <div className="mr-5 h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5
-           ring-1 ring-zinc-900/5 backdrop-blur dark:bg-gray-800 dark:ring-white/10">
+          <div
+            className="mr-5 h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5
+           ring-1 ring-zinc-900/5 backdrop-blur dark:bg-gray-800 dark:ring-white/10"
+          >
             <LoginMenu
               component={
                 <Image src="/assets/icons/radiation.png" alt="icon" width={40} height={40} />
@@ -40,9 +42,11 @@ export function Header() {
           </h1>
         </div>
         <nav className="pointer-events-auto hidden md:block">
-          <ul className="flex rounded-full bg-white/90 px-4 text-sm font-medium text-zinc-800
+          <ul
+            className="flex rounded-full bg-white/90 px-4 text-sm font-medium text-zinc-800
           shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-gray-800
-          dark:text-zinc-200 dark:ring-white/10">
+          dark:text-zinc-200 dark:ring-white/10"
+          >
             {ROUTES.map((route) => (
               <li key={route.path}>
                 <Link href={route.path}>

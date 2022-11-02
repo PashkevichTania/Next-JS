@@ -1,10 +1,10 @@
 import Image from "next/image"
 
 import { Dispatch, SetStateAction } from "react"
-import useResizeObserver from "src/hooks/useResizeObserver"
+import useResizeObserver from "@/hooks/useResizeObserver"
 
-import styles from "src/styles/space.module.scss"
-import styles_home from "src/styles/home.module.scss"
+import styles from "@/styles/space.module.scss"
+import styles_home from "@/styles/home.module.scss"
 
 import space from "public/assets/space/space.jpg"
 import r1 from "public/assets/space/r1.png"

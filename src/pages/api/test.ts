@@ -1,18 +1,16 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next"
 import {
+  addGame,
   getFilteredGamesData,
   getGameData,
   getGameDataBrief,
   getGamesByKeys,
-} from "src/server/databaseUtils"
-import { gamesModel, connectDB } from "src/server/database"
-import * as fs from "fs"
+} from "@/server/databaseUtils"
+import { gamesModel, connectDB } from "@/server/database"
 import formidable from "formidable"
-import sharp from "sharp"
-import path from "path"
-import { mkdir, stat } from "fs/promises"
-import { parseForm } from "src/utils/files"
+import { parseForm, saveBlur, saveFile } from "@/utils/files"
+import { GameData } from "@/utils/intefaces"
 
 const gamesToPreview = [
   "i960g6", //"The Last of Us Part I"
@@ -27,30 +25,6 @@ export const config = {
   api: {
     bodyParser: false,
   },
-}
-
-const getDir = (folder: string) => path.join(process.env.ROOT_DIR || process.cwd(), `${folder}`)
-
-const saveFile = (file: formidable.File, path: string) => {
-  const inDir = getDir(`/public/temp/${file.newFilename}`)
-  const outDir = getDir(path + file.newFilename)
-  return new Promise<string>((resolve, reject) => {
-    return fs.rename(inDir, outDir, (err) => {
-      if (err) return reject()
-      return resolve(outDir)
-    })
-  })
-
-  // const data = fs.readFileSync(file.filepath);
-  // fs.writeFileSync(`${path}${file.originalFilename}`, data);
-  // fs.unlinkSync(file.filepath)
-}
-
-const blur = (filePath: string, destinationPath: string) => {
-  return sharp(filePath)
-    .blur(15)
-    .toFormat("webp", { progressive: true, quality: 60 })
-    .toFile(getDir(destinationPath))
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
@@ -71,29 +45,31 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         break
       case "POST": {
         try {
-          const form = formidable({ multiples: true })
-
           const { fields, files } = await parseForm(req)
-          // const [fields, files] = await ns.form_parse(req, form)
-          const { bg, cover } = files as {
-            bg: formidable.File
-            cover: formidable.File
-          }
+          const { bg, cover } = files
 
-          console.debug("AAAAAA", { bg, cover })
-          const result = {
+          // console.debug("AAAAAA", { bg, cover })
+
+          const game = {
             ...fields,
+            platforms: JSON.parse(fields.platforms),
+            genres: JSON.parse(fields.genres),
             bg: bg.originalFilename,
             cover: cover.originalFilename,
-          }
-          res.status(200).json({ result })
+          } as unknown as Pick<GameData, "_id">
+          console.log("saved game", game)
 
-          const newPath = await saveFile(bg, "/public/test/")
-          await saveFile(cover, "/public/test/")
-          await blur(newPath, "/public/test/blur/" + bg.newFilename + ".webp")
+          res.status(200).json({ result: game })
+
+          const bgPath = await saveFile(bg, "public/test/")
+          await saveFile(cover, "public/test/")
+          await saveBlur(bgPath, "public/test/blur/" + bg.newFilename + ".webp")
           console.log("saved files")
+
+          // await addGame(game)
+          console.log("saved game", game)
         } catch (e) {
-          console.error(e)
+          console.error("ERROR POST", e)
           res.status(500)
         }
         break

@@ -1,6 +1,6 @@
 import React from "react"
 import Slider from "react-slick"
-import useResizeObserver from "src/hooks/useResizeObserver"
+import useResizeObserver from "@/hooks/useResizeObserver"
 
 function getCarouselSize(width: number) {
   if (width > 1200) return 3

@@ -3,8 +3,8 @@ module.exports = {
   mode: "jit",
   content: [
     "./node_modules/flowbite-react/**/*.js",
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    "./src/pages/**/*.{ts,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
     "./public/**/*.html",
   ],
   theme: {

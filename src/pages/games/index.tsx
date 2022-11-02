@@ -1,9 +1,9 @@
-import { MainLayout } from "components/MainLayout"
-import { GameDataBrief } from "src/utils/intefaces"
-import Sidebar from "components/Sidebar"
-import { GamesLayout } from "components/GamesLayout"
-import { getGameDataBrief } from "src/server/databaseUtils"
-import { serializeModel } from "src/utils/back-end"
+import { MainLayout } from "@/components/MainLayout"
+import { GameDataBrief } from "@/utils/intefaces"
+import Sidebar from "@/components/Sidebar"
+import { GamesLayout } from "@/components/GamesLayout"
+import { getGameDataBrief } from "@/server/databaseUtils"
+import { serializeModel } from "@/utils/back-end"
 
 interface GamesPageProps {
   games: GameDataBrief[]

@@ -1,5 +1,5 @@
-import { GameDataBrief } from "src/utils/intefaces"
-import { FiltersState } from "src/store/filtersSlice"
+import { GameDataBrief } from "@/utils/intefaces"
+import { FiltersState } from "@/store/filtersSlice"
 
 export const API = {
   fetchFilteredGames: async (filters: Partial<FiltersState>): Promise<GameDataBrief[]> => {

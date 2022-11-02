@@ -1,5 +1,5 @@
-import { MainLayout } from "components/MainLayout"
-import stylesMain from "src/styles/main.module.scss"
+import { MainLayout } from "@/components/MainLayout"
+import stylesMain from "@/styles/main.module.scss"
 import Link from "next/link"
 
 const About = () => {

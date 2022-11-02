@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import { filtersSelector } from "src/store/selectors"
-import { API } from "src/server/api"
-import { GameDataBrief } from "src/utils/intefaces"
+import { filtersSelector } from "@/store/selectors"
+import { API } from "@/server/api"
+import { GameDataBrief } from "@/utils/intefaces"
 
 export default function useGamesPage(serverGames: GameDataBrief[]) {
   const [games, setGames] = useState(serverGames)

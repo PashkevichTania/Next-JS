@@ -1,6 +1,6 @@
 import { GameCard } from "./GameCard"
-import { GameDataBrief } from "src/utils/intefaces"
-import useGamesPage from "src/hooks/useGamesPage"
+import { GameDataBrief } from "@/utils/intefaces"
+import useGamesPage from "@/hooks/useGamesPage"
 
 interface GamesPageProps {
   serverGames: GameDataBrief[]

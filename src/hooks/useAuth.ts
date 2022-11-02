@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { authActions } from "src/store/authSlice"
+import { authActions } from "@/store/authSlice"
 import { authSelector } from "../store/selectors"
 import { toast } from "react-toastify"
 

@@ -1,6 +1,6 @@
 import { Label, TextInput, Button } from "flowbite-react"
 import { useState } from "react"
-import useAuth from "../src/hooks/useAuth"
+import useAuth from "@/hooks/useAuth"
 
 export const LoginMenu = ({ component }: { component: JSX.Element }) => {
   const [open, setOpen] = useState(false)

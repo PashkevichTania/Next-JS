@@ -1,6 +1,6 @@
-import { GameData, GameDataBrief } from "src/utils/intefaces"
-import { FiltersState } from "src/store/filtersSlice"
-import { connectDB, gamesModel } from "src/server/database"
+import { GameData, GameDataBrief } from "@/utils/intefaces"
+import { FiltersState } from "@/store/filtersSlice"
+import { connectDB, gamesModel } from "@/server/database"
 
 export const getGameData = async (): Promise<GameData[]> => {
   await connectDB()

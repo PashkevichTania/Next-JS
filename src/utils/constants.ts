@@ -1,5 +1,5 @@
 export const CONST = {
-  SITE_NAME: "GameX",
+  SITE_NAME: "GameZone",
   LINKS: {
     GITHUB: "https://github.com/PashkevichTania",
     VK: "https://vk.com/gaywh0re",

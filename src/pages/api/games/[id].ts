@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import { getGameDataById } from "src/server/databaseUtils"
+import { getGameDataById } from "@/server/databaseUtils"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const id = req.query.id

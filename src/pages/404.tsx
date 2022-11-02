@@ -1,4 +1,4 @@
-import { MainLayout } from "components/MainLayout"
+import { MainLayout } from "@/components/MainLayout"
 import { useRouter } from "next/router"
 import { Button } from "flowbite-react"
 import { RiArrowGoBackFill } from "react-icons/all"

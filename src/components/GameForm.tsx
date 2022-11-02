@@ -1,8 +1,8 @@
-import { Button, FileInput, Label, Textarea, TextInput } from "flowbite-react"
-import { GENRES, PLATFORMS } from "src/utils/constants"
 import React, { useState } from "react"
-import { generateKey } from "src/utils/func"
-import { CustomSelect } from "components/CustomSelect"
+import { Button, FileInput, Label, Textarea, TextInput } from "flowbite-react"
+import { GENRES, PLATFORMS } from "@/utils/constants"
+import { generateKey } from "@/utils/func"
+import { CustomSelect } from "@/components/CustomSelect"
 
 export const GameForm = () => {
   const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([])
@@ -34,17 +34,19 @@ export const GameForm = () => {
     // @ts-ignore
     console.debug(...form)
 
-    // const response = await fetch(`/api/test/`, {
-    //   method: 'POST',
-    //   body: form
-    // })
+    const response = await fetch(`/api/test/`, {
+      method: "POST",
+      body: form,
+    })
 
-    // const { result } = await response.json()
-    // console.debug(result)
+    const { result } = await response.json()
+    console.debug(result)
   }
   return (
-    <div className="h-[100%] p-5 overflow-y-auto rounded-lg bg-white text-sm font-medium
-    text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white">
+    <div
+      className="h-[100%] p-5 overflow-y-auto rounded-lg bg-white text-sm font-medium
+    text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+    >
       <form className="h-[100%] flex flex-col gap-4" onSubmit={submitHandler}>
         <div>
           <div className="mb-2 block">

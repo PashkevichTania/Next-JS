@@ -1,13 +1,13 @@
 import dayjs from "dayjs"
 import Image from "next/future/image"
-import { MainLayout } from "components/MainLayout"
-import { FormatSlash } from "components/FormatSlash"
-import { GameDataClient } from "src/utils/intefaces"
-import { getRatingColor, getRatingData } from "src/utils/func"
-import stylesMain from "src/styles/main.module.scss"
-import Error404 from "pages/404"
-import { getGameDataById } from "src/server/databaseUtils"
-import { serializeModel } from "src/utils/back-end"
+import { MainLayout } from "@/components/MainLayout"
+import { FormatSlash } from "@/components/FormatSlash"
+import { GameDataClient } from "@/utils/intefaces"
+import { getRatingColor, getRatingData } from "@/utils/func"
+import stylesMain from "@/styles/main.module.scss"
+import Error404 from "@/pages/404"
+import { getGameDataById } from "@/server/databaseUtils"
+import { serializeModel } from "@/utils/back-end"
 
 interface GamePageProps {
   game: GameDataClient

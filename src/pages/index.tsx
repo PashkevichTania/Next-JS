@@ -4,25 +4,25 @@ import dynamic from "next/dynamic"
 import Image from "next/image"
 import Link from "next/link"
 
-import { MainLayout } from "components/MainLayout"
-import { GameCard } from "components/GameCard"
-import Loader from "components/Loader"
+import { MainLayout } from "@/components/MainLayout"
+import { GameCard } from "@/components/GameCard"
+import Loader from "@/components/Loader"
 
-import { CONST } from "src/utils/constants"
-import { GameDataBrief } from "src/utils/intefaces"
-import { getGamesByKeys } from "src/server/databaseUtils"
-import { serializeModel } from "src/utils/back-end"
+import { CONST } from "@/utils/constants"
+import { GameDataBrief } from "@/utils/intefaces"
+import { getGamesByKeys } from "@/server/databaseUtils"
+import { serializeModel } from "@/utils/back-end"
 
-import stylesMain from "src/styles/main.module.scss"
-import styles from "src/styles/home.module.scss"
+import stylesMain from "@/styles/main.module.scss"
+import styles from "@/styles/home.module.scss"
 
 import controller from "public/assets/ps4controller.png"
 import planet from "public/assets/glass_planet.png"
 
-const HomeBG = dynamic(() => import("components/HomeBG"), {
+const HomeBG = dynamic(() => import("@/components/HomeBG"), {
   ssr: false,
 })
-const Carousel = dynamic(() => import("components/Carousel"), {
+const Carousel = dynamic(() => import("@/components/Carousel"), {
   ssr: false,
 })
 

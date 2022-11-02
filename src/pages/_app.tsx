@@ -1,9 +1,9 @@
-import "src/styles/globals.scss"
 import type { AppProps } from "next/app"
-import wrapper from "src/store/store"
 import { Provider } from "react-redux"
+import wrapper from "@/store/store"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import "@/styles/globals.scss"
 
 // https://nextjs.org/docs/advanced-features/custom-app
 

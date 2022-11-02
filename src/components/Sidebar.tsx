@@ -1,7 +1,7 @@
 import { useRef } from "react"
 import { Button, Checkbox, Label, Sidebar, TextInput } from "flowbite-react"
 import { AiOutlineClear, BiSearchAlt, HiArrowSmLeft, HiArrowSmRight, HiMenu } from "react-icons/all"
-import useSidebar from "src/hooks/useSidebar"
+import useSidebar from "@/hooks/useSidebar"
 
 function SidebarMenu() {
   const ref = useRef(null)

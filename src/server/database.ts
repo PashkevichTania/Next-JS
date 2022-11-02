@@ -1,5 +1,5 @@
 import { connect, Schema, model, models } from "mongoose"
-import { GameData } from "src/utils/intefaces"
+import { GameData } from "@/utils/intefaces"
 
 const MODEL_NAME = "Games"
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useDispatch } from "react-redux"
-import { filtersActions } from "src/store/filtersSlice"
+import { filtersActions } from "@/store/filtersSlice"
 
 export default function useSidebar(ref: HTMLFormElement | null) {
   const [open, setOpen] = useState(false)

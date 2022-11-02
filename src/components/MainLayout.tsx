@@ -1,6 +1,6 @@
 import React from "react"
 import Head from "next/head"
-import { CONST } from "src/utils/constants"
+import { CONST } from "@/utils/constants"
 import { Header } from "./Header"
 import { Footer } from "./Footer"
 

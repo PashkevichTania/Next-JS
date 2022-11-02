@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Rating } from "./Rating"
-import { getRatingData } from "src/utils/func"
+import { getRatingData } from "@/utils/func"
 
 interface CardProps {
   id: string
