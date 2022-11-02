@@ -8,6 +8,7 @@ import stylesMain from "@/styles/main.module.scss"
 import Error404 from "@/pages/404"
 import { getGameDataById } from "@/server/databaseUtils"
 import { serializeModel } from "@/utils/back-end"
+import { CONST } from "@/utils/constants"
 
 interface GamePageProps {
   game: GameDataClient
@@ -23,11 +24,11 @@ const Game = ({ game }: GamePageProps) => {
         <div className="w-[100%] h-[100%] min-h-[calc(100vh_-_165px)] relative flex flex-col justify-center items-center pt-12 pb-12">
           <Image
             alt={game.title}
-            src={`/assets/games/bg/${game.bg}`}
+            src={`${CONST.BG_FOLDER.replace("public", "")}${game.bg}`}
             className="absolute left-0 top-0 max-w-[100%] h-auto object-cover z-20"
             fill
             placeholder="blur"
-            blurDataURL={`/assets/games/bg/blur/${game.bg.split(".")[0]}.jpg`}
+            blurDataURL={`${CONST.BLUR_FOLDER.replace("public", "")}${game.bg.split(".")[0]}.webp`}
           />
           <div className="w-[90%] z-30 text-white">
             <div className={stylesMain.glass2}>

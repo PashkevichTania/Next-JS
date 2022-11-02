@@ -5,8 +5,7 @@ const MODEL_NAME = "Games"
 
 export const gameSchema = new Schema<GameData>(
   {
-    key: { type: String, unique: true, required: true, dropDups: true },
-    title: String,
+    title: { type: String, unique: true, required: true, dropDups: true },
     developers: [String],
     publisher: String,
     platforms: [String],

@@ -1,6 +1,9 @@
-export const getRatingData = (rating: string) => {
-  if (rating.toLowerCase() === "m") return { img: "/assets/icons/rating/m.png", tooltip: "Mature" }
-  if (rating.toLowerCase() === "t") return { img: "/assets/icons/rating/t.jpeg", tooltip: "Teens" }
+import { ESRB } from "@/utils/constants"
+
+export const getRatingData = (ratingName: string) => {
+  const folder = "/assets/icons/rating/"
+  const rating = ESRB.find((r) => r.name === ratingName)
+  if (rating) return { img: folder + rating.img, tooltip: rating.title }
   return { img: "", tooltip: "" }
 }
 

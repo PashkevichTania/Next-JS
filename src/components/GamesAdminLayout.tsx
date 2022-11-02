@@ -21,7 +21,7 @@ export const GamesAdminLayout = ({ serverGames }: GamesPageProps) => {
   return (
     <ListGroup style={{ maxHeight: "100%", overflowY: "auto" }}>
       {games.map((game, index) => (
-        <ListGroup.Item key={game.key} onClick={() => router.push(`/games/${game._id}`)}>
+        <ListGroup.Item key={game._id} onClick={() => router.push(`/games/${game._id}`)}>
           <p>
             <span>{index + 1}) </span>
             {game.title};

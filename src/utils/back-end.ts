@@ -7,7 +7,7 @@ export type MOCK_BD_DATA = {
 }
 
 export const getJSON: () => Promise<MOCK_BD_DATA> = async () => {
-  const filePath = path.join(process.cwd(), "@/server/mock_db.json")
+  const filePath = path.join(process.cwd(), "src/server/mock_db.json")
   const jsonData = await fsPromises.readFile(filePath, "utf-8")
   return JSON.parse(jsonData)
 }

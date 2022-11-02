@@ -41,13 +41,13 @@ export const getFilteredGamesData = async ({
     .lean()
 }
 
-export const getGamesByKeys = async (keys: string[] = []): Promise<GameDataBrief[]> => {
+export const getGamesByTitle = async (titles: string[] = []): Promise<GameDataBrief[]> => {
   await connectDB()
-  const filter = keys.length ? { key: { $in: keys } } : {}
+  const filter = titles.length ? { title: { $in: titles } } : {}
   return await gamesModel.find(filter).select(briefSelect).lean()
 }
 
-export const addGame = async (game: Pick<GameData, "_id">) => {
+export const addGame = async (game: Omit<GameData, "_id">) => {
   await connectDB()
   const newGame = new gamesModel(game)
   newGame.save()

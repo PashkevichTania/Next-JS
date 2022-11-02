@@ -10,7 +10,7 @@ import Loader from "@/components/Loader"
 
 import { CONST } from "@/utils/constants"
 import { GameDataBrief } from "@/utils/intefaces"
-import { getGamesByKeys } from "@/server/databaseUtils"
+import { getGamesByTitle } from "@/server/databaseUtils"
 import { serializeModel } from "@/utils/back-end"
 
 import stylesMain from "@/styles/main.module.scss"
@@ -31,12 +31,12 @@ interface HomePageProps {
 }
 
 const gamesToPreview = [
-  "i960g6", //"The Last of Us Part I"
-  "a884nl", //"The Last of Us Part II"
-  "r63vpd", //"Disco Elysium: The Final Cut"
-  "8swucl", //"BioShock Infinite"
-  "kn15c7", //"Fortnite"
-  "45ec0g", //"Cyberpunk 2077"
+  "The Last of Us Part I",
+  "The Last of Us Part II",
+  "Disco Elysium: The Final Cut",
+  "BioShock Infinite",
+  "Fortnite",
+  "Cyberpunk 2077",
 ]
 
 const Home = ({ games }: HomePageProps) => {
@@ -122,7 +122,7 @@ const Home = ({ games }: HomePageProps) => {
                     </a>
                   </Link>
                 </div>
-                <Carousel>
+                {games && <Carousel>
                   {games.map((game) => (
                     <GameCard
                       key={game._id}
@@ -133,7 +133,7 @@ const Home = ({ games }: HomePageProps) => {
                       ratingAge={game.ratingAge}
                     />
                   ))}
-                </Carousel>
+                </Carousel>}
               </div>
             </div>
           </div>
@@ -161,7 +161,7 @@ const Home = ({ games }: HomePageProps) => {
 
 export async function getStaticProps() {
   //"You should not fetch an API route from getStaticProps..."
-  const result = await getGamesByKeys(gamesToPreview)
+  const result = await getGamesByTitle(gamesToPreview)
 
   return {
     // next doesn't like the `_id` property of mongoDB and non-string properties

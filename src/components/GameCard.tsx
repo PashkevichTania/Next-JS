@@ -2,6 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Rating } from "./Rating"
 import { getRatingData } from "@/utils/func"
+import { CONST } from "@/utils/constants"
 
 interface CardProps {
   id: string
@@ -19,10 +20,10 @@ export function GameCard({ rating, ratingAge, cover, title, id }: CardProps) {
         <a className="flex flex-col items-center">
           <Image
             alt={`game cover for ${title}`}
-            src={`/assets/games/covers/${cover}`}
+            src={`${CONST.COVERS_FOLDER.replace("public", "")}${cover}`}
             width={350}
             height={350}
-            className="object-center object-cover "
+            className="object-center object-cover"
           />
         </a>
       </Link>

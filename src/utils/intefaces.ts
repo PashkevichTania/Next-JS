@@ -1,6 +1,5 @@
 export interface GameData {
   _id: string
-  key: string
   title: string
   developers: string[]
   publisher: string
@@ -22,5 +21,5 @@ export interface GameDataClient extends Omit<GameData, "releaseDate"> {
 
 export type GameDataBrief = Pick<
   GameData,
-  "_id" | "key" | "title" | "cover" | "ratingCritics" | "ratingAge"
+  "_id" | "title" | "cover" | "ratingCritics" | "ratingAge"
 >

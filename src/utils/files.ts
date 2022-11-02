@@ -5,6 +5,7 @@ import { rename } from "fs"
 import formidable, { Files, Fields } from "formidable"
 import mime from "mime"
 import sharp from "sharp"
+import { CONST } from "@/utils/constants"
 
 interface FormFields extends Fields {
   title: string
@@ -14,6 +15,7 @@ interface FormFields extends Fields {
   releaseDate: string
   ratingCritics: string
   ratingUsers: string
+  ratingAge: string
   key: string
   platforms: string
   genres: string
@@ -37,7 +39,7 @@ export const getDir = (folder: string) =>
 
 const testDir = async (dir: string): Promise<undefined | Error> => {
   try {
-    const stats =  await stat(dir)
+    await stat(dir)
     // @ts-ignore
   } catch (e: Error) {
     if (e.code === "ENOENT") {
@@ -50,10 +52,10 @@ const testDir = async (dir: string): Promise<undefined | Error> => {
 }
 
 export const parseForm = async (req: NextApiRequest): Promise<FormData> => {
-  return await new Promise(async (resolve, reject) => {
-    const uploadDir = getDir('public/temp/')
+  const uploadDir = getDir(CONST.TEMP_FOLDER)
+  const dirError = await testDir(uploadDir)
 
-    const dirError = await testDir(uploadDir)
+  return await new Promise( (resolve, reject) => {
     if (dirError) return reject(dirError)
 
     const form = formidable({
@@ -76,11 +78,11 @@ export const parseForm = async (req: NextApiRequest): Promise<FormData> => {
 }
 
 export const saveFile = async (file: formidable.File, path: string) => {
-  const inDir = getDir(`public/temp/${file.newFilename}`)
+  const inDir = getDir(CONST.TEMP_FOLDER + file.newFilename)
   const outDir = getDir(path + file.newFilename)
   const dirError = await testDir(path)
 
-  console.debug(`SAVING...: public/temp/${file.newFilename} --> ${path + file.newFilename}`)
+  console.debug(`SAVING...: ${CONST.TEMP_FOLDER + file.newFilename} --> ${path + file.newFilename}`)
 
   return new Promise<string>((resolve, reject) => {
     if (dirError) reject(dirError)

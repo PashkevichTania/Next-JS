@@ -11,14 +11,16 @@ import { gamesModel, connectDB } from "@/server/database"
 import formidable from "formidable"
 import { parseForm, saveBlur, saveFile } from "@/utils/files"
 import { GameData } from "@/utils/intefaces"
+import { CONST } from "@/utils/constants"
+import { getJSON } from "@/utils/back-end"
 
 const gamesToPreview = [
-  "i960g6", //"The Last of Us Part I"
-  "a884nl", //"The Last of Us Part II"
-  "r63vpd", //"Disco Elysium: The Final Cut"
-  "8swucl", //"BioShock Infinite"
-  "kn15c7", //"Fortnite"
-  "45ec0g", //"Cyberpunk 2077"
+  "The Last of Us Part I",
+  "The Last of Us Part II",
+  "Disco Elysium: The Final Cut",
+  "BioShock Infinite",
+  "Fortnite",
+  "Cyberpunk 2077",
 ]
 
 export const config = {
@@ -34,8 +36,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       case "GET":
         connectDB().catch((error) => console.error(error))
         // const data = await getJSON()
-
+        //
         // data.games.forEach(g => {
+        //   // @ts-ignore
+        //   delete g.key
         //   const f = {...g, releaseDate: new Date(g.releaseDate)}
         //   const c = new gamesModel(f)
         //   c.save()
@@ -48,25 +52,30 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
           const { fields, files } = await parseForm(req)
           const { bg, cover } = files
 
-          // console.debug("AAAAAA", { bg, cover })
-
           const game = {
             ...fields,
+            tags: [],
+            developers: fields.developers.split(","),
+            releaseDate: new Date(fields.releaseDate),
+            ratingCritics: +fields.ratingCritics,
+            ratingUsers: +fields.ratingUsers,
             platforms: JSON.parse(fields.platforms),
             genres: JSON.parse(fields.genres),
-            bg: bg.originalFilename,
-            cover: cover.originalFilename,
-          } as unknown as Pick<GameData, "_id">
+            bg: bg?.newFilename || "bg-placeholder.jpg" ,
+            cover: cover?.newFilename || "cover-placeholder.jpg",
+          } as Omit<GameData, "_id">
           console.log("saved game", game)
 
           res.status(200).json({ result: game })
 
-          const bgPath = await saveFile(bg, "public/test/")
-          await saveFile(cover, "public/test/")
-          await saveBlur(bgPath, "public/test/blur/")
-          console.log("saved files")
+          if (bg && cover) {
+            const bgPath = await saveFile(bg, CONST.BG_FOLDER)
+            await saveFile(cover, CONST.COVERS_FOLDER)
+            await saveBlur(bgPath, CONST.BLUR_FOLDER)
+            console.log("saved files")
+          }
 
-          // await addGame(game)
+          await addGame(game)
           console.log("saved game", game)
         } catch (e) {
           console.error("ERROR POST", e)

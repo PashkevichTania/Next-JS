@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { Button, FileInput, Label, Textarea, TextInput } from "flowbite-react"
-import { GENRES, PLATFORMS } from "@/utils/constants"
+import { Button, FileInput, Label, Select, Textarea, TextInput } from "flowbite-react"
+import { GENRES, PLATFORMS, ESRB } from "@/utils/constants"
 import { generateKey } from "@/utils/func"
 import { CustomSelect } from "@/components/CustomSelect"
 
@@ -119,7 +119,25 @@ export const GameForm = () => {
           <div className="mb-2 block">
             <Label htmlFor="ratingUsers" value="Rating Users" />
           </div>
-          <TextInput name="ratingUsers" type="number" max={10} min={0} required={true} />
+          <TextInput name="ratingUsers" type="number" max={10} min={0} step="0.1" required={true} />
+        </div>
+        <div >
+          <div className="mb-2 block">
+            <Label
+              htmlFor="ratingAge"
+              value="Select age rating"
+            />
+          </div>
+          <Select
+            name="ratingAge"
+            required={true}
+          >
+            {ESRB.map((rating)=>
+              <option key={rating.name} value={rating.name}>
+                {rating.name}
+              </option>
+            )}
+          </Select>
         </div>
         <div id="fileUpload1">
           <div className="mb-2 block">
