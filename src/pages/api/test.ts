@@ -63,7 +63,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
           const bgPath = await saveFile(bg, "public/test/")
           await saveFile(cover, "public/test/")
-          await saveBlur(bgPath, "public/test/blur/" + bg.newFilename + ".webp")
+          await saveBlur(bgPath, "public/test/blur/")
           console.log("saved files")
 
           // await addGame(game)

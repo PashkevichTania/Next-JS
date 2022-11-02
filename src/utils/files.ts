@@ -32,21 +32,29 @@ type FormData = {
 
 export const FormidableError = formidable.errors.FormidableError
 
+export const getDir = (folder: string) =>
+  path.join(process.env.ROOT_DIR || process.cwd(), `${folder}`)
+
+const testDir = async (dir: string): Promise<undefined | Error> => {
+  try {
+    const stats =  await stat(dir)
+    // @ts-ignore
+  } catch (e: Error) {
+    if (e.code === "ENOENT") {
+      await mkdir(dir, { recursive: true })
+      return
+    } else {
+      return e
+    }
+  }
+}
+
 export const parseForm = async (req: NextApiRequest): Promise<FormData> => {
   return await new Promise(async (resolve, reject) => {
-    const uploadDir = path.join(process.env.ROOT_DIR || process.cwd(), `public/temp/`)
+    const uploadDir = getDir('public/temp/')
 
-    try {
-      await stat(uploadDir)
-    } catch (e: any) {
-      if (e.code === "ENOENT") {
-        await mkdir(uploadDir, { recursive: true })
-      } else {
-        console.error("ERROR IN PARSE FORM", e)
-        reject(e)
-        return
-      }
-    }
+    const dirError = await testDir(uploadDir)
+    if (dirError) return reject(dirError)
 
     const form = formidable({
       maxFiles: 2,
@@ -67,25 +75,36 @@ export const parseForm = async (req: NextApiRequest): Promise<FormData> => {
   })
 }
 
-export const getDir = (folder: string) =>
-  path.join(process.env.ROOT_DIR || process.cwd(), `${folder}`)
-
-export const saveFile = (file: formidable.File, path: string) => {
+export const saveFile = async (file: formidable.File, path: string) => {
   const inDir = getDir(`public/temp/${file.newFilename}`)
   const outDir = getDir(path + file.newFilename)
+  const dirError = await testDir(path)
+
+  console.debug(`SAVING...: public/temp/${file.newFilename} --> ${path + file.newFilename}`)
+
   return new Promise<string>((resolve, reject) => {
+    if (dirError) reject(dirError)
     return rename(inDir, outDir, (err) => {
-      if (err) return reject(err)
+      if (err) {
+        console.error("RENAME ERROR", err)
+        return reject(err)
+      }
+      console.debug(`Saved file ${path + file.newFilename}`)
       return resolve(outDir)
     })
   })
 }
 
-export const saveBlur = (filePath: string, destinationPath: string) => {
-  console.log({ filePath, destinationPath })
-  console.log("name", path.parse(filePath).name)
-  return sharp(filePath)
-    .blur(15)
-    .toFormat("webp", { progressive: true, quality: 60 })
-    .toFile(getDir(destinationPath))
+export const saveBlur = async (filePath: string, destinationPath: string) => {
+  const fileName = getDir(destinationPath + path.parse(filePath).name + ".webp")
+  const dirError = await testDir(destinationPath)
+
+  return new Promise((resolve, reject)=>{
+    if (dirError) reject(dirError)
+    sharp(filePath)
+      .blur(15)
+      .toFormat("webp", { progressive: true, quality: 60 })
+      .toFile(fileName)
+      .then(resolve)
+  })
 }
