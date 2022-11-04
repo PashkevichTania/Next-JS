@@ -1,5 +1,8 @@
 import React, { useState } from "react"
 import { API } from "@/server/api"
+import { useDispatch } from "react-redux"
+import { fetchGame, gameEditActions } from "@/store/gameEditSlice"
+import { filtersActions } from "@/store/filtersSlice"
 
 export const useAdminForm = () => {
   const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([])
@@ -47,9 +50,13 @@ export const useAdminForm = () => {
 }
 
 export const useAdminEdit = () => {
+  const dispatch = useDispatch()
 
   const editGame = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
+    const gameId = event.currentTarget.id
+
+    dispatch(fetchGame(gameId))
 
     console.debug(event.currentTarget.id)
   }
