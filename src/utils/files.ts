@@ -11,6 +11,7 @@ interface FormFields extends Fields {
   title: string
   developers: string
   publisher: string
+  tags: string
   description: string
   releaseDate: string
   ratingCritics: string

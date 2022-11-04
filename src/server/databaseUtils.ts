@@ -49,8 +49,9 @@ export const getGamesByTitle = async (titles: string[] = []): Promise<GameDataBr
 
 export const addGame = async (game: Omit<GameData, "_id">) => {
   await connectDB()
-  const newGame = new gamesModel(game)
-  newGame.save()
+  const newGame = await gamesModel.create(game)
+  await newGame.save()
+  return newGame._doc
 }
 
 export const updateGame = async (id: string, game: Partial<GameData>) => {
@@ -60,5 +61,9 @@ export const updateGame = async (id: string, game: Partial<GameData>) => {
 
 export const deleteGame = async (id: string) => {
   await connectDB()
-  gamesModel.findByIdAndDelete(id)
+  gamesModel.findByIdAndDelete(id, function(err: any, doc: any){
+    if(err) return console.error(err);
+
+    console.log("Deleted game", doc);
+  })
 }

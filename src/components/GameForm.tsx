@@ -1,47 +1,18 @@
-import React, { useState } from "react"
 import { Button, FileInput, Label, Select, Textarea, TextInput } from "flowbite-react"
 import { GENRES, PLATFORMS, ESRB } from "@/utils/constants"
-import { generateKey } from "@/utils/func"
 import { CustomSelect } from "@/components/CustomSelect"
+import { useAdminForm } from "@/hooks/useAdminForm"
 
 export const GameForm = () => {
-  const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([])
-  const [selectedGenres, setSelectedGenres] = useState<string[]>([])
+const {
+  selectedPlatforms,
+  setSelectedPlatforms,
+  selectedGenres,
+  setSelectedGenres,
+  submitHandler
+} = useAdminForm()
 
-  const submitHandler = async (event: React.SyntheticEvent) => {
-    event.preventDefault()
 
-    const target = event.target as HTMLFormElement & {
-      title: { value: string }
-      developers: { value: string }
-      publisher: { value: string }
-      description: { value: string }
-      releaseDate: { value: Date }
-      ratingCritics: { value: number }
-      ratingUsers: { value: number }
-      ratingAge: { value: string }
-      tags: { value: string }
-      cover: { files: File[] }
-      bg: { files: File[] }
-    }
-
-    // console.debug(values)
-    const form = new FormData(target)
-    form.set("key", generateKey())
-    form.set("platforms", JSON.stringify(selectedPlatforms))
-    form.set("genres", JSON.stringify(selectedGenres))
-
-    // @ts-ignore
-    console.debug(...form)
-
-    const response = await fetch(`/api/test/`, {
-      method: "POST",
-      body: form,
-    })
-
-    const { result } = await response.json()
-    console.debug(result)
-  }
   return (
     <div
       className="h-[100%] p-5 overflow-y-auto rounded-lg bg-white text-sm font-medium
