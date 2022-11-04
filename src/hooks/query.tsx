@@ -1,5 +1,5 @@
 import { GameDataBrief } from "@/utils/intefaces"
-import { useSelector } from "react-redux"
+import { useAppSelector } from "@/store/hooks"
 import { filtersSelector } from "@/store/selectors"
 import { API } from "@/server/api"
 import { useQuery } from "react-query"
@@ -7,7 +7,7 @@ import { QueryKeys } from "src/query"
 
 
 export default function useGamesQuery(serverGames: GameDataBrief[] = []) {
-  const filtersState = useSelector(filtersSelector)
+  const filtersState = useAppSelector(filtersSelector)
 
   const query = useQuery({
     queryKey: [QueryKeys.games, filtersState],

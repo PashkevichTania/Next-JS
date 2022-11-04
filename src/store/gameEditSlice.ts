@@ -1,55 +1,64 @@
-import { createAsyncThunk, createEntityAdapter, createSlice } from "@reduxjs/toolkit"
+import { createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { GameData } from "@/utils/intefaces"
-import { API } from "@/server/api"
 
 export interface gameEditState {
-  data: null | GameData,
-  status: null | string,
-  error: null | Error,
+  game: null | GameData,
+  isLoading: boolean,
+  error: null | string,
 }
 
+type FetchError = {
+  message: string;
+};
+
 const initialState: gameEditState = {
-  data: null,
-  status: null,
+  game: null,
+  isLoading: false,
   error: null,
 }
 
-export const fetchGame = createAsyncThunk(
+export const fetchGame = createAsyncThunk<
+  GameData,
+  string,
+  { rejectValue: FetchError }
+  >(
   "api/games",
-  async (id: string) => {
-    return await API.fetchGameById(id)
+  async (id: string, thunkApi) => {
+    const response = await fetch(`api/games/${id}`)
+
+    if (response.status !== 200) {
+      return thunkApi.rejectWithValue({
+        message: "Failed to fetch todos."
+      });
+    }
+    const { result } = await response.json()
+    return result
   },
 )
 
-const gameAdapter = createEntityAdapter();
+export const clearState = createAction('clearState')
 
 export const gameEditSlice = createSlice({
   name: "gameEdit",
-  initialState: gameAdapter.getInitialState(initialState),
+  initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      // Вызывается прямо перед выполнением запроса
+      .addCase(clearState, () => initialState)
       .addCase(fetchGame.pending, (state) => {
-        state.status = 'loading';
+        state.isLoading = true;
         state.error = null;
       })
-      // Вызывается в том случае если запрос успешно выполнился
       .addCase(fetchGame.fulfilled, (state, action) => {
-        // Добавляем пользователя
-        gameAdapter.addOne(state, action);
-        state.status = 'idle';
+        state.game = action.payload
+        state.isLoading = false;
         state.error = null;
       })
-      // Вызывается в случае ошибки
       .addCase(fetchGame.rejected, (state, action) => {
-        state.status = 'failed';
-        // https://redux-toolkit.js.org/api/createAsyncThunk#handling-thunk-errors
-        // @ts-ignore
-        state.error = action.error;
+        if (action.payload) state.error = action.payload.message;
+        state.isLoading = false;
       });
   },
 })
-
 
 export default gameEditSlice.reducer

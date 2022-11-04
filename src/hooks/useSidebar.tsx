@@ -1,10 +1,10 @@
 import React, { useState } from "react"
-import { useDispatch } from "react-redux"
 import { filtersActions } from "@/store/filtersSlice"
+import { useAppDispatch } from "@/store/hooks"
 
 export default function useSidebar(ref: HTMLFormElement | null) {
   const [open, setOpen] = useState(false)
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault()

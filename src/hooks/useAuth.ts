@@ -1,12 +1,12 @@
-import { useDispatch, useSelector } from "react-redux"
 import { authActions } from "@/store/authSlice"
-import { authSelector } from "../store/selectors"
+import { authSelector } from "@/store/selectors"
 import { toast } from "react-toastify"
+import { useAppDispatch, useAppSelector } from "@/store/hooks"
 
 export default function useAuth() {
-  const dispatch = useDispatch()
-  const isLoggedIn = useSelector(authSelector).isAuth
-  const userName = useSelector(authSelector).name
+  const dispatch = useAppDispatch()
+  const isLoggedIn = useAppSelector(authSelector).isAuth
+  const userName = useAppSelector(authSelector).name
 
   const notifyError = () =>
     toast.error("Invalid name or password!", {

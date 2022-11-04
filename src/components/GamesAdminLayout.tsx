@@ -1,8 +1,8 @@
-import { ListGroup, Button } from "flowbite-react"
+import { ListGroup } from "flowbite-react"
 import { GameDataBrief } from "@/utils/intefaces"
-import { AiOutlineDelete, MdOutlineEdit } from "react-icons/all"
-import { useAdminEdit } from "@/hooks/useAdminForm"
 import useGamesQuery from "@/hooks/query"
+import { fetchGame } from "@/store/gameEditSlice"
+import { useAppDispatch } from "@/store/hooks"
 
 interface GamesPageProps {
   serverGames: GameDataBrief[]
@@ -10,7 +10,7 @@ interface GamesPageProps {
 
 export const GamesAdminLayout = ({ serverGames }: GamesPageProps) => {
   const query = useGamesQuery(serverGames)
-  const { deleteGame, editGame } = useAdminEdit()
+  const dispatch = useAppDispatch()
 
   if (!query.data?.length)
     return (
@@ -22,20 +22,12 @@ export const GamesAdminLayout = ({ serverGames }: GamesPageProps) => {
   return (
     <ListGroup style={{ maxHeight: "100%", overflowY: "auto" }}>
       {query.data.map((game, index) => (
-        <ListGroup.Item key={game._id} href={`/games/${game._id}`}>
+        <ListGroup.Item key={game._id} onClick={()=> dispatch(fetchGame(game._id))}>
           <div className="flex flex-row justify-between w-[100%]">
             <p>
               <span>{index + 1}) </span>
               {game.title};
             </p>
-            <div className="flex flex-row gap-2">
-              <Button id={game._id} gradientDuoTone="cyanToBlue" pill={true} size="xs" onClick={editGame}>
-                <MdOutlineEdit />
-              </Button>
-              <Button  id={game._id} color="failure" pill={true} size="xs" onClick={deleteGame}>
-                <AiOutlineDelete />
-              </Button>
-            </div>
           </div>
         </ListGroup.Item>
       ))}

@@ -1,7 +1,8 @@
-import { Button, FileInput, Label, Select, Textarea, TextInput } from "flowbite-react"
-import { GENRES, PLATFORMS, ESRB } from "@/utils/constants"
+import { Button, FileInput, Label, Select, Spinner, Textarea, TextInput } from "flowbite-react"
+import { GENRES, PLATFORMS, ESRB, CONST } from "@/utils/constants"
 import { CustomSelect } from "@/components/CustomSelect"
 import { useAdminForm } from "@/hooks/useAdminForm"
+import { AiOutlineClear, MdAdd, MdDelete, MdEdit, MdOpenInNew } from "react-icons/all"
 
 export const GameForm = () => {
 const {
@@ -9,16 +10,31 @@ const {
   setSelectedPlatforms,
   selectedGenres,
   setSelectedGenres,
-  submitHandler
+  submitHandler,
+  isLoading,
+  selectedGame,
+  deleteGame,
+  openGame,
+  clearForm
 } = useAdminForm()
 
+  if (isLoading) return (
+    <div
+      className="h-[100%] flex flex-col items-center justify-center p-5 overflow-y-auto rounded-lg bg-white text-sm font-medium
+    text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+    >
+      <Spinner
+        size="xl"
+      />
+     </div>
+  )
 
   return (
     <div
       className="h-[100%] p-5 overflow-y-auto rounded-lg bg-white text-sm font-medium
     text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
     >
-      <form className="h-[100%] flex flex-col gap-4" onSubmit={submitHandler}>
+      <form className="h-[100%] flex flex-col gap-4" onSubmit={submitHandler} id="form">
         <div>
           <div className="mb-2 block">
             <Label htmlFor="title" value="Title" />
@@ -118,6 +134,7 @@ const {
             id="cover"
             name="cover"
             accept="image/*"
+            multiple={false}
             helperText="Cover picture for preview"
           />
         </div>
@@ -125,10 +142,42 @@ const {
           <div className="mb-2 block">
             <Label htmlFor="bg" value="Upload background picture" />
           </div>
-          <FileInput id="bg" name="bg" accept="image/*" helperText="Background picture" />
+          <FileInput
+            id="bg"
+            name="bg"
+            accept="image/*"
+            helperText="Background picture"
+            multiple={false}
+          />
         </div>
-        <div className="pb-5">
-          <Button type="submit">Submit</Button>
+        <div className={"pb-5 flex " +(selectedGame ? "flex-col gap-4" : "flex-row gap-2")}>
+          <Button gradientDuoTone="tealToLime" onClick={clearForm}>
+            <span className="pr-2" >Clear</span>
+            <AiOutlineClear />
+          </Button>
+          {selectedGame
+           ?
+            <div className="flex flex-row gap-2">
+              <Button  gradientMonochrome="success" pill={true} onClick={()=>openGame(selectedGame._id)}>
+                <span className="pr-2" >Open</span>
+                <MdOpenInNew />
+              </Button>
+              <Button gradientDuoTone="cyanToBlue" pill={true} type="submit">
+                <span className="pr-2" >Save Edit</span>
+                <MdEdit />
+              </Button>
+              <Button gradientMonochrome="failure" pill={true} onClick={()=>deleteGame(selectedGame._id)}>
+                <span className="pr-2" >Delete</span>
+                <MdDelete />
+              </Button>
+            </div>
+          :
+            <Button gradientDuoTone="purpleToBlue" type="submit">
+              <span className="pr-2" >Add game</span>
+              <MdAdd/>
+            </Button>
+          }
+
         </div>
       </form>
     </div>

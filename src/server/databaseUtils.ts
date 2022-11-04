@@ -56,7 +56,12 @@ export const addGame = async (game: Omit<GameData, "_id">): Promise<GameData> =>
 
 export const updateGame = async (id: string, game: Partial<GameData>) => {
   await connectDB()
-  gamesModel.findByIdAndUpdate(id, game)
+  return new Promise((resolve, reject) => {
+    gamesModel.findByIdAndUpdate(id, game, function(err: any, doc: any){
+      if(err) return reject(err)
+      resolve(doc._doc)
+    })
+  })
 }
 
 export const deleteGame = async (id: string): Promise<GameData> => {

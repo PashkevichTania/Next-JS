@@ -22,6 +22,8 @@ interface FormFields extends Fields {
   genres: string
   bg: string
   cover: string
+  prev_bg: string
+  prev_cover: string
 }
 interface FormFiles extends Files {
   bg: formidable.File
