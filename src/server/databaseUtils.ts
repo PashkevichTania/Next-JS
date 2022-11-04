@@ -47,7 +47,7 @@ export const getGamesByTitle = async (titles: string[] = []): Promise<GameDataBr
   return await gamesModel.find(filter).select(briefSelect).lean()
 }
 
-export const addGame = async (game: Omit<GameData, "_id">) => {
+export const addGame = async (game: Omit<GameData, "_id">): Promise<GameData> => {
   await connectDB()
   const newGame = await gamesModel.create(game)
   await newGame.save()
@@ -59,11 +59,12 @@ export const updateGame = async (id: string, game: Partial<GameData>) => {
   gamesModel.findByIdAndUpdate(id, game)
 }
 
-export const deleteGame = async (id: string) => {
+export const deleteGame = async (id: string): Promise<GameData> => {
   await connectDB()
-  gamesModel.findByIdAndDelete(id, function(err: any, doc: any){
-    if(err) return console.error(err);
-
-    console.log("Deleted game", doc);
+  return new Promise((resolve, reject) => {
+    gamesModel.findByIdAndDelete(id, function(err: any, doc: any){
+      if(err) return reject(err)
+      resolve(doc._doc)
+    })
   })
 }

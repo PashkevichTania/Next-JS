@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import { deleteGame, getGameDataById } from "@/server/databaseUtils"
+import { deleteFile } from "@/utils/files"
 
 export const config = {
   api: {
@@ -18,8 +19,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         break
       }
       case "DELETE": {
-        await deleteGame(id)
-        res.status(200).json({ result: `Successfully deleted game ${id}` })
+        const deletedGame = await deleteGame(id)
+        res.status(200).json({ result: deletedGame, message: `Successfully deleted game ${id}` })
+        deleteFile(deletedGame.bg)
+        deleteFile(deletedGame.cover)
         break
       }
       case "PUT": {

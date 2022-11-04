@@ -1,6 +1,6 @@
 import type { NextApiRequest } from "next"
 import path from "path"
-import { mkdir, stat } from "fs/promises"
+import { mkdir, stat, unlink } from "fs/promises"
 import { rename } from "fs"
 import formidable, { Files, Fields } from "formidable"
 import mime from "mime"
@@ -110,4 +110,11 @@ export const saveBlur = async (filePath: string, destinationPath: string) => {
       .toFile(fileName)
       .then(resolve)
   })
+}
+
+export const deleteFile = (fileName: string) => {
+  if (fileName.includes('placeholder')) return
+  if (fileName.includes('bg')) return Promise.all([unlink(getDir(CONST.BG_FOLDER + fileName)), unlink(getDir(CONST.BLUR_FOLDER + path.parse(fileName).name + ".webp"))])
+
+  if (fileName.includes('cover')) return unlink(getDir(CONST.COVERS_FOLDER+fileName))
 }
