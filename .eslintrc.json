@@ -1,3 +1,20 @@
 {
-  "extends": ["eslint:recommended", "next"]
+  "extends": [
+    "eslint:recommended",
+    "next"
+  ],
+  "globals": {
+    "React": true,
+    "mount": true,
+    "mountWithRouter": true,
+    "shallow": true,
+    "shallowWithRouter": true,
+    "context": true,
+    "expect": true,
+    "jsdom": true,
+    "JSX": true
+  },
+  "rules": {
+    "no-case-declarations": "off"
+  }
 }

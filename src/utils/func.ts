@@ -1,6 +1,9 @@
-export const getRatingData = (rating: string) => {
-  if (rating.toLowerCase() === "m") return { img: "/assets/icons/rating/m.png", tooltip: "Mature" }
-  if (rating.toLowerCase() === "t") return { img: "/assets/icons/rating/t.jpeg", tooltip: "Teens" }
+import { ESRB } from "@/utils/constants"
+
+export const getRatingData = (ratingName: string) => {
+  const folder = "/assets/icons/rating/"
+  const rating = ESRB.find((r) => r.name === ratingName)
+  if (rating) return { img: folder + rating.img, tooltip: rating.title }
   return { img: "", tooltip: "" }
 }
 
@@ -11,3 +14,11 @@ export const getRatingColor = (rating: number) => {
   if (rating > 20) return "#ffa600"
   return "#ff0000"
 }
+
+export const capitalize = (word: string) => word.charAt(0).toUpperCase() + word.slice(1)
+
+export const generateKey = (length: number = 6) =>
+  (Math.random() + 1)
+    .toString(36)
+    .substring(2)
+    .substring(10 - length)
