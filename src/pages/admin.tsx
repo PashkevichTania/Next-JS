@@ -5,12 +5,26 @@ import { GameDataBrief } from "@/utils/intefaces"
 import Sidebar from "@/components/Sidebar"
 import { GamesAdminLayout } from "@/components/GamesAdminLayout"
 import { GameForm } from "@/components/GameForm"
+import useAuth from "@/hooks/useAuth"
+import { LoginForm } from "@/components/LoginForm"
 
 interface GamesPageProps {
   games: GameDataBrief[]
 }
 
 const Admin = ({ games: serverGames }: GamesPageProps) => {
+  const { isLoggedIn } = useAuth()
+
+  if (!isLoggedIn) return (
+    <MainLayout title={"Admin Page"}>
+      <div className="my-auto flex flex-col items-center justify-center px-6">
+        <h2 className="text-2xl font-bold pb-2">Admin page</h2>
+        <p className="text-lg font-bold pb-5"> Please log in to view this page</p>
+        <LoginForm />
+      </div>
+    </MainLayout>
+  )
+
   return (
     <MainLayout title={"Admin Page"}>
       <div className="h-[calc(100vh_-_165px)] relative flex flex-row">

@@ -1,26 +1,14 @@
-import { Label, TextInput, Button } from "flowbite-react"
+import { Button } from "flowbite-react"
 import { useState } from "react"
 import useAuth from "@/hooks/useAuth"
+import { LoginForm } from "@/components/LoginForm"
 
 export const LoginMenu = ({ component }: { component: JSX.Element }) => {
   const [open, setOpen] = useState(false)
-  const { userName, isLoggedIn, login, logOut } = useAuth()
+  const { userName, isLoggedIn, logOut } = useAuth()
 
   const clickHandler = () => {
     setOpen(!open)
-  }
-
-  const submitHandler = (e: React.FormEvent<HTMLFormElement & {
-    name: { value: string }
-    password: { value: string }
-  }>) => {
-    e.preventDefault()
-    const target = e.currentTarget
-    console.debug(e.target)
-    login({
-      name: target.name.value,
-      password: target.password.value,
-    })
   }
 
   return (
@@ -42,25 +30,7 @@ export const LoginMenu = ({ component }: { component: JSX.Element }) => {
               Log out
             </Button>
           </div>
-        ) : (
-          <form className="flex flex-col gap-4" onSubmit={submitHandler}>
-            <div>
-              <div className="mb-2 block">
-                <Label htmlFor="name" value="Your user name" />
-              </div>
-              <TextInput id="name" name="name" type="name" placeholder="admin" required={true} />
-            </div>
-            <div>
-              <div className="mb-2 block">
-                <Label htmlFor="password" value="Your password" />
-              </div>
-              <TextInput id="password" name="password" type="password" required={true} />
-            </div>
-            <Button type="submit" gradientDuoTone="purpleToBlue">
-              Log in
-            </Button>
-          </form>
-        )}
+        ) : <LoginForm />}
       </div>
     </div>
   )
