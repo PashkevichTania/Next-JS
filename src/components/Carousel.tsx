@@ -1,4 +1,3 @@
-
 import Slider from "react-slick"
 import useResizeObserver from "@/hooks/useResizeObserver"
 

@@ -71,7 +71,7 @@ export const parseGameFromForm = async (req: NextApiRequest) => {
   try {
     if (fields.prev_bg && fields.prev_bg !== newBg) deleteFile(fields.prev_bg)
     if (fields.prev_cover && fields.prev_cover !== newCover) deleteFile(fields.prev_cover)
-  }catch (e) {
+  } catch (e) {
     console.warn("Error while deleting files", e)
   }
 

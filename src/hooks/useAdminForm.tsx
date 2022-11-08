@@ -24,13 +24,12 @@ export type AdminForm = HTMLFormElement & {
 export const useAdminForm = (formElement: RefObject<AdminForm>) => {
   const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([])
   const [selectedGenres, setSelectedGenres] = useState<string[]>([])
-  const [selectedBG, setSelectedBG] = useState<string |undefined>()
-  const [selectedCover, setSelectedCover] = useState<string |undefined>()
+  const [selectedBG, setSelectedBG] = useState<string | undefined>()
+  const [selectedCover, setSelectedCover] = useState<string | undefined>()
   const selectedGame = useAppSelector(gameEditSelector)
   const isLoading = useAppSelector(gameEditLoadingSelector)
   const dispatch = useAppDispatch()
   const router = useRouter()
-
 
   const objUrlFromFile = (file?: File | 0) => {
     if (!file) return
@@ -48,7 +47,6 @@ export const useAdminForm = (formElement: RefObject<AdminForm>) => {
 
     setSelectedCover(objUrlFromFile(target.files?.length && target.files[0]))
   }
-
 
   const clearBGHandler = () => {
     formElement.current!.bg.value = ""
@@ -140,7 +138,7 @@ export const useAdminForm = (formElement: RefObject<AdminForm>) => {
     } else {
       console.log("edit", form.get("bg"))
 
-     form.set("prev_bg", selectedGame.bg)
+      form.set("prev_bg", selectedGame.bg)
       form.set("prev_cover", selectedGame.bg)
 
       const { ok } = await API.updateGame(selectedGame._id, form)
