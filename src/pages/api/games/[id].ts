@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import { deleteGame, getGameDataById } from "@/server/databaseUtils"
+import { addGame, deleteGame, getGameDataById, updateGame } from "@/server/databaseUtils"
 import { deleteFile, parseForm, saveBlur, saveFile } from "@/utils/files"
 import { GameData } from "@/utils/intefaces"
 import { CONST } from "@/utils/constants"
@@ -32,7 +32,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const { bg, cover } = files
 
         console.debug("bg, cover ", { bg, cover })
-        console.debug("f", fields)
 
         const game = {
           ...fields,
@@ -43,7 +42,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           platforms: JSON.parse(fields.platforms),
           genres: JSON.parse(fields.genres),
           tags: JSON.parse(fields.tags),
-          bg: bg?.newFilename || fields.prev_bg || "bg-placeholder.jpg" ,
+          bg: bg?.newFilename || fields.prev_bg || "bg-placeholder.jpg",
           cover: cover?.newFilename || fields.prev_cover || "cover-placeholder.jpg",
         } as Omit<GameData, "_id">
 
@@ -55,7 +54,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
         console.debug(game)
 
-        res.status(200).json(game)
+        const updatedGame = await updateGame(id, game)
+
+        console.debug("updatedGame", updatedGame)
+
+        res.status(200).json(updatedGame)
         break
       }
       default:

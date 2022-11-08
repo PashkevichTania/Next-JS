@@ -22,7 +22,7 @@ export const API = {
     queryClient.invalidateQueries({ queryKey: QueryKeys.games })
 
     const { result } = await response.json()
-    return result
+    return { result, code: response.status, ok: response.ok }
   },
   deleteGame: async (id: string) => {
     const response = await fetch(`/api/games/${id}`, {
@@ -31,9 +31,9 @@ export const API = {
     queryClient.invalidateQueries({ queryKey: QueryKeys.games })
 
     const { result } = await response.json()
-    return result
+    return { result, code: response.status, ok: response.ok }
   },
-  updateGame: async (id:string, form: FormData) => {
+  updateGame: async (id: string, form: FormData) => {
     const response = await fetch(`/api/games/${id}`, {
       method: "PUT",
       body: form,
@@ -42,6 +42,6 @@ export const API = {
     queryClient.invalidateQueries({ queryKey: QueryKeys.games })
 
     const { result } = await response.json()
-    return result
-  }
+    return { result, code: response.status, ok: response.ok }
+  },
 }

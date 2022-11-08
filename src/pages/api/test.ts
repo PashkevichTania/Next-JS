@@ -1,10 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next"
-import {
-  getGameData,
-} from "@/server/databaseUtils"
+import { getGameData } from "@/server/databaseUtils"
 import { gamesModel, connectDB } from "@/server/database"
-
 
 const gamesToPreview = [
   "The Last of Us Part I",

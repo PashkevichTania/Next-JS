@@ -10,7 +10,6 @@ export const CONST = {
   TEMP_FOLDER: "public/temp/",
 } as const
 
-
 export const ROUTES = [
   {
     name: "home",
@@ -70,11 +69,11 @@ export const GENRES = [
 ]
 
 export const ESRB = [
-  {name: "EC", img: "ESRB_2013_Early_Childhood.svg.png", title: "Early childhood"},
-  {name:"E", img: "ESRB_2013_Everyone.svg.png", title: "Everyone"},
-  {name: "E10+", img: "ESRB_2013_Everyone_10+.svg.png", title: "Everyone 10 and older"},
-  {name:  "T", img: "ESRB_2013_Teen.svg.png", title: "Teen"},
-  {name:"M", img: "ESRB_2013_Mature.svg.png", title: "Mature"},
-  {name:"AO", img: "ESRB_2013_Adults_Only_18+.svg.png", title: "Adults Only 18+"},
-  {name:"RP", img: "ESRB_2013_Rating_Pending.svg.png", title: "Rating Pending"},
+  { name: "EC", img: "ESRB_2013_Early_Childhood.svg.png", title: "Early childhood" },
+  { name: "E", img: "ESRB_2013_Everyone.svg.png", title: "Everyone" },
+  { name: "E10+", img: "ESRB_2013_Everyone_10+.svg.png", title: "Everyone 10 and older" },
+  { name: "T", img: "ESRB_2013_Teen.svg.png", title: "Teen" },
+  { name: "M", img: "ESRB_2013_Mature.svg.png", title: "Mature" },
+  { name: "AO", img: "ESRB_2013_Adults_Only_18+.svg.png", title: "Adults Only 18+" },
+  { name: "RP", img: "ESRB_2013_Rating_Pending.svg.png", title: "Rating Pending" },
 ]

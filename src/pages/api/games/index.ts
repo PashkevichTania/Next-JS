@@ -42,7 +42,7 @@ export default async function handler(
           platforms: JSON.parse(fields.platforms),
           genres: JSON.parse(fields.genres),
           tags: JSON.parse(fields.tags),
-          bg: bg?.newFilename || "bg-placeholder.jpg" ,
+          bg: bg?.newFilename || "bg-placeholder.jpg",
           cover: cover?.newFilename || "cover-placeholder.jpg",
         } as Omit<GameData, "_id">
 
@@ -56,7 +56,9 @@ export default async function handler(
         const newGame = await addGame(game)
         console.debug("saved game", newGame)
 
-        res.status(200).json({ result: newGame, message: `Successfully created game ${newGame._id}` })
+        res
+          .status(200)
+          .json({ result: newGame, message: `Successfully created game ${newGame._id}` })
         break
       }
       default: {

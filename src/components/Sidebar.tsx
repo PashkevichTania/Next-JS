@@ -3,6 +3,8 @@ import { Button, Checkbox, Label, Sidebar, TextInput } from "flowbite-react"
 import { AiOutlineClear, BiSearchAlt, HiArrowSmLeft, HiArrowSmRight, HiMenu } from "react-icons/all"
 import useSidebar from "@/hooks/useSidebar"
 
+//TODO: add applied filters list
+
 function SidebarMenu() {
   const ref = useRef(null)
   const { open, setOpen, handleSubmit, clearFilters } = useSidebar(ref.current)

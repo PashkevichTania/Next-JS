@@ -23,6 +23,7 @@ export default function useSidebar(ref: HTMLFormElement | null) {
       sort: target.sort_rating.checked,
     }
 
+    //TODO: clear
     dispatch(filtersActions.set(values))
     // target.reset()
   }

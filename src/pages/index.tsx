@@ -122,18 +122,20 @@ const Home = ({ games }: HomePageProps) => {
                     </a>
                   </Link>
                 </div>
-                {games && <Carousel>
-                  {games.map((game) => (
-                    <GameCard
-                      key={game._id}
-                      cover={game.cover}
-                      id={game._id}
-                      title={game.title}
-                      rating={game.ratingCritics}
-                      ratingAge={game.ratingAge}
-                    />
-                  ))}
-                </Carousel>}
+                {games && (
+                  <Carousel>
+                    {games.map((game) => (
+                      <GameCard
+                        key={game._id}
+                        cover={game.cover}
+                        id={game._id}
+                        title={game.title}
+                        rating={game.ratingCritics}
+                        ratingAge={game.ratingAge}
+                      />
+                    ))}
+                  </Carousel>
+                )}
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import type { NextApiRequest } from "next"
 import path from "path"
 import { mkdir, stat, unlink } from "fs/promises"
-import { rename } from "fs"
+import { rename, readFileSync } from "fs"
 import formidable, { Files, Fields } from "formidable"
 import mime from "mime"
 import sharp from "sharp"
@@ -58,7 +58,7 @@ export const parseForm = async (req: NextApiRequest): Promise<FormData> => {
   const uploadDir = getDir(CONST.TEMP_FOLDER)
   const dirError = await testDir(uploadDir)
 
-  return await new Promise( (resolve, reject) => {
+  return await new Promise((resolve, reject) => {
     if (dirError) return reject(dirError)
 
     const form = formidable({
@@ -104,7 +104,7 @@ export const saveBlur = async (filePath: string, destinationPath: string) => {
   const fileName = getDir(destinationPath + path.parse(filePath).name + ".webp")
   const dirError = await testDir(destinationPath)
 
-  return new Promise((resolve, reject)=>{
+  return new Promise((resolve, reject) => {
     if (dirError) reject(dirError)
     sharp(filePath)
       .blur(15)
@@ -115,8 +115,18 @@ export const saveBlur = async (filePath: string, destinationPath: string) => {
 }
 
 export const deleteFile = (fileName: string) => {
-  if (fileName.includes('placeholder')) return
-  if (fileName.includes('bg')) return Promise.all([unlink(getDir(CONST.BG_FOLDER + fileName)), unlink(getDir(CONST.BLUR_FOLDER + path.parse(fileName).name + ".webp"))])
+  if (fileName.includes("placeholder")) return
+  if (fileName.includes("bg"))
+    return Promise.all([
+      unlink(getDir(CONST.BG_FOLDER + fileName)),
+      unlink(getDir(CONST.BLUR_FOLDER + path.parse(fileName).name + ".webp")),
+    ])
 
-  if (fileName.includes('cover')) return unlink(getDir(CONST.COVERS_FOLDER+fileName))
+  if (fileName.includes("cover")) return unlink(getDir(CONST.COVERS_FOLDER + fileName))
+}
+
+export const getImageBuffer = (fileName: string, type: "cover" | "bg") => {
+  const dir = type === "bg" ? CONST.BG_FOLDER : CONST.COVERS_FOLDER
+  const filePath = getDir(dir + fileName)
+  return readFileSync(filePath)
 }

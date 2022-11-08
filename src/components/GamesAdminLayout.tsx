@@ -1,6 +1,6 @@
 import { ListGroup } from "flowbite-react"
 import { GameDataBrief } from "@/utils/intefaces"
-import useGamesQuery from "@/hooks/query"
+import useGamesQuery from "@/query/hooks"
 import { fetchGame } from "@/store/gameEditSlice"
 import { useAppDispatch } from "@/store/hooks"
 
@@ -22,7 +22,7 @@ export const GamesAdminLayout = ({ serverGames }: GamesPageProps) => {
   return (
     <ListGroup style={{ maxHeight: "100%", overflowY: "auto" }}>
       {query.data.map((game, index) => (
-        <ListGroup.Item key={game._id} onClick={()=> dispatch(fetchGame(game._id))}>
+        <ListGroup.Item key={game._id} onClick={() => dispatch(fetchGame(game._id))}>
           <div className="flex flex-row justify-between w-[100%]">
             <p>
               <span>{index + 1}) </span>

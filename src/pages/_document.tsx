@@ -30,9 +30,9 @@ export default class MyDocument extends Document {
           />
         </Head>
         <body>
-        <Main />
-        <NextScript />
-        <Script src="/node_modules/flowbite/dist/flowbite.js" />
+          <Main />
+          <NextScript />
+          <Script src="/node_modules/flowbite/dist/flowbite.js" />
         </body>
       </Html>
     )
