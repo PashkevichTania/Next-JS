@@ -11,7 +11,6 @@ export const config = {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const id = req.query.id
-  console.log(id)
   if (typeof id === "string") {
     switch (req.method) {
       case "GET": {

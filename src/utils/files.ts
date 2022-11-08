@@ -118,7 +118,7 @@ export const saveFile = async ({
         console.error("RENAME ERROR", err)
         return reject(err)
       }
-      console.debug(`Saved file ${path + fileName}`)
+      console.debug(`Saved file ${outDir}`)
       return resolve(outDir)
     })
   })
@@ -133,8 +133,9 @@ export const saveBlur = async ({
   destinationPath: string
   fileName: string
 }) => {
-  const newFileName = getDir(destinationPath + path.basename(fileName) + ".webp")
+  const newFileName = getDir(destinationPath + path.parse(fileName).name + ".webp")
   const dirError = await testDir(destinationPath)
+  console.log(`Saving blur bg image ${newFileName}`)
 
   return new Promise((resolve, reject) => {
     if (dirError) reject(dirError)
@@ -147,6 +148,7 @@ export const saveBlur = async ({
 }
 
 export const deleteFile = (fileName: string) => {
+  console.debug(`Try to delete file ${fileName}`)
   if (fileName.includes("placeholder")) return
   if (fileName.includes("bg"))
     return Promise.all([

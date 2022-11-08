@@ -1,3 +1,4 @@
+import Image from "next/image"
 import {
   Button,
   FileInput,
@@ -37,6 +38,12 @@ export const GameForm = () => {
     deleteGame,
     openGame,
     clearForm,
+    selectBGHandler,
+    selectCoverHandler,
+    clearCoverHandler,
+    clearBGHandler,
+    selectedBG,
+    selectedCover,
   } = useAdminForm(formElement)
 
   if (isLoading)
@@ -156,18 +163,20 @@ export const GameForm = () => {
               accept="image/*"
               helperText="Background picture"
               multiple={false}
+              onChange={selectBGHandler}
             />
           </div>
           <div className="w-10">
             <Button
               gradientMonochrome="failure"
-              onClick={() => {
-                formElement.current!.bg.value = ""
-              }}
+              onClick={clearBGHandler}
             >
               <MdClose />
             </Button>
           </div>
+        </div>
+        <div>
+          {selectedBG &&  <Image width={400} height={200} src={selectedBG}  alt="BG preview" /> }
         </div>
         <div className="flex flex-row items-center justify-between gap-1">
           <div className="grow">
@@ -180,18 +189,20 @@ export const GameForm = () => {
               accept="image/*"
               multiple={false}
               helperText="Cover picture for preview"
+              onChange={selectCoverHandler}
             />
           </div>
           <div className="w-10">
             <Button
               gradientMonochrome="failure"
-              onClick={() => {
-                formElement.current!.cover.value = ""
-              }}
+              onClick={clearCoverHandler}
             >
               <MdClose />
             </Button>
           </div>
+        </div>
+        <div>
+          {selectedCover &&  <Image width={200} height={300} src={selectedCover}  alt="BG preview" /> }
         </div>
         <div className={"pb-5 flex " + (selectedGame ? "flex-col gap-4" : "flex-row gap-2")}>
           <Button gradientDuoTone="tealToLime" onClick={clearForm}>
@@ -231,7 +242,7 @@ export const GameForm = () => {
           <div className="text-center">
             <HiOutlineExclamationCircle className="mx-auto mb-4 h-14 w-14 text-gray-400 dark:text-gray-200" />
             <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-              Are you sure you want to delete this game?
+              Are you sure you want to delete this game? {selectedGame ? `(${selectedGame.title})` : ""}
             </h3>
             <div className="flex justify-center gap-4">
               <Button
@@ -241,7 +252,7 @@ export const GameForm = () => {
                   setShow(false)
                 }}
               >
-                Yes, I'm sure
+                Yes, I am sure
               </Button>
               <Button color="gray" onClick={() => setShow(false)}>
                 No, cancel

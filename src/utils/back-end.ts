@@ -2,7 +2,7 @@ import { GameData, GameDataBrief, GameDataClient } from "@/utils/intefaces"
 import path from "path"
 import fsPromises from "fs/promises"
 import { NextApiRequest } from "next"
-import { getNewFileName, parseForm, saveBlur, saveFile } from "@/utils/files"
+import { deleteFile, getNewFileName, parseForm, saveBlur, saveFile } from "@/utils/files"
 import { CONST } from "@/utils/constants"
 
 export type MOCK_BD_DATA = {
@@ -45,7 +45,8 @@ export const parseGameFromForm = async (req: NextApiRequest) => {
   const { fields, files } = await parseForm(req)
   const { bg, cover } = files
 
-  console.debug("bg, cover ", { bg, cover })
+  console.debug("bg, cover ", { bg: bg?.originalFilename, cover: cover?.originalFilename })
+
   let newBg: string | null = null
   let newCover: string | null = null
   if (bg) {
@@ -65,6 +66,13 @@ export const parseGameFromForm = async (req: NextApiRequest) => {
       destinationPath: CONST.COVERS_FOLDER,
       fileName: newCover,
     })
+  }
+
+  try {
+    if (fields.prev_bg && fields.prev_bg !== newBg) deleteFile(fields.prev_bg)
+    if (fields.prev_cover && fields.prev_cover !== newCover) deleteFile(fields.prev_cover)
+  }catch (e) {
+    console.warn("Error while deleting files", e)
   }
 
   return {

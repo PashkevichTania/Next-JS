@@ -1,20 +1,22 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { filtersActions } from "@/store/filtersSlice"
 import { useAppDispatch } from "@/store/hooks"
+
+type SidebarForm = HTMLFormElement & {
+  title: { value: string }
+  ratingUsers: { value: number }
+  ratingCritics: { value: number }
+  datepicker: { value: Date }
+  sort_rating: { checked: boolean }
+}
 
 export default function useSidebar(ref: HTMLFormElement | null) {
   const [open, setOpen] = useState(false)
   const dispatch = useAppDispatch()
 
-  const handleSubmit = (e: React.SyntheticEvent) => {
+  const handleSubmit = (e: React.FormEvent<SidebarForm>) => {
     e.preventDefault()
-    const target = e.target as HTMLFormElement & {
-      title: { value: string }
-      ratingUsers: { value: number }
-      ratingCritics: { value: number }
-      datepicker: { value: Date }
-      sort_rating: { checked: boolean }
-    }
+    const target = e.currentTarget
     const values = {
       title: target.title.value,
       ratingUsers: +target.ratingUsers.value,

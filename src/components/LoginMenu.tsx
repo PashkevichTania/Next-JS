@@ -10,12 +10,12 @@ export const LoginMenu = ({ component }: { component: JSX.Element }) => {
     setOpen(!open)
   }
 
-  const submitHandler = (e: React.SyntheticEvent) => {
+  const submitHandler = (e: React.FormEvent<HTMLFormElement & {
+    name: { value: string }
+    password: { value: string }
+  }>) => {
     e.preventDefault()
-    const target = e.target as HTMLFormElement & {
-      name: { value: string }
-      password: { value: string }
-    }
+    const target = e.currentTarget
     console.debug(e.target)
     login({
       name: target.name.value,
