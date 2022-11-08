@@ -35,6 +35,8 @@ type FormData = {
   files: FormFiles
 }
 
+export type ImgType = "cover" | "bg"
+
 export const FormidableError = formidable.errors.FormidableError
 
 export const getDir = (folder: string) =>
@@ -80,12 +82,34 @@ export const parseForm = async (req: NextApiRequest): Promise<FormData> => {
   })
 }
 
-export const saveFile = async (file: formidable.File, path: string) => {
-  const inDir = getDir(CONST.TEMP_FOLDER + file.newFilename)
-  const outDir = getDir(path + file.newFilename)
-  const dirError = await testDir(path)
+export const getNewFileName = ({
+  type,
+  oldName,
+  gameName,
+}: {
+  type: ImgType
+  oldName: string
+  gameName: string
+}) => {
+  return `${type === "cover" ? "cover" : "bg"}-${gameName.replace(" ", "_")}${path.extname(
+    oldName
+  )}`
+}
 
-  console.debug(`SAVING...: ${CONST.TEMP_FOLDER + file.newFilename} --> ${path + file.newFilename}`)
+export const saveFile = async ({
+  initialFilePath,
+  fileName,
+  destinationPath,
+}: {
+  initialFilePath: string
+  destinationPath: string
+  fileName: string
+}) => {
+  const inDir = getDir(CONST.TEMP_FOLDER + initialFilePath)
+  const outDir = getDir(destinationPath + fileName)
+  const dirError = await testDir(destinationPath)
+
+  console.debug(`SAVING...: ${inDir} --> ${outDir}`)
 
   return new Promise<string>((resolve, reject) => {
     if (dirError) reject(dirError)
@@ -94,14 +118,22 @@ export const saveFile = async (file: formidable.File, path: string) => {
         console.error("RENAME ERROR", err)
         return reject(err)
       }
-      console.debug(`Saved file ${path + file.newFilename}`)
+      console.debug(`Saved file ${path + fileName}`)
       return resolve(outDir)
     })
   })
 }
 
-export const saveBlur = async (filePath: string, destinationPath: string) => {
-  const fileName = getDir(destinationPath + path.parse(filePath).name + ".webp")
+export const saveBlur = async ({
+  filePath,
+  fileName,
+  destinationPath,
+}: {
+  filePath: string
+  destinationPath: string
+  fileName: string
+}) => {
+  const newFileName = getDir(destinationPath + path.basename(fileName) + ".webp")
   const dirError = await testDir(destinationPath)
 
   return new Promise((resolve, reject) => {
@@ -109,7 +141,7 @@ export const saveBlur = async (filePath: string, destinationPath: string) => {
     sharp(filePath)
       .blur(15)
       .toFormat("webp", { progressive: true, quality: 60 })
-      .toFile(fileName)
+      .toFile(newFileName)
       .then(resolve)
   })
 }

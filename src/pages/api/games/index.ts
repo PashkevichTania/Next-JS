@@ -2,8 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import { GameData } from "@/utils/intefaces"
 import { addGame, getGameData } from "@/server/databaseUtils"
-import { parseForm, saveBlur, saveFile } from "@/utils/files"
-import { CONST } from "@/utils/constants"
+import { parseGameFromForm } from "@/utils/back-end"
 
 type Response = {
   result: GameData[] | GameData
@@ -30,28 +29,7 @@ export default async function handler(
         break
       }
       case "POST": {
-        const { fields, files } = await parseForm(req)
-        const { bg, cover } = files
-
-        const game = {
-          ...fields,
-          developers: fields.developers.split(","),
-          releaseDate: new Date(fields.releaseDate),
-          ratingCritics: +fields.ratingCritics,
-          ratingUsers: +fields.ratingUsers,
-          platforms: JSON.parse(fields.platforms),
-          genres: JSON.parse(fields.genres),
-          tags: JSON.parse(fields.tags),
-          bg: bg?.newFilename || "bg-placeholder.jpg",
-          cover: cover?.newFilename || "cover-placeholder.jpg",
-        } as Omit<GameData, "_id">
-
-        if (bg && cover) {
-          const bgPath = await saveFile(bg, CONST.BG_FOLDER)
-          await saveFile(cover, CONST.COVERS_FOLDER)
-          await saveBlur(bgPath, CONST.BLUR_FOLDER)
-          console.debug("saved files")
-        }
+        const game = await parseGameFromForm(req)
 
         const newGame = await addGame(game)
         console.debug("saved game", newGame)
