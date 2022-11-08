@@ -4,10 +4,14 @@ import useAuth from "@/hooks/useAuth"
 export const LoginForm = () => {
   const { login } = useAuth()
 
-  const submitHandler = (e: React.FormEvent<HTMLFormElement & {
-    name: { value: string }
-    password: { value: string }
-  }>) => {
+  const submitHandler = (
+    e: React.FormEvent<
+      HTMLFormElement & {
+        name: { value: string }
+        password: { value: string }
+      }
+    >
+  ) => {
     e.preventDefault()
     const target = e.currentTarget
 
@@ -29,7 +33,12 @@ export const LoginForm = () => {
         <div className="mb-2 block">
           <Label htmlFor="password" value="Password" />
         </div>
-        <TextInput name="password" type="password" autoComplete="current-password" required={true} />
+        <TextInput
+          name="password"
+          type="password"
+          autoComplete="current-password"
+          required={true}
+        />
       </div>
       <Button type="submit" gradientDuoTone="purpleToBlue">
         Log in

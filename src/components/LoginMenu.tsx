@@ -30,7 +30,9 @@ export const LoginMenu = ({ component }: { component: JSX.Element }) => {
               Log out
             </Button>
           </div>
-        ) : <LoginForm />}
+        ) : (
+          <LoginForm />
+        )}
       </div>
     </div>
   )

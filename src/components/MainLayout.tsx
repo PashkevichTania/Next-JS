@@ -1,4 +1,3 @@
-
 import Head from "next/head"
 import { CONST } from "@/utils/constants"
 import { Header } from "./Header"

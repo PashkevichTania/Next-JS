@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "next"
-  ],
+  "extends": ["eslint:recommended", "next"],
   "globals": {
     "React": true,
     "mount": true,

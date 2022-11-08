@@ -15,15 +15,16 @@ interface GamesPageProps {
 const Admin = ({ games: serverGames }: GamesPageProps) => {
   const { isLoggedIn } = useAuth()
 
-  if (!isLoggedIn) return (
-    <MainLayout title={"Admin Page"}>
-      <div className="my-auto flex flex-col items-center justify-center px-6">
-        <h2 className="text-2xl font-bold pb-2">Admin page</h2>
-        <p className="text-lg font-bold pb-5"> Please log in to view this page</p>
-        <LoginForm />
-      </div>
-    </MainLayout>
-  )
+  if (!isLoggedIn)
+    return (
+      <MainLayout title={"Admin Page"}>
+        <div className="my-auto flex flex-col items-center justify-center px-6">
+          <h2 className="text-2xl font-bold pb-2">Admin page</h2>
+          <p className="text-lg font-bold pb-5"> Please log in to view this page</p>
+          <LoginForm />
+        </div>
+      </MainLayout>
+    )
 
   return (
     <MainLayout title={"Admin Page"}>

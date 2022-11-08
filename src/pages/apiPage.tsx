@@ -1,4 +1,3 @@
-
 import { useRouter } from "next/router"
 import { idsArrayToQuery } from "@/utils/back-end"
 import { Button, TextInput } from "flowbite-react"
@@ -6,16 +5,24 @@ import { Button, TextInput } from "flowbite-react"
 const API = () => {
   const router = useRouter()
 
-  const submitHandler = (e: React.FormEvent<HTMLFormElement & {
-    id: { value: string }
-  }>) => {
+  const submitHandler = (
+    e: React.FormEvent<
+      HTMLFormElement & {
+        id: { value: string }
+      }
+    >
+  ) => {
     e.preventDefault()
     const target = e.currentTarget
     router.push(`api/games/${target.id.value}`)
   }
-  const submitHandlerBrief = (e: React.FormEvent<HTMLFormElement & {
-    ids: { value: string }
-  }>) => {
+  const submitHandlerBrief = (
+    e: React.FormEvent<
+      HTMLFormElement & {
+        ids: { value: string }
+      }
+    >
+  ) => {
     e.preventDefault()
     const target = e.currentTarget
     const q = idsArrayToQuery(JSON.parse(target.ids.value))
