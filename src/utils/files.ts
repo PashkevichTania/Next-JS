@@ -91,7 +91,7 @@ export const getNewFileName = ({
   oldName: string
   gameName: string
 }) => {
-  return `${type === "cover" ? "cover" : "bg"}-${gameName.replace(" ", "_")}-${Date.now()}${path.extname(
+  return `${type === "cover" ? "cover" : "bg"}-${gameName.replace(/[^a-zA-Z0-9]/g, '')}-${Date.now()}${path.extname(
     oldName
   )}`
 }
