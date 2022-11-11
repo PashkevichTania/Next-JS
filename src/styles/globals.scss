@@ -143,6 +143,11 @@ body > div:first-child,
 div#__next,
 div#__next > div {
   min-height: 100vh;
+  cursor: url("/assets/cursor_arrow.png"), auto;
+}
+
+a, button, link, .cursor-pointer {
+  cursor: url("/assets/cursor_hand.png"), pointer;
 }
 
 a {
