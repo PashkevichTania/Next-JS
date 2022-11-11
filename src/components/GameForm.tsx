@@ -22,8 +22,9 @@ import {
   MdOpenInNew,
 } from "react-icons/all"
 import { useRef, useState } from "react"
+import { observer } from "mobx-react-lite"
 
-export const GameForm = () => {
+export const GameForm = observer(() => {
   const [show, setShow] = useState(false)
   const formElement = useRef<AdminForm>(null)
 
@@ -259,3 +260,4 @@ export const GameForm = () => {
     </div>
   )
 }
+)

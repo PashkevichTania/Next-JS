@@ -3,8 +3,12 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import styles from "@/styles/main.module.scss"
 import { CONST, ROUTES } from "@/utils/constants"
-import { LoginMenu } from "./LoginMenu"
 import { capitalize } from "@/utils/func"
+import dynamic from "next/dynamic"
+
+const LoginMenu = dynamic(() => import("@/components/LoginMenu"), {
+  ssr: false,
+})
 
 export function Header() {
   const router = useRouter()

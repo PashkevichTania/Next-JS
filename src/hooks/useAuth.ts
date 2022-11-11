@@ -1,22 +1,17 @@
-import { authActions } from "@/store/authSlice"
-import { authSelector } from "@/store/selectors"
-import { useAppDispatch, useAppSelector } from "@/store/hooks"
+import auth from "@/store/auth"
 import { notifyError, notifySuccess } from "@/utils/notification"
 
 export default function useAuth() {
-  const dispatch = useAppDispatch()
-  const isLoggedIn = useAppSelector(authSelector).isAuth
-  const userName = useAppSelector(authSelector).name
+  const isLoggedIn = auth.state.isAuth
+  const userName = auth.state.name
 
   const login = ({ name, password }: { name: string; password: string }) => {
     if (name === process.env.ADMIN_NAME && password === process.env.ADMIN_PASSWORD) {
       localStorage.setItem("auth", name)
-      dispatch(
-        authActions.set({
+      auth.set({
           name,
           isAuth: true,
         })
-      )
       notifySuccess("Logged in!")
       return true
     }
@@ -26,7 +21,7 @@ export default function useAuth() {
 
   const logOut = () => {
     localStorage.removeItem("auth")
-    dispatch(authActions.clear())
+    auth.clear()
   }
 
   return {

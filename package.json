@@ -9,7 +9,7 @@
     "lint": "next lint",
     "pretty": "prettier --write ."
   },
-  "browser":{
+  "browser": {
     "child_process": false
   },
   "dependencies": {
@@ -21,6 +21,8 @@
     "flowbite-react": "^0.2.0",
     "formidable": "^2.0.1",
     "mime": "^3.0.0",
+    "mobx": "^6.6.2",
+    "mobx-react-lite": "^3.4.0",
     "mongoose": "^6.6.5",
     "next": "12.3.0",
     "next-redux-wrapper": "^8.0.0",

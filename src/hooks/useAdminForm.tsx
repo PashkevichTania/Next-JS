@@ -1,11 +1,10 @@
 import { RefObject, useEffect, useState } from "react"
 import { API } from "@/server/api"
-import { clearState } from "@/store/gameEditSlice"
-import { useAppDispatch, useAppSelector } from "@/store/hooks"
-import { gameEditLoadingSelector, gameEditSelector } from "@/store/selectors"
+import selectedGameStore from "@/store/selectedGame"
 import { useRouter } from "next/router"
 import dayjs from "dayjs"
 import { notifyError, notifySuccess } from "@/utils/notification"
+import { toJS } from 'mobx';
 
 export type AdminForm = HTMLFormElement & {
   title: { value: string }
@@ -26,9 +25,8 @@ export const useAdminForm = (formElement: RefObject<AdminForm>) => {
   const [selectedGenres, setSelectedGenres] = useState<string[]>([])
   const [selectedBG, setSelectedBG] = useState<string | undefined>()
   const [selectedCover, setSelectedCover] = useState<string | undefined>()
-  const selectedGame = useAppSelector(gameEditSelector)
-  const isLoading = useAppSelector(gameEditLoadingSelector)
-  const dispatch = useAppDispatch()
+  const selectedGame = toJS(selectedGameStore.state.game)
+  const isLoading =  toJS(selectedGameStore.state.isLoading)
   const router = useRouter()
 
   const objUrlFromFile = (file?: File | 0) => {
@@ -65,7 +63,7 @@ export const useAdminForm = (formElement: RefObject<AdminForm>) => {
     setSelectedBG(undefined)
     setSelectedCover(undefined)
 
-    dispatch(clearState())
+    selectedGameStore.clear()
   }
 
   const setFiles = async ({ form, bg, cover }: { form: AdminForm; bg: string; cover: string }) => {

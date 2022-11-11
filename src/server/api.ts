@@ -1,5 +1,5 @@
 import { GameData, GameDataBrief } from "@/utils/intefaces"
-import { FiltersState } from "@/store/filtersSlice"
+import { FiltersState } from "@/store/filters"
 import { queryClient, QueryKeys } from "src/query"
 
 export const API = {

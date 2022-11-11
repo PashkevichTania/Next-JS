@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { filtersActions } from "@/store/filtersSlice"
-import { useAppDispatch } from "@/store/hooks"
+import filters from "@/store/filters"
+
 
 type SidebarForm = HTMLFormElement & {
   title: { value: string }
@@ -12,7 +12,6 @@ type SidebarForm = HTMLFormElement & {
 
 export default function useSidebar(ref: HTMLFormElement | null) {
   const [open, setOpen] = useState(false)
-  const dispatch = useAppDispatch()
 
   const handleSubmit = (e: React.FormEvent<SidebarForm>) => {
     e.preventDefault()
@@ -26,12 +25,12 @@ export default function useSidebar(ref: HTMLFormElement | null) {
     }
 
     //TODO: clear
-    dispatch(filtersActions.set(values))
+    filters.set(values)
     // target.reset()
   }
 
   const clearFilters = () => {
-    dispatch(filtersActions.clear())
+    filters.clear()
     ref?.reset()
   }
 

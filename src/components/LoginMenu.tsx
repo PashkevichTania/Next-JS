@@ -2,8 +2,9 @@ import { Button } from "flowbite-react"
 import { useState } from "react"
 import useAuth from "@/hooks/useAuth"
 import { LoginForm } from "@/components/LoginForm"
+import { observer } from 'mobx-react-lite'
 
-export const LoginMenu = ({ component }: { component: JSX.Element }) => {
+ const LoginMenu = ({ component }: { component: JSX.Element }) => {
   const [open, setOpen] = useState(false)
   const { userName, isLoggedIn, logOut } = useAuth()
 
@@ -37,3 +38,5 @@ export const LoginMenu = ({ component }: { component: JSX.Element }) => {
     </div>
   )
 }
+
+export default observer(LoginMenu)
