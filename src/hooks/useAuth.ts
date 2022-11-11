@@ -8,6 +8,8 @@ export default function useAuth() {
   const isLoggedIn = useAppSelector(authSelector).isAuth
   const userName = useAppSelector(authSelector).name
 
+  const ADMIN_REDIRECT = "ADMIN_REDIRECT"
+
   const login = ({ name, password }: { name: string; password: string }) => {
     if (name === process.env.ADMIN_NAME && password === process.env.ADMIN_PASSWORD) {
       localStorage.setItem("auth", name)
@@ -34,5 +36,6 @@ export default function useAuth() {
     userName,
     login,
     logOut,
+    ADMIN_REDIRECT,
   }
 }

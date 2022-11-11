@@ -6,25 +6,23 @@ import Sidebar from "@/components/Sidebar"
 import { GamesAdminLayout } from "@/components/GamesAdminLayout"
 import { GameForm } from "@/components/GameForm"
 import useAuth from "@/hooks/useAuth"
-import { LoginForm } from "@/components/LoginForm"
+import { useRouter } from "next/router"
+import { notifyError } from "@/utils/notification"
+import { useEffect } from "react"
 
 interface GamesPageProps {
   games: GameDataBrief[]
 }
 
 const Admin = ({ games: serverGames }: GamesPageProps) => {
-  const { isLoggedIn } = useAuth()
+  const { isLoggedIn, ADMIN_REDIRECT } = useAuth()
+  const router = useRouter()
 
-  if (!isLoggedIn)
-    return (
-      <MainLayout title={"Admin Page"}>
-        <div className="my-auto flex flex-col items-center justify-center px-6">
-          <h2 className="text-2xl font-bold pb-2">Admin page</h2>
-          <p className="text-lg font-bold pb-5"> Please log in to view this page</p>
-          <LoginForm />
-        </div>
-      </MainLayout>
-    )
+  useEffect(()=>{
+    if (!isLoggedIn)
+      router.push("/", {query: {message: ADMIN_REDIRECT}}).then(() => notifyError("You must be logged in to see admin page."))
+
+  }, [isLoggedIn])
 
   return (
     <MainLayout title={"Admin Page"}>
