@@ -1,7 +1,7 @@
 import { MainLayout } from "@/components/MainLayout"
 import { GameDataBrief } from "@/utils/intefaces"
 import Sidebar from "@/components/Sidebar"
-import { GamesLayout } from "@/components/GamesLayout"
+import GamesLayout from "@/components/GamesLayout"
 import { getGameDataBrief } from "@/server/databaseUtils"
 import { serializeModel } from "@/utils/back-end"
 

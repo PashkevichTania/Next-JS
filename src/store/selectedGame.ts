@@ -26,7 +26,6 @@ class SelectedGames {
       const response = await fetch(`api/games/${id}`)
       const {result} = await response.json()
       runInAction(() => {
-        console.debug(result)
         this.state.game = result
         this.state.error = null
       })

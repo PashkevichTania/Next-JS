@@ -24,7 +24,7 @@ import {
 import { useRef, useState } from "react"
 import { observer } from "mobx-react-lite"
 
-export const GameForm = observer(() => {
+const GameForm = () => {
   const [show, setShow] = useState(false)
   const formElement = useRef<AdminForm>(null)
 
@@ -260,4 +260,5 @@ export const GameForm = observer(() => {
     </div>
   )
 }
-)
+
+export default observer(GameForm)

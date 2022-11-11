@@ -2,12 +2,13 @@ import { ListGroup } from "flowbite-react"
 import { GameDataBrief } from "@/utils/intefaces"
 import useGamesQuery from "@/query/hooks"
 import selectedGame from "@/store/selectedGame"
+import { observer } from "mobx-react-lite"
 
 interface GamesPageProps {
   serverGames: GameDataBrief[]
 }
 
-export const GamesAdminLayout = ({ serverGames }: GamesPageProps) => {
+const GamesAdminLayout = ({ serverGames }: GamesPageProps) => {
   const query = useGamesQuery(serverGames)
 
   if (!query.data?.length)
@@ -32,3 +33,5 @@ export const GamesAdminLayout = ({ serverGames }: GamesPageProps) => {
     </ListGroup>
   )
 }
+
+export default observer(GamesAdminLayout)

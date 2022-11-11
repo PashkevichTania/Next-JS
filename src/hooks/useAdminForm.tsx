@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useState } from "react"
+import { RefObject, useEffect, useMemo, useState } from "react"
 import { API } from "@/server/api"
 import selectedGameStore from "@/store/selectedGame"
 import { useRouter } from "next/router"
@@ -25,8 +25,8 @@ export const useAdminForm = (formElement: RefObject<AdminForm>) => {
   const [selectedGenres, setSelectedGenres] = useState<string[]>([])
   const [selectedBG, setSelectedBG] = useState<string | undefined>()
   const [selectedCover, setSelectedCover] = useState<string | undefined>()
-  const selectedGame = toJS(selectedGameStore.state.game)
-  const isLoading =  toJS(selectedGameStore.state.isLoading)
+  const selectedGame = useMemo(()=>toJS(selectedGameStore.state.game), [selectedGameStore.state.game])
+  const isLoading = useMemo(()=>toJS(selectedGameStore.state.isLoading), [selectedGameStore.state.isLoading])
   const router = useRouter()
 
   const objUrlFromFile = (file?: File | 0) => {
@@ -89,7 +89,7 @@ export const useAdminForm = (formElement: RefObject<AdminForm>) => {
   }
 
   useEffect(() => {
-    const form = document.getElementById("form") as AdminForm
+    const form = formElement.current
     if (!form) return
     if (selectedGame) {
       form.title.value = selectedGame.title
@@ -134,8 +134,6 @@ export const useAdminForm = (formElement: RefObject<AdminForm>) => {
       if (ok) notifySuccess("Game added")
       else notifyError("Something went wrong")
     } else {
-      console.log("edit", form.get("bg"))
-
       form.set("prev_bg", selectedGame.bg)
       form.set("prev_cover", selectedGame.bg)
 

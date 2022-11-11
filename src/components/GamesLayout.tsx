@@ -1,12 +1,13 @@
 import { GameCard } from "./GameCard"
 import { GameDataBrief } from "@/utils/intefaces"
 import useGamesQuery from "@/query/hooks"
+import { observer } from "mobx-react-lite"
 
 interface GamesPageProps {
   serverGames: GameDataBrief[]
 }
 
-export const GamesLayout = ({ serverGames }: GamesPageProps) => {
+const GamesLayout = ({ serverGames }: GamesPageProps) => {
   const query = useGamesQuery(serverGames)
 
   if (!query.data?.length)
@@ -31,3 +32,5 @@ export const GamesLayout = ({ serverGames }: GamesPageProps) => {
     </div>
   )
 }
+
+export default observer(GamesLayout)

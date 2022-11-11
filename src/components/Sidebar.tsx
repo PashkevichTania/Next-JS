@@ -38,13 +38,13 @@ function SidebarMenu() {
                 <div className="mb-2 block">
                   <Label htmlFor="rating" value="Game user's rating more than:" />
                 </div>
-                <TextInput id="ratingUsers" type="number" placeholder="9.1" />
+                <TextInput id="ratingUsers" type="number" placeholder="9.1" max={10} min={0} step="0.1" />
               </div>
               <div>
                 <div className="mb-2 block">
                   <Label htmlFor="rating" value="Game critic's rating more than:" />
                 </div>
-                <TextInput id="ratingCritics" type="number" placeholder="69" />
+                <TextInput id="ratingCritics" type="number" placeholder="69" max={100} min={0} />
               </div>
               <div className="relative">
                 <Label htmlFor="datepicker" value="Released after:" />
