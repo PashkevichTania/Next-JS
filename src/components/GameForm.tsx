@@ -48,19 +48,11 @@ export const GameForm = () => {
 
   if (isLoading)
     return (
-      <div
-        className="h-[100%] flex flex-col items-center justify-center p-5 overflow-y-auto rounded-lg bg-white text-sm font-medium
-    text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
-      >
         <Spinner size="xl" />
-      </div>
     )
 
   return (
-    <div
-      className="h-[100%] p-5 overflow-y-auto rounded-lg bg-white text-sm font-medium
-    text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
-    >
+    <>
       <form
         className="h-[100%] flex flex-col gap-4"
         onSubmit={submitHandler}
@@ -256,6 +248,6 @@ export const GameForm = () => {
           </div>
         </Modal.Body>
       </Modal>
-    </div>
+    </>
   )
 }

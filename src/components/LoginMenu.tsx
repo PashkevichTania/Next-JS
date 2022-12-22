@@ -1,7 +1,12 @@
 import { Button } from "flowbite-react"
 import { useState } from "react"
 import useAuth from "@/hooks/useAuth"
-import { LoginForm } from "@/components/LoginForm"
+import dynamic from "next/dynamic"
+
+// to prevent hydration errors (we cannot know is user logged in from server)
+const LoginForm = dynamic(() => import("@/components/LoginForm"), {
+  ssr: false,
+})
 
 export const LoginMenu = ({ component }: { component: JSX.Element }) => {
   const [open, setOpen] = useState(false)

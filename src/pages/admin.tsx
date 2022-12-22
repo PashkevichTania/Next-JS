@@ -4,28 +4,17 @@ import { serializeModel } from "@/utils/back-end"
 import { GameDataBrief } from "@/utils/intefaces"
 import Sidebar from "@/components/Sidebar"
 import { GamesAdminLayout } from "@/components/GamesAdminLayout"
-import { GameForm } from "@/components/GameForm"
-import useAuth from "@/hooks/useAuth"
-import { LoginForm } from "@/components/LoginForm"
+import dynamic from "next/dynamic"
 
 interface GamesPageProps {
   games: GameDataBrief[]
 }
 
+const AdminForm = dynamic(() => import("@/components/AdminForm"), {
+  ssr: false,
+})
+
 const Admin = ({ games: serverGames }: GamesPageProps) => {
-  const { isLoggedIn } = useAuth()
-
-  if (!isLoggedIn)
-    return (
-      <MainLayout title={"Admin Page"}>
-        <div className="my-auto flex flex-col items-center justify-center px-6">
-          <h2 className="text-2xl font-bold pb-2">Admin page</h2>
-          <p className="text-lg font-bold pb-5"> Please log in to view this page</p>
-          <LoginForm />
-        </div>
-      </MainLayout>
-    )
-
   return (
     <MainLayout title={"Admin Page"}>
       <div className="h-[calc(100vh_-_165px)] relative flex flex-row">
@@ -47,7 +36,7 @@ const Admin = ({ games: serverGames }: GamesPageProps) => {
             <div className="h-[100%] w-[50%] box-border pb-4">
               <p className="text-xl font-semibold pb-2 text-center">Add games</p>
               <div className="h-[calc(100%_-_36px)] rounded-lg overflow-hidden">
-                <GameForm />
+                <AdminForm />
               </div>
             </div>
           </div>

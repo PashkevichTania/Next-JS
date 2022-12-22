@@ -18,7 +18,10 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     set: (state, action: PayloadAction<authState>) => ({ ...action.payload }),
-    clear: () => initialState,
+    clear: () => ({
+      isAuth: false,
+      name: ""
+    }),
   },
 })
 

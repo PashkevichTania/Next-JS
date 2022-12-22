@@ -1,7 +1,7 @@
 import { Label, TextInput, Button } from "flowbite-react"
 import useAuth from "@/hooks/useAuth"
 
-export const LoginForm = () => {
+export default function LoginForm() {
   const { login } = useAuth()
 
   const submitHandler = (
