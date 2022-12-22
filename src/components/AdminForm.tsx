@@ -1,24 +1,15 @@
-import { GameForm } from "@/components/GameForm"
-import useAuth from "@/hooks/useAuth"
-import LoginForm from "@/components/LoginForm"
+import { CONST } from "@/utils/constants"
 
 
 const AdminForm = () => {
-  const { isLoggedIn } = useAuth()
-
   return (
     <div
       className="h-[100%] p-5 overflow-y-auto rounded-lg bg-white text-sm font-medium
     text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
     >
-      {isLoggedIn ? (
-        <div>
-          <h3>To add or edit game you need to be logged in!</h3>
-          <GameForm />
-        </div>
-      ) : (
-        <LoginForm />
-      )}
+      <p className="text-xl font-semibold text-yellow-300">This is a Demo version of the app without full functionality.
+        You can get full example from <a className="text-blue-300 underline" href={CONST.LINKS.PROJECT}>GitHub</a>.
+      </p>
     </div>
     )
 }

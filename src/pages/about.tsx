@@ -1,6 +1,7 @@
 import { MainLayout } from "@/components/MainLayout"
 import stylesMain from "@/styles/main.module.scss"
 import Link from "next/link"
+import { CONST } from "@/utils/constants"
 
 const About = () => {
   return (
@@ -33,6 +34,14 @@ const About = () => {
                 </a>
                 .
               </p>
+              <p>
+                This is a Demo version of the app without full functionality.
+                You can get full example from <a
+                className="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline"
+                href={CONST.LINKS.PROJECT}>GitHub
+              </a>
+              </p>
+              <br/>
               <p>
                 Space background on home page is{" "}
                 <a

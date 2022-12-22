@@ -3,6 +3,7 @@ export const CONST = {
   LINKS: {
     GITHUB: "https://github.com/PashkevichTania",
     VK: "https://vk.com/gaywh0re",
+    PROJECT: "https://github.com/PashkevichTania/next-js-games-library"
   },
   COVERS_FOLDER: "public/assets/games/covers/",
   BG_FOLDER: "public/assets/games/bg/",

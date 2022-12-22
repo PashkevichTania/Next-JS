@@ -2,7 +2,6 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import { GameData } from "@/utils/intefaces"
 import { addGame, getGameData } from "@/server/databaseUtils"
-import { parseGameFromForm } from "@/utils/back-end"
 
 type Response = {
   result: GameData[] | GameData
@@ -28,19 +27,8 @@ export default async function handler(
         res.status(200).json({ result })
         break
       }
-      case "POST": {
-        const game = await parseGameFromForm(req)
-
-        const newGame = await addGame(game)
-        console.debug("saved game", newGame)
-
-        res
-          .status(200)
-          .json({ result: newGame, message: `Successfully created game ${newGame._id}` })
-        break
-      }
       default: {
-        res.setHeader("Allow", ["GET", "POST"])
+        res.setHeader("Allow", ["GET"])
         res.status(405).end(`Method ${req.method} is not supported`)
       }
     }
