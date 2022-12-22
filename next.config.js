@@ -17,6 +17,9 @@ const nextConfig = withTM({
   },
   webpack: (config) => {
     config.resolve.fallback = { fs: false }
+    config.externals.push({
+      sharp: 'commonjs sharp'
+    })
 
     return config
   },

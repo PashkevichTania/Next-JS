@@ -65,8 +65,11 @@ export const GENRES = [
   "Battle royale",
   "Sandbox",
   "Role-playing",
-  "Open-world",
-]
+  "Graphic adventure",
+  "Racing",
+  "Fighting",
+  "Strategy",
+] as const;
 
 export const ESRB = [
   { name: "EC", img: "ESRB_2013_Early_Childhood.svg.png", title: "Early childhood" },

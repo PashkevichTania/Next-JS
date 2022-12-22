@@ -91,7 +91,7 @@ export const useAdminForm = (formElement: RefObject<AdminForm>) => {
   }
 
   useEffect(() => {
-    const form = document.getElementById("form") as AdminForm
+    const form = formElement.current
     if (!form) return
     if (selectedGame) {
       form.title.value = selectedGame.title
