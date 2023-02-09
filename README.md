@@ -39,7 +39,18 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 This is a web-app for games info with API and filtering feature.
 
-Pages:
+### Env-vars:
+
+```
+ROOT_DIR=.
+DB_URL=your Mongo DB URL
+DB_USER_NAME=Mogo DB username
+DB_PASSWORD=Mogo DB password
+ADMIN_NAME=username to admin page
+ADMIN_PASSWORD=password to admin page
+```
+
+### Pages:
 
 ```
 games
@@ -47,38 +58,41 @@ games/[id]
 about
 ```
 
-Api endpoints:
+### Api endpoints:
 
-1. games
-   return type
+1. api/games/brief return type
 
-```
-result {
-    {
-        id: string,
-        name: string
-    }[]
+```ts
+type GameDataBriefResult = {
+    result:{
+        _id:string,
+        title: string,
+        ratingCritics: number,
+        ratingAge: string,
+        cover: string
+    }
 }
 ```
 
-2. games[id]
-   return type
+2. api/games/[id] return type
 
-```
-result {
-  {
-    id: string;
-    name: string;
-    developers: string[];
-    publisher: string;
-    platforms: string[];
-    genres: string[];
-    description: string;
-    releaseDate: string;
-    ratingCritics: string;
-    ratingUsers: string;
-    ratingAge: string;
-    tags: string[];
-  }
+```ts
+type GameDataResult = {
+ result: {
+   id: string;
+   name: string;
+   developers: string[];
+   publisher: string;
+   platforms: string[];
+   genres: string[];
+   description: string;
+   releaseDate: string;
+   ratingCritics: string;
+   ratingUsers: string;
+   ratingAge: string;
+   tags: string[];
+   }
 }
 ```
+
+3. api/game return GameDataResult[]
